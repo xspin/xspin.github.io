@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-18T05:43:01.268Z</updated>
+  <updated>2017-02-18T05:59:47.569Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,22 +16,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>A New Post</title>
-    <link href="http://yoursite.com/2017/02/18/A-New-Post-1/"/>
-    <id>http://yoursite.com/2017/02/18/A-New-Post-1/</id>
-    <published>2017-02-18T04:34:34.000Z</published>
-    <updated>2017-02-18T05:43:01.268Z</updated>
+    <title>Test Post</title>
+    <link href="http://yoursite.com/2017/02/18/Test-Post/"/>
+    <id>http://yoursite.com/2017/02/18/Test-Post/</id>
+    <published>2017-02-18T05:54:48.000Z</published>
+    <updated>2017-02-18T05:59:47.569Z</updated>
     
-    <content type="html"><![CDATA[<p>Hello World!</p>
-<p><img src="/_posts/A-New-Post-1/a.png" alt="Alt 一发"><br><img src="A-New-Post-1/a.png" alt="Alt 2发"><br><img src="/images/a.png" alt="Alt 3发" title="title"><br><img src="/2017/02/18/A-New-Post-1/a.png" alt="Alt 4发" title="title"></p>
-<img src="/images/a.png" title="fuck you">
-
+    <content type="html"><![CDATA[<p>I am a test.</p>
+<p><img src="./b.png Title" alt="name"></p>
+<img class="./b.png Title">
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Hello World!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/_posts/A-New-Post-1/a.png&quot; alt=&quot;Alt 一发&quot;&gt;&lt;br&gt;&lt;img src=&quot;A-New-Post-1/a.png&quot; alt=&quot;Alt 2发&quot;&gt;&lt;br&gt;&lt;img src=&quot;/imag
+      &lt;p&gt;I am a test.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./b.png Title&quot; alt=&quot;name&quot;&gt;&lt;/p&gt;
+&lt;img class=&quot;./b.png Title&quot;&gt;
+
     
     </summary>
     
