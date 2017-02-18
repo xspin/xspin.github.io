@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>Test Post | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a test.">
+  <meta name="description" content="I am a test. $a=b+c$$$f(x) = \sum_{i}\frac{1}{i^2}$$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Test Post">
 <meta property="og:url" content="http://yoursite.com/2017/02/18/Test-Post/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="I am a test.">
-<meta property="og:image" content="http://yoursite.com/./b.png Title">
-<meta property="og:updated_time" content="2017-02-18T05:59:47.569Z">
+<meta property="og:description" content="I am a test. $a=b+c$$$f(x) = \sum_{i}\frac{1}{i^2}$$">
+<meta property="og:image" content="http://yoursite.com/./b.png">
+<meta property="og:image" content="http://yoursite.com/b.png">
+<meta property="og:updated_time" content="2017-02-18T07:04:22.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Test Post">
-<meta name="twitter:description" content="I am a test.">
-<meta name="twitter:image" content="http://yoursite.com/./b.png Title">
+<meta name="twitter:description" content="I am a test. $a=b+c$$$f(x) = \sum_{i}\frac{1}{i^2}$$">
+<meta name="twitter:image" content="http://yoursite.com/./b.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -26,13 +27,13 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -87,14 +88,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I am a test.</p>
-<p><img src="./b.png Title" alt="name"></p>
-<img class="./b.png Title">
+        <p>I am a test. $a=b+c$<br>$$f(x) = \sum_{i}\frac{1}{i^2}$$</p>
+<p><img src="./b.png" alt="name" title="Title"></p>
+<img class="b.png title ff">
+<p><img src="b.png" title="hello" \=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/18/Test-Post/" data-id="cizau1fuk0000bai9dk7hslen" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/18/Test-Post/" data-id="cizawh2ef0000eni9b82i7nu4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +179,8 @@
 </nav>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -186,6 +189,44 @@
 
 <script src="/js/script.js"></script>
 
-  </div>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    }); 
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
