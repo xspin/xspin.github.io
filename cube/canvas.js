@@ -37,7 +37,7 @@ document.ontouchstart = function(e) {
     var x0 = e.touches[0].pageX,
         y0 = e.touches[0].pageY;
     //alert('touch '+x0);
-    g("title").innerHTML = " touch: "+x0;
+    // g("title").innerHTML = " touch: "+x0;
     document.ontouchmove = function(e) {
         var a = (x0 - (x0 = e.touches[0].pageX)) / 100,
             b = (y0 - (y0 = e.touches[0].pageY)) / 100;
