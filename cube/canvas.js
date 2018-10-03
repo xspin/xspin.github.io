@@ -46,7 +46,7 @@ document.ontouchstart = function(e) {
             T[i+Math.floor(D/2)] -= b;
         }
         draw();
-        g("title").innerHTML = " touch: "+x0;
+        // g("title").innerHTML = " touch: "+x0;
     }
     document.ontouchend = function(e) {
         document.ontouchmove = null;
