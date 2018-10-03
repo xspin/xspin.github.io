@@ -12,7 +12,7 @@ function update(){
     D = parseInt(D);
     T = new Array(D)
     for(var i=0; i<D; i++) T[i] = 1;
-    g("title").innerHTML = D + " Dimensional Hypercube";
+    //g("title").innerHTML = D + " Dimensional Hypercube";
     draw();
 }
 
