@@ -292,6 +292,165 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/09/combination/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xspin">
+      <meta itemprop="description" content="Stay Here!">
+      <meta itemprop="image" content="/blog/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xspin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/10/09/combination/" itemprop="url">
+                  组合数求解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-09 20:26:45" itemprop="dateCreated datePublished" datetime="2018-10-09T20:26:45+08:00">2018-10-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-10 10:36:26" itemprop="dateModified" datetime="2018-10-10T10:36:26+08:00">2018-10-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$
+为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/10/09/combination/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/02/Probability-Statistics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,7 +549,8 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
         
           
-          Chapter 1 Introduction to Statistics and Data AnalysisChapter 2 Probability2.1 Sample SpaceDefinition 2.1: The set of all possible outcomes of a stati
+          Chapter 1 Introduction to Statistics and Data AnalysisChapter 2 Probability2.1 Sample SpaceDefinition 2.1: The set of all possible outcomes of a statistical experiment is called the sample space.
+2.2 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -550,7 +710,10 @@ item 3
 
 sec 3comments
 
-the site is comming from what is called the fucking 
+the site is comming from what is called the fucking shitand nothing is of my …
+
+coding:
+1234#include&l
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -692,7 +855,8 @@ the site is comming from what is called the fucking
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -947,7 +1111,7 @@ the site is comming from what is called the fucking
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -972,7 +1136,13 @@ the site is comming from what is called the fucking
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1222,6 +1392,8 @@ the site is comming from what is called the fucking
 
   
   
+    
+      
     
       
     
