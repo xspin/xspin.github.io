@@ -109,26 +109,32 @@
 
 
 
-  <meta name="description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$
-为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
+  <meta name="description" content="TropidsThe Torpids are rowing races held annually in Oxford, following some curious rules:
+
+A division consists of n boats (typically 13), placed in order based on past performance.
+All boats within a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="组合数求解">
-<meta property="og:url" content="https://xspin.github.io/blog/2018/10/09/combination/index.html">
+<meta property="og:title" content="Project Euler Problem 597">
+<meta property="og:url" content="https://xspin.github.io/blog/2018/10/14/ProjectEuler597/index.html">
 <meta property="og:site_name" content="xspin">
-<meta property="og:description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$
-为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
-<meta property="og:updated_time" content="2018-10-10T02:50:13.948Z">
+<meta property="og:description" content="TropidsThe Torpids are rowing races held annually in Oxford, following some curious rules:
+
+A division consists of n boats (typically 13), placed in order based on past performance.
+All boats within a">
+<meta property="og:updated_time" content="2018-10-14T12:07:10.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="组合数求解">
-<meta name="twitter:description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$
-为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
+<meta name="twitter:title" content="Project Euler Problem 597">
+<meta name="twitter:description" content="TropidsThe Torpids are rowing races held annually in Oxford, following some curious rules:
+
+A division consists of n boats (typically 13), placed in order based on past performance.
+All boats within a">
 
 
 
 
 
 
-  <link rel="canonical" href="https://xspin.github.io/blog/2018/10/09/combination/"/>
+  <link rel="canonical" href="https://xspin.github.io/blog/2018/10/14/ProjectEuler597/"/>
 
 
 
@@ -138,7 +144,7 @@
   };
 </script>
 
-  <title>组合数求解 | xspin</title>
+  <title>Project Euler Problem 597 | xspin</title>
   
 
 
@@ -295,7 +301,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/09/combination/">
+    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/14/ProjectEuler597/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
@@ -312,7 +318,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 
         
         
-          <h1 class="post-title" itemprop="name headline">组合数求解
+          <h1 class="post-title" itemprop="name headline">Project Euler Problem 597
               
             
           </h1>
@@ -337,24 +343,12 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                 
               
 
-              <time title="Created: 2018-10-09 20:26:45" itemprop="dateCreated datePublished" datetime="2018-10-09T20:26:45+08:00">2018-10-09</time>
+              <time title="Created: 2018-10-14 19:17:49 / Modified: 20:07:10" itemprop="dateCreated datePublished" datetime="2018-10-14T19:17:49+08:00">2018-10-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-10-10 10:50:13" itemprop="dateModified" datetime="2018-10-10T10:50:13+08:00">2018-10-10</time>
               
             
           </span>
@@ -387,45 +381,46 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
 
       
-        <h2 id="方法一：Pascal公式打表"><a href="#方法一：Pascal公式打表" class="headerlink" title="方法一：Pascal公式打表"></a>方法一：Pascal公式打表</h2><p><a href="http://mathworld.wolfram.com/PascalsFormula.html" target="_blank" rel="external"><strong>Pascal公式</strong></a>如下<br>$$<br>{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}<br>$$</p>
-<p>为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对任意 $n,k$ 上式都成立，于是只要储存C[i][j]（$ｊ\le i/2$）即可。</p>
-<p>时空复杂度为 $O(n\times\min(k,n-k))$</p>
-<h2 id="方法二：逆元（费马小定理）"><a href="#方法二：逆元（费马小定理）" class="headerlink" title="方法二：逆元（费马小定理）"></a>方法二：逆元（费马小定理）</h2><p><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="external"><strong>费马小定理</strong></a></p>
-<blockquote>
-<p>若 $p$ 是素数，那么对于任意整数 $a$<br>$$a^p \equiv a \quad (mod\, p)$$<br>如果 $p\nmid a$，上式等价于<br>$$a^{p-1} \equiv 1 \quad (mod\, p)$$</p>
-</blockquote>
-<p><strong>逆元</strong></p>
-<blockquote>
-<p>对于正整数$a$和$p$，如果 $ax\equiv 1 \,(mod\, p)$，则 $x$ 的最小正整数解为 $a\, mod\, p$ 的逆元。</p>
-</blockquote>
-<p>模运算($\%$)对 $+,-,\times$ 都满足分配律，除了 $\div$。对于<br>$$\frac{a}{b}= m  \quad (mod\, p)$$<br>假设<br>$$ ax=m  \quad (mod\, p)$$<br>同乘$b$得<br>$$a = mb  \quad (mod\, p),\quad axb = mb \quad (mod\, p)$$<br>于是<br>$$a=axb  \quad (mod\, p)$$<br>则有<br>$$xb=1\quad (mod\, p)$$<br>那么$x$是$b$的逆元，于是<br>$$<br>a/b = ax \quad (mod\, p)<br>$$<br>其中 $x$是$b$的逆元。逆元求解算法</p>
+        <h2 id="Tropids"><a href="#Tropids" class="headerlink" title="Tropids"></a><a href="https://projecteuler.net/problem=597" target="_blank" rel="external">Tropids</a></h2><p>The Torpids are rowing races held annually in Oxford, following some curious rules:</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm" target="_blank" rel="external">拓展欧几里得算法</a></li>
-<li>若$p$是素数，根据费马小定理 $b^{p-1}\%p=1$，可得其逆元为 $b^{p-2}\%p$</li>
-</ul>
-<p>为求解取模组合数<br>$$<br>{n\choose k}\% p = \frac{n!}{k!(n-k)!} \% p<br>$$</p>
-<p>算法如下：</p>
-<ul>
-<li>x = n! %p</li>
-<li>分别计算k!和(n-k)!的逆元t1,t2</li>
-<li>x = x*t1 %p 得到 $n!/k!\%p$</li>
-<li>x = x*t2 %p 得到 $n!/k!(n-k)!\%p$</li>
-</ul>
-<p>时间复杂度：$O(n)$</p>
-<p>最大可计算的$n$为$10^6$左右[1]。</p>
-<h2 id="Lucas定理求解大组合数"><a href="#Lucas定理求解大组合数" class="headerlink" title="Lucas定理求解大组合数"></a>Lucas定理求解大组合数</h2><p><a href="https://en.wikipedia.org/wiki/Lucas%27s_theorem" target="_blank" rel="external"><strong>Lucas定理</strong></a></p>
-<blockquote>
-<p>For non-negative integers $m$ and $n$ and a prime $p$, the following congruence relation holds:<br>$${m\choose n}\equiv\prod_{i=0}^k{m_i\choose n_i}\quad(mod\, p)$$<br>where $m=m_kp^k+\cdots+m_1p+m_0$<br>and $n=n_kp^k+\cdots+n_1p+n_0$</p>
-</blockquote>
-<p>对较大的$n$，根据Lucas定理分解${n\choose k}$，然后对每项用前面的方法求解组合数。</p>
-<p>对$n$分解为在$p$进制下的表示的复杂度为 $O(\log_p n)$，故算法总复杂度为$O(\log_pn+n_k+\cdots+n_0), k=\log_pn$，因$n_i&lt;p$所以复杂度为$O(p\log_pn)$.</p>
-<p>可计算的最大$p$为$10^5$左右[2]。</p>
-<hr>
-<p>参考资料</p>
-<ol>
-<li><a href="https://www.zybuluo.com/ArrowLLL/note/713749" target="_blank" rel="external">https://www.zybuluo.com/ArrowLLL/note/713749</a></li>
-<li><a href="https://blog.csdn.net/wukonwukon/article/details/7341270" target="_blank" rel="external">https://blog.csdn.net/wukonwukon/article/details/7341270</a></li>
+<li>A division consists of n boats (typically 13), placed in order based on past performance.</li>
+<li>All boats within a division start at 40 metre intervals along the river, in order with the highest-placed boat starting furthest upstream.</li>
+<li>The boats all start rowing simultaneously, upstream, trying to catch the boat in front while avoiding being caught by boats behind.</li>
+<li>Each boat continues rowing until either it reaches the finish line or it catches up with (“bumps”) a boat in front.</li>
+<li>The finish line is a distance L metres (the course length, in reality about 1800 metres) upstream from the starting position of the lowest-placed boat. (Because of the staggered starting positions, higher-placed boats row a slightly shorter course than lower-placed boats.)</li>
+<li>When a “bump” occurs, the “bumping” boat takes no further part in the race. The “bumped” boat must continue, however, and may even be “bumped” again by boats that started two or more places behind it.</li>
+<li>After the race, boats are assigned new places within the division, based on the bumps that occurred. Specifically, for any boat A that started in a lower place than B, then A will be placed higher than B in the new order if and only if one of the following occurred:<ol>
+<li>A bumped B directly</li>
+<li>A bumped another boat that went on to bump B</li>
+<li>A bumped another boat, that bumped yet another boat, that bumped B</li>
+<li>etc</li>
 </ol>
+</li>
+</ul>
+<p><strong>NOTE</strong>: For the purposes of this problem you may disregard the boats’ lengths, and assume that a bump occurs precisely when the two boats draw level. (In reality, a bump is awarded as soon as physical contact is made, which usually occurs when there is much less than a full boat length’s overlap.)</p>
+<p>Suppose that, in a particular race, each boat Bj rows at a steady speed vj=−logXj metres per second, where the Xj are chosen randomly (with uniform distribution) between 0 and 1, independently from one another. These speeds are relative to the riverbank: you may disregard the flow of the river.</p>
+<p>Let p(n,L) be the probability that the new order is an even permutation of the starting order, when there are n boats in the division and L is the course length.</p>
+<p>You are also given that p(4,400)=0.5107843137, rounded to 10 digits after the decimal point.</p>
+<p>Find p(13,1800) rounded to 10 digits after the decimal point.</p>
+<hr>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h3><p>Notations</p>
+<ul>
+<li>Uniform random variable $X_i\sim U(0,1)$</li>
+<li>Speed of boat $B_i$, $v_i = -\log X_i$</li>
+<li>Number of boats $N$</li>
+<li>Interval $d=40$ (m)</li>
+<li>Course length $L$</li>
+</ul>
+<p>The initial order of boats is assumed as $B_0, B_1, \cdots, B_n$, with $B_0$ at the original point and $B_i$ at $id$. And the finish line is at $D=L+d(n-1)$. We denote $d_i = D-id = L+(n-1-i)d$ as the distance of $B_i$ to the finish line.</p>
+<p><strong>Theorem 1</strong></p>
+<blockquote>
+<p>For any $i&lt;j$, $B_i$ bumps $B_j$ iff<br>$$X_i^{d_j} &lt; X_j^{d_i}$$<br>or<br>$$X_i &lt; X_j^{d_i/d_j},\quad X_i^{d_j/d_i} &lt; X_j$$</p>
+</blockquote>
+<p><em>Proof.</em> If $B_i$ bumps $B_j$ $\frac{d_i}{v_i} &lt; \frac{d_j}{v_j}$ So $\frac{d_i}{-\log X_i} &lt; \frac{d_j}{-\log X_j}$ and $d_j\log X_i &lt; d_i\log X_j$ Obviously, the result holds. $\square$</p>
+<p><strong>Theorem 2</strong></p>
+<blockquote>
+<p>The probability of “$B_i$ bumps $B_j$” is<br>$$P[X_i&lt;X_j^{d_i/d_j}]<br>= \int_0^1 X_j^{d_i/d_j}dX_j<br>= \frac{1}{d_i/d_j+1}<br>= \frac{d_j}{d_i+d_j}$$</p>
+</blockquote>
 
       
     </div>
@@ -446,9 +441,11 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
         <div class="post-tags">
           
-            <a href="/blog/tags/algorithm/" rel="tag"># algorithm</a>
+            <a href="/blog/tags/Project-Euler/" rel="tag"># Project Euler</a>
           
-            <a href="/blog/tags/combination/" rel="tag"># combination</a>
+            <a href="/blog/tags/Probability/" rel="tag"># Probability</a>
+          
+            <a href="/blog/tags/Torpids/" rel="tag"># Torpids</a>
           
         </div>
       
@@ -461,8 +458,8 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/10/02/Probability-Statistics/" rel="next" title="Probability & Statistics">
-                <i class="fa fa-chevron-left"></i> Probability & Statistics
+              <a href="/blog/2018/10/09/combination/" rel="next" title="组合数求解">
+                <i class="fa fa-chevron-left"></i> 组合数求解
               </a>
             
           </div>
@@ -470,10 +467,6 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/10/14/ProjectEuler597/" rel="prev" title="Project Euler Problem 597">
-                Project Euler Problem 597 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -672,7 +665,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：Pascal公式打表"><span class="nav-number">1.</span> <span class="nav-text">方法一：Pascal公式打表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：逆元（费马小定理）"><span class="nav-number">2.</span> <span class="nav-text">方法二：逆元（费马小定理）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lucas定理求解大组合数"><span class="nav-number">3.</span> <span class="nav-text">Lucas定理求解大组合数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tropids"><span class="nav-number">1.</span> <span class="nav-text">Tropids</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Preliminary"><span class="nav-number">2.1.</span> <span class="nav-text">Preliminary</span></a></li></ol></li></ol></div>
             
 
           </div>
