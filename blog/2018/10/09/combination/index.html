@@ -109,19 +109,22 @@
 
 
 
-  <meta name="description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$
-为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
+  <meta name="description" content="方法一：Pascal公式打表Pascal公式如下
+
+{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="组合数求解">
 <meta property="og:url" content="https://xspin.github.io/blog/2018/10/09/combination/index.html">
 <meta property="og:site_name" content="xspin">
-<meta property="og:description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$
-为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
+<meta property="og:description" content="方法一：Pascal公式打表Pascal公式如下
+
+{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对">
 <meta property="og:updated_time" content="2018-10-10T02:50:13.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组合数求解">
-<meta name="twitter:description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$
-为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
+<meta name="twitter:description" content="方法一：Pascal公式打表Pascal公式如下
+
+{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对">
 
 
 
@@ -387,24 +390,34 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
 
       
-        <h2 id="方法一：Pascal公式打表"><a href="#方法一：Pascal公式打表" class="headerlink" title="方法一：Pascal公式打表"></a>方法一：Pascal公式打表</h2><p><a href="http://mathworld.wolfram.com/PascalsFormula.html" target="_blank" rel="external"><strong>Pascal公式</strong></a>如下<br>$$<br>{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}<br>$$</p>
-<p>为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对任意 $n,k$ 上式都成立，于是只要储存C[i][j]（$ｊ\le i/2$）即可。</p>
+        <h2 id="方法一：Pascal公式打表"><a href="#方法一：Pascal公式打表" class="headerlink" title="方法一：Pascal公式打表"></a>方法一：Pascal公式打表</h2><p><a href="http://mathworld.wolfram.com/PascalsFormula.html" target="_blank" rel="external"><strong>Pascal公式</strong></a>如下</p>
+<script type="math/tex; mode=display">
+{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}</script><p>为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对任意 $n,k$ 上式都成立，于是只要储存C[i][j]（$ｊ\le i/2$）即可。</p>
 <p>时空复杂度为 $O(n\times\min(k,n-k))$</p>
 <h2 id="方法二：逆元（费马小定理）"><a href="#方法二：逆元（费马小定理）" class="headerlink" title="方法二：逆元（费马小定理）"></a>方法二：逆元（费马小定理）</h2><p><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="external"><strong>费马小定理</strong></a></p>
 <blockquote>
-<p>若 $p$ 是素数，那么对于任意整数 $a$<br>$$a^p \equiv a \quad (mod\, p)$$<br>如果 $p\nmid a$，上式等价于<br>$$a^{p-1} \equiv 1 \quad (mod\, p)$$</p>
-</blockquote>
+<p>若 $p$ 是素数，那么对于任意整数 $a$ </p>
+<script type="math/tex; mode=display">a^p \equiv a \quad (mod\, p)</script><p>如果 $p\nmid a$，上式等价于</p>
+<script type="math/tex; mode=display">a^{p-1} \equiv 1 \quad (mod\, p)</script></blockquote>
 <p><strong>逆元</strong></p>
 <blockquote>
 <p>对于正整数$a$和$p$，如果 $ax\equiv 1 \,(mod\, p)$，则 $x$ 的最小正整数解为 $a\, mod\, p$ 的逆元。</p>
 </blockquote>
-<p>模运算($\%$)对 $+,-,\times$ 都满足分配律，除了 $\div$。对于<br>$$\frac{a}{b}= m  \quad (mod\, p)$$<br>假设<br>$$ ax=m  \quad (mod\, p)$$<br>同乘$b$得<br>$$a = mb  \quad (mod\, p),\quad axb = mb \quad (mod\, p)$$<br>于是<br>$$a=axb  \quad (mod\, p)$$<br>则有<br>$$xb=1\quad (mod\, p)$$<br>那么$x$是$b$的逆元，于是<br>$$<br>a/b = ax \quad (mod\, p)<br>$$<br>其中 $x$是$b$的逆元。逆元求解算法</p>
+<p>模运算($\%$)对 $+,-,\times$ 都满足分配律，除了 $\div$。对于 </p>
+<script type="math/tex; mode=display">\frac{a}{b}= m  \quad (mod\, p)</script><p>假设 </p>
+<script type="math/tex; mode=display">ax=m  \quad (mod\, p)</script><p>同乘$b$得</p>
+<script type="math/tex; mode=display">a = mb  \quad (mod\, p),\quad axb = mb \quad (mod\, p)</script><p>于是</p>
+<script type="math/tex; mode=display">a=axb  \quad (mod\, p)</script><p>则有</p>
+<script type="math/tex; mode=display">xb=1\quad (mod\, p)</script><p>那么$x$是$b$的逆元，于是</p>
+<script type="math/tex; mode=display">
+a/b = ax \quad (mod\, p)</script><p>其中 $x$是$b$的逆元。逆元求解算法</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm" target="_blank" rel="external">拓展欧几里得算法</a></li>
 <li>若$p$是素数，根据费马小定理 $b^{p-1}\%p=1$，可得其逆元为 $b^{p-2}\%p$</li>
 </ul>
-<p>为求解取模组合数<br>$$<br>{n\choose k}\% p = \frac{n!}{k!(n-k)!} \% p<br>$$</p>
-<p>算法如下：</p>
+<p>为求解取模组合数</p>
+<script type="math/tex; mode=display">
+{n\choose k}\% p = \frac{n!}{k!(n-k)!} \% p</script><p>算法如下：</p>
 <ul>
 <li>x = n! %p</li>
 <li>分别计算k!和(n-k)!的逆元t1,t2</li>
@@ -415,7 +428,8 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 <p>最大可计算的$n$为$10^6$左右[1]。</p>
 <h2 id="Lucas定理求解大组合数"><a href="#Lucas定理求解大组合数" class="headerlink" title="Lucas定理求解大组合数"></a>Lucas定理求解大组合数</h2><p><a href="https://en.wikipedia.org/wiki/Lucas%27s_theorem" target="_blank" rel="external"><strong>Lucas定理</strong></a></p>
 <blockquote>
-<p>For non-negative integers $m$ and $n$ and a prime $p$, the following congruence relation holds:<br>$${m\choose n}\equiv\prod_{i=0}^k{m_i\choose n_i}\quad(mod\, p)$$<br>where $m=m_kp^k+\cdots+m_1p+m_0$<br>and $n=n_kp^k+\cdots+n_1p+n_0$</p>
+<p>For non-negative integers $m$ and $n$ and a prime $p$, the following congruence relation holds:</p>
+<script type="math/tex; mode=display">{m\choose n}\equiv\prod_{i=0}^k{m_i\choose n_i}\quad(mod\, p)</script><p>where $m=m_kp^k+\cdots+m_1p+m_0$<br>and $n=n_kp^k+\cdots+n_1p+n_0$</p>
 </blockquote>
 <p>对较大的$n$，根据Lucas定理分解${n\choose k}$，然后对每项用前面的方法求解组合数。</p>
 <p>对$n$分解为在$p$进制下的表示的复杂度为 $O(\log_p n)$，故算法总复杂度为$O(\log_pn+n_k+\cdots+n_0), k=\log_pn$，因$n_i&lt;p$所以复杂度为$O(p\log_pn)$.</p>
