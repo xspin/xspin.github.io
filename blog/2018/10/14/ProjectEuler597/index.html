@@ -121,7 +121,7 @@ All boats within a">
 
 A division consists of n boats (typically 13), placed in order based on past performance.
 All boats within a">
-<meta property="og:updated_time" content="2018-10-18T14:31:37.269Z">
+<meta property="og:updated_time" content="2018-10-20T06:55:47.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Project Euler Problem 597">
 <meta name="twitter:description" content="TropidsThe Torpids are rowing races held annually in Oxford, following some curious rules:
@@ -360,7 +360,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-18 22:31:37" itemprop="dateModified" datetime="2018-10-18T22:31:37+08:00">2018-10-18</time>
+                <time title="Modified: 2018-10-20 14:55:47" itemprop="dateModified" datetime="2018-10-20T14:55:47+08:00">2018-10-20</time>
               
             
           </span>
@@ -430,7 +430,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 <script type="math/tex; mode=display">X_i^{d_j} < X_j^{d_i}</script><p>or</p>
 <script type="math/tex; mode=display">X_i < X_j^{d_i/d_j},\quad X_i^{d_j/d_i} < X_j</script></blockquote>
 <p><em>Proof.</em> If $B_i$ bumps $B_j$ $\frac{d_i}{v_i} &lt; \frac{d_j}{v_j}$ So $\frac{d_i}{-\log X_i} &lt; \frac{d_j}{-\log X_j}$ and $d_j\log X_i &lt; d_i\log X_j$ Obviously, the result holds. $\square$</p>
-<p>Define $A_{ij}$ as the event of “$B_i$ bumps $B_j$”.</p>
+<p><strong>Definition 1.</strong> $A_{ij}$ is the event of “$B_i$ bumps $B_j$”.</p>
 <p><strong>Theorem 2</strong></p>
 <blockquote>
 <p>The probability of “$B_i$ bumps $B_j$” is </p>
@@ -442,8 +442,13 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 <blockquote>
 <p>For any two independent bumps $A_{ij}$ and $A_{kl}$, </p>
 <script type="math/tex; mode=display">P[A_{ij}\land A_{kl}] = P[A_{ij}]P[A_{kl}] = \frac{d_jd_l}{(d_i+d_j)(d_l+d_m)}</script></blockquote>
+<p><strong>Definition 2.</strong> </p>
+<blockquote>
+<p>$Q(d,x)$ is the probability of “A bumps B” where the distance between A and B is $d$ and the distance between A and the finish line is $x$. Then, according to Theorem 2, </p>
+<script type="math/tex; mode=display">Q(d,x) = \frac{x-d}{2x-d}</script></blockquote>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Calculate the numeric result of the integral for the probability, such as </p>
-<script type="math/tex; mode=display">P[E_1\land E_2\cdots] = \int\cdots\int_{E1,E_2\cdots}1dX_1dX_2\cdots dX_n</script>
+<script type="math/tex; mode=display">P[E_1\land E_2\cdots] = \int\cdots\int_{E1,E_2\cdots}1dX_1dX_2\cdots dX_n</script><p>If the dispersion is $\epsilon$, the search space is of $O(1/\epsilon^n)$, which is too large.</p>
+
       
     </div>
 
@@ -489,10 +494,6 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/10/18/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +602,13 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

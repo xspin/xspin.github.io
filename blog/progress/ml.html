@@ -109,22 +109,30 @@
 
 
 
-  <meta name="description" content="Stay Here!">
+  <meta name="description" content="The Problem of Overfitingundefitting 
+
+Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too si">
+<meta name="keywords">
 <meta property="og:type" content="website">
-<meta property="og:title" content="xspin">
-<meta property="og:url" content="https://xspin.github.io/blog/archives/2018/index.html">
+<meta property="og:title" content="Machine Learning">
+<meta property="og:url" content="https://xspin.github.io/blog/progress/ml.html">
 <meta property="og:site_name" content="xspin">
-<meta property="og:description" content="Stay Here!">
+<meta property="og:description" content="The Problem of Overfitingundefitting 
+
+Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too si">
+<meta property="og:updated_time" content="2018-10-20T14:23:23.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xspin">
-<meta name="twitter:description" content="Stay Here!">
+<meta name="twitter:title" content="Machine Learning">
+<meta name="twitter:description" content="The Problem of Overfitingundefitting 
+
+Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too si">
 
 
 
 
 
 
-  <link rel="canonical" href="https://xspin.github.io/blog/archives/2018/"/>
+  <link rel="canonical" href="https://xspin.github.io/blog/progress/ml.html"/>
 
 
 
@@ -134,7 +142,7 @@
   };
 </script>
 
-  <title>Archive | xspin</title>
+  <title>Machine Learning | xspin</title>
   
 
 
@@ -181,7 +189,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,7 +234,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/blog/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
@@ -291,191 +299,121 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Machine Learning</h1>
+
+<div class="post-meta">
   
   
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+
+
+
+</div>
+
+</header>
 
       
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 6 posts in total. Keep on posting.
-      </span>
       
-
       
-
+      <div class="post-body">
         
         
+          <h3 id="The-Problem-of-Overfiting"><a href="#The-Problem-of-Overfiting" class="headerlink" title="The Problem of Overfiting"></a>The Problem of Overfiting</h3><p>undefitting </p>
+<ul>
+<li>Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features.</li>
+</ul>
+<p>overfitting </p>
+<ul>
+<li>Overfitting, or high variance, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</li>
+</ul>
+<p>Two main options to address the issue</p>
+<ul>
+<li>Reduce the number of features<ul>
+<li>Manually select which features to keep</li>
+<li>Use a model selection algorithm </li>
+</ul>
+</li>
+<li>Regularization<ul>
+<li>Keep all the features, but reduce the magnitude of parameters </li>
+<li>Regularization works well when we have a lot of slightly useful features</li>
+</ul>
+</li>
+</ul>
+<p>Regularized Linear Regression</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{2m}\left[\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2+\lambda\sum_{j=1}^n\theta_j^2\right]
+=\frac{1}{2m}[(y-X\theta)^T(y-X\theta)+\lambda\|\theta'\|]</script><script type="math/tex; mode=display">
+\theta=(X^TX+\lambda\, \mathrm{diag}([0,1,1,...,1])^{-1}X^Ty</script><p>Regularized Logistic Regression</p>
+<script type="math/tex; mode=display">
+\begin{array}.
+J(\theta)=-\frac{1}{m}\left[\sum_{i=1}^my^{(i)}\log h_\theta(x^{(i)})+(1-y^{(i)})\log(1-h_\theta(x^{(i)})\right] + \frac{\lambda}{2m}\sum_{j=1}^n\theta_j^2\\
+= -\frac{1}{m}\left[y^T\log h_\theta(X)+(1-y)^T\log_\theta(X)\right]+\frac{\lambda}{2m} \theta'^T\theta'
+\end{array}</script><p>where $\theta’=[\theta_1,\cdots,\theta_n]^T$.</p>
+<hr>
+<p>Back Propagation</p>
+<p>Neural Network</p>
+<ul>
+<li>layer 1 (input): $A’_1=X$ </li>
+<li>layer 2: $Z_2=\Theta_1A_1, A’_2=g(Z_2)$ </li>
+<li>…</li>
+<li>layer k: $Z_k=\Theta_{k-1}A_{k-1}, A’_k=g(Z_k)$</li>
+<li>…</li>
+<li>layer L (output): $Z_L=\Theta_{L-1}A_{L-1}, A’_L=g(Z_L)$</li>
+</ul>
+<p>Error Function $J(\Theta)=|A’_L-Y|^2/2$</p>
+<p>Partial Derivation on $\Theta_{L-1}$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial J}{\partial \Theta^{ij}_{L-1}} & =\delta_L^T  \cdot  \frac{\partial A'_L}{\partial \Theta^{ij}_{L-1}} \\
+& = \delta_L^T  \cdot g'(Z_{L})\frac{\partial Z_L}{\partial \Theta^{ij}_{L-1}} \\
+&= \delta_L^T  \cdot g'(Z_{L}) I_{L,j}(A_{L-1,j})
+\end{align}</script><p>where $\delta_L = A’_L-Y$. Thus,</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial J}{\partial \Theta^{i:}_{L-1}} 
+&= Diag(A_{L-1})   \cdot \delta_Lg'(Z_{L}) = A_{L-1} \delta_Lg'(Z_{L}) 
+\end{align}</script><p>Partial Derivation on $\Theta_{k-1}$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial J}{\partial \Theta^{ij}_{k-1}} & =\delta_L^T  \cdot  \frac{\partial A'_L}{\partial \Theta^{ij}_{k-1}} \\
+& = \delta_L^T  \cdot g'(Z_{L})\frac{\partial Z_L}{\partial \Theta^{ij}_{k-1}} \\
+&= \delta_L^T  \cdot g'(Z_{L}) \frac{\partial Z_L}{\partial A_{L-1}} \cdot \frac{\partial A_{L-1}}{\partial \Theta^{ij}_{k-1}} \\
+&= \delta_L^T  \cdot g'(Z_{L}) \Theta_{L-1} \cdot \frac{\partial A_{L-1}}{\partial \Theta^{ij}_{k-1}} \\
+&= \delta_L^T  \cdot g'(Z_{L}) \Theta_{L-1} \cdot [0; g'(Z_{L-1})\frac{\partial Z_{L-1}}{\partial \Theta^{ij}_{k-1}}]
+\end{align}</script><p>Hence,</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial J}{\partial \Theta^{i:}_{k-1}} 
+&= \delta_L^T  \cdot g'(Z_{L}) \Theta_{L-1} \cdot [0; g'(Z_{L-1})\frac{\partial Z_{L-1}}{\partial \Theta^{i:}_{k-1}}]
+\end{align}</script>
         
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2018/10/ProjectEuler597/" itemprop="url">
-              
-                <span itemprop="name">Project Euler Problem 597</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-14T19:17:49+08:00"
-              content="2018-10-14" >
-          10-14
-        </time>
       </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2018/10/combination/" itemprop="url">
-              
-                <span itemprop="name">组合数求解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-09T20:26:45+08:00"
-              content="2018-10-09" >
-          10-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2018/10/Probability-Statistics/" itemprop="url">
-              
-                <span itemprop="name">Probability & Statistics</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-02T23:05:51+08:00"
-              content="2018-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2018/10/a-new-post/" itemprop="url">
-              
-                <span itemprop="name">a new post</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-02T13:26:04+08:00"
-              content="2018-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+
+
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -496,8 +434,17 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -634,6 +581,22 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Problem-of-Overfiting"><span class="nav-number">1.</span> <span class="nav-text">The Problem of Overfiting</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -763,6 +726,10 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
