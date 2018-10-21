@@ -393,7 +393,9 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
           TropidsThe Torpids are rowing races held annually in Oxford, following some curious rules:
 
 A division consists of n boats (typically 13), placed in order based on past performance.
-All boats within a
+All boats within a division start at 40 metre intervals along the river, in order with the highest-placed boat starting furthest upstream.
+The boats all start rowing simultaneously, upstream, trying to catch the boat in front while avoiding being caught by boats behind.
+Each boat continues rowing until either it reac
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -553,7 +555,18 @@ All boats within a
           
           方法一：Pascal公式打表Pascal公式如下
 
-{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对
+{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对任意 $n,k$ 上式都成立，于是只要储存C[i][j]（$ｊ\le i/2$）即可。
+时空复杂度为 $O(n\times\min(k,n-k))$
+方法二：逆元（费马小定理）费马小定理
+
+若 $p$ 是素数，那么对于任意整数 $a$ 
+a^p \equiv a \quad (mod\, p)如果 $p\nmid a$，上式等价于
+a^{p-1} \equiv 1 \quad (mod\, p)
+逆元
+
+对于正整数$a$和$p$，如果 $ax\equiv 1 \,(mod\, p)$，则 $x$ 的最小正整数解为 $a\, mod\, p$ 的逆元。
+
+模运算($\%$)对 $+,-,\tim
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -712,7 +725,9 @@ All boats within a
         
           
           Chapter 1 Introduction to Statistics and Data AnalysisChapter 2 Probability2.1 Sample SpaceDefinition 2.1: The set of all possible outcomes of a statistical experiment is called the sample space.
-2.2 
+2.2 EventsDefinition 2.2: An event is a subset of a sample space.
+Definition 2.3: The complement of an event A with respect to S is the subset of all elements of S that are not in A. Denote A’=S\A.
+Definition 2.4: The intersection of two events A and B, denoted by $A\cap B$, is the event containing all 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -875,8 +890,14 @@ sec 3comments
 the site is comming from what is called the fucking shitand nothing is of my …
 
 coding:
-1234#include&l
-          ...
+1234#include&lt;iostream&gt;int main() &#123;    return 0;&#125;
+python123import numpy as npa = np.array(range(3))print(a)
+bold font
+delete
+math formula
+\max_{i\in N} f(x)^2+\cos(g(x))\tan(x)inline math $g(x)=x^2+\sin(x)+\frac{x}{4}$
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/blog/2018/10/a-new-post/#more" rel="contents">
@@ -1197,7 +1218,17 @@ f(x) = \sum_{i}\frac{1}{i^2}
         
           
           Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More info: Server
+Generate static files1$ hexo generate
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+More info: Deployment
+Solutions for Bugs or Problems
+https://www.jianshu.com/p/a9f26f4cd4e6
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1434,7 +1465,7 @@ Quick
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.2.2</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1442,7 +1473,7 @@ Quick
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.2</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a></div>
 
 
 
