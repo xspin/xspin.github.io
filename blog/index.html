@@ -338,12 +338,24 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                 
               
 
-              <time title="Created: 2018-10-23 12:04:21 / Modified: 14:59:29" itemprop="dateCreated datePublished" datetime="2018-10-23T12:04:21+08:00">2018-10-23</time>
+              <time title="Created: 2018-10-23 12:04:21" itemprop="dateCreated datePublished" datetime="2018-10-23T12:04:21+08:00">2018-10-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-06 15:45:26" itemprop="dateModified" datetime="2018-11-06T15:45:26+08:00">2018-11-06</time>
               
             
           </span>
@@ -378,12 +390,26 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
         
           
-          http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/
-http://www.aosabook.org/en/nosql.htmlhttp://blog.marc-seeger.
-The NoSQL EcosystemRoadmap of considerations
+          Implementing a Key-Value StoreWhat are key-value stores, and why implement one?A quick overview of key-value stores
+Interfaces:
 
-Data and query model: Is your data represented as rows, objects, data structures, or documents? Can you ask the database to calculate aggregates over multiple records? 
-Durability: When you change a value, does it immediately go to stable storage? Does it get stored on multiple machines in case one cra
+Get(key)
+Set(key, value)
+Delete(key)
+
+Main characteristics:
+
+Do not use the SQL query language
+May not provide full support of the ACID paradigm 
+May offer a distributed, fault-tolerant architecture
+
+Key-value stores and relational databases
+Why implement a key-value store
+
+The C++ programming language
+Object-oriented design
+Algorithmics and data structures
+Memory mana
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1508,7 +1534,11 @@ https://www.jianshu.com/p/a9f26f4cd4e6
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

@@ -109,28 +109,52 @@
 
 
 
-  <meta name="description" content="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/
-http://www.aosabook.org/en/nosql.htmlhttp://blog.marc-seeger.
-The NoSQL EcosystemRoadmap of considerations
+  <meta name="description" content="Implementing a Key-Value StoreWhat are key-value stores, and why implement one?A quick overview of key-value stores
+Interfaces:
 
-Dat">
+Get(key)
+Set(key, value)
+Delete(key)
+
+Main characteristics:
+
+Do not use">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Key-Value Store">
 <meta property="og:url" content="https://xspin.github.io/blog/2018/10/Key-Value-Store/index.html">
 <meta property="og:site_name" content="xspin">
-<meta property="og:description" content="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/
-http://www.aosabook.org/en/nosql.htmlhttp://blog.marc-seeger.
-The NoSQL EcosystemRoadmap of considerations
+<meta property="og:description" content="Implementing a Key-Value StoreWhat are key-value stores, and why implement one?A quick overview of key-value stores
+Interfaces:
 
-Dat">
-<meta property="og:updated_time" content="2018-10-23T06:59:29.960Z">
+Get(key)
+Set(key, value)
+Delete(key)
+
+Main characteristics:
+
+Do not use">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2012/12/kvstore_kyotocabinet.jpg">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2012/12/kvstore_leveldb.jpg">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_unordered_map_web.jpg">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_dense_hash_map_web.jpg">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_kyoto_cabinet_web.jpg">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_kyoto_cabinet_record_web.jpg">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2014/05/kvstore-part6-metrics.png">
+<meta property="og:image" content="http://codecapsule.com/wp-content/uploads/2015/05/Architecture-of-KingDB-vecto.svg">
+<meta property="og:updated_time" content="2018-11-06T07:45:26.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Key-Value Store">
-<meta name="twitter:description" content="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/
-http://www.aosabook.org/en/nosql.htmlhttp://blog.marc-seeger.
-The NoSQL EcosystemRoadmap of considerations
+<meta name="twitter:description" content="Implementing a Key-Value StoreWhat are key-value stores, and why implement one?A quick overview of key-value stores
+Interfaces:
 
-Dat">
+Get(key)
+Set(key, value)
+Delete(key)
+
+Main characteristics:
+
+Do not use">
+<meta name="twitter:image" content="http://codecapsule.com/wp-content/uploads/2012/12/kvstore_kyotocabinet.jpg">
 
 
 
@@ -346,12 +370,24 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                 
               
 
-              <time title="Created: 2018-10-23 12:04:21 / Modified: 14:59:29" itemprop="dateCreated datePublished" datetime="2018-10-23T12:04:21+08:00">2018-10-23</time>
+              <time title="Created: 2018-10-23 12:04:21" itemprop="dateCreated datePublished" datetime="2018-10-23T12:04:21+08:00">2018-10-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-06 15:45:26" itemprop="dateModified" datetime="2018-11-06T15:45:26+08:00">2018-11-06</time>
               
             
           </span>
@@ -384,9 +420,214 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
 
       
-        <p><a href="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/" target="_blank" rel="external">http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/</a></p>
-<p><a href="http://www.aosabook.org/en/nosql.html" target="_blank" rel="external">http://www.aosabook.org/en/nosql.html</a><br><a href="http://blog.marc-seeger" target="_blank" rel="external">http://blog.marc-seeger</a>.</p>
-<h2 id="The-NoSQL-Ecosystem"><a href="#The-NoSQL-Ecosystem" class="headerlink" title="The NoSQL Ecosystem"></a>The NoSQL Ecosystem</h2><p>Roadmap of considerations</p>
+        <h2 id="Implementing-a-Key-Value-Store"><a href="#Implementing-a-Key-Value-Store" class="headerlink" title="Implementing a Key-Value Store"></a><a href="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/" target="_blank" rel="external">Implementing a Key-Value Store</a></h2><h3 id="What-are-key-value-stores-and-why-implement-one"><a href="#What-are-key-value-stores-and-why-implement-one" class="headerlink" title="What are key-value stores, and why implement one?"></a>What are key-value stores, and why implement one?</h3><p>A quick overview of key-value stores</p>
+<p>Interfaces:</p>
+<ul>
+<li>Get(key)</li>
+<li>Set(key, value)</li>
+<li>Delete(key)</li>
+</ul>
+<p>Main characteristics:</p>
+<ul>
+<li>Do not use the SQL query language</li>
+<li>May not provide full support of the ACID paradigm </li>
+<li>May offer a distributed, fault-tolerant architecture</li>
+</ul>
+<p>Key-value stores and relational databases</p>
+<p>Why implement a key-value store</p>
+<ul>
+<li>The C++ programming language</li>
+<li>Object-oriented design</li>
+<li>Algorithmics and data structures</li>
+<li>Memory management</li>
+<li>Concurrency control with multi-processors or multi-threading</li>
+<li>Networking with a server/client model</li>
+<li>I/O problems with disk access and use of the file system</li>
+</ul>
+<h3 id="Using-existing-key-value-stores-as-models"><a href="#Using-existing-key-value-stores-as-models" class="headerlink" title="Using existing key-value stores as models"></a>Using existing key-value stores as models</h3><p>Not reinventing the wheel</p>
+<ul>
+<li>Use models</li>
+<li>Start small</li>
+</ul>
+<p>Model candidates and selection criteria</p>
+<ul>
+<li>DBM</li>
+<li>Berkeley DB</li>
+<li>Kyoto Cabinet</li>
+<li>Memcached and MemcacheDB</li>
+<li>LevelDB</li>
+<li>MongoDB</li>
+<li>Redis</li>
+<li>OpenLDAP</li>
+<li>SQLite</li>
+</ul>
+<p>Overview of the selected key-value stores</p>
+<ul>
+<li>Berkeley DB<ul>
+<li>26 years </li>
+<li>implemented in C</li>
+</ul>
+</li>
+<li>Kyoto Cabinet<ul>
+<li>2009</li>
+<li>implemented in C++</li>
+<li>a hash table, a B+ Tree, and other esoteric data structures</li>
+</ul>
+</li>
+<li>LevelDB<ul>
+<li>developed by Google</li>
+<li>not using hash table or B-tree but based on a Log-Structured Merge Tree (LSM) </li>
+<li>implemented in C++</li>
+<li>LevelDB might not be the best choice for heavy load or large databases (1e6-&gt;1e9-&gt;) as often required by serious back-end projects</li>
+</ul>
+</li>
+</ul>
+<h3 id="Comparative-Analysis-of-the-Architectures-of-Kyoto-Cabinet-and-LevelDB"><a href="#Comparative-Analysis-of-the-Architectures-of-Kyoto-Cabinet-and-LevelDB" class="headerlink" title="Comparative Analysis of the Architectures of Kyoto Cabinet and LevelDB"></a>Comparative Analysis of the Architectures of Kyoto Cabinet and LevelDB</h3><p><img src="http://codecapsule.com/wp-content/uploads/2012/12/kvstore_kyotocabinet.jpg" alt=""><br><img src="http://codecapsule.com/wp-content/uploads/2012/12/kvstore_leveldb.jpg" alt=""></p>
+<p>Overview of the Components of a Key-Value Store</p>
+<ul>
+<li>Interface</li>
+<li>Parametrization</li>
+<li>Data Storage</li>
+<li>Data Structure</li>
+<li>Memory Management</li>
+<li>Iteration</li>
+<li>String</li>
+<li>Lock Management</li>
+<li>Error Management</li>
+<li>Logging</li>
+<li>Transaction Management</li>
+<li>Compression</li>
+<li>Comparators</li>
+<li>Checksum</li>
+<li>Snapshot</li>
+<li>Partitioning</li>
+<li>Replication</li>
+<li>Testing Framework</li>
+</ul>
+<p>Structural and conceptual analysis of Kyoto Cabinet and LevelDB</p>
+<p>API Design</p>
+<ul>
+<li><p>General principles for API design</p>
+<ul>
+<li>When in doubt, leave it out</li>
+<li>Don’t make the client do anything the library could do</li>
+</ul>
+</li>
+<li><p>Defining the functionalities for the public API of KingDB</p>
+<ul>
+<li>Opening and closing a database</li>
+<li>Reading and writing data to a database</li>
+<li>Iterating over the full collection of keys and values in a database</li>
+<li>Offer a way to tune parameters</li>
+<li>Offer a decent error notification interface</li>
+</ul>
+</li>
+<li><p>Comparing the APIs of existing databases</p>
+<ul>
+<li><p>Opening and closing a database</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.open(...)</div><div class="line">db.close(...)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Reads and Writes</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.get(...)</div><div class="line">db.put(...)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Iteration</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for (it-&gt;SeekToFirst(); it-&gt;Valid(); it-&gt;Next()) &#123;...&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Parametrization</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">DB::Options option;</div><div class="line">option.a = ...; </div><div class="line">option.b = ...;</div><div class="line">db.open(..., option);</div><div class="line"></div><div class="line">DB::WriteOptions write_options;</div><div class="line">db.put(..., write_options)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Error management</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DB::Status s = db-&gt;Put(DB::WriteOptions(), &quot;key&quot;, &quot;value&quot;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Hash-table-implementations"><a href="#Hash-table-implementations" class="headerlink" title="Hash table implementations"></a>Hash table implementations</h3><p>Hash tables</p>
+<blockquote>
+<p>Hashtables are arguably the single most important data structure known to mankind.<br>— Steve Yegge</p>
+</blockquote>
+<ul>
+<li>Hash functions<ul>
+<li>it is clear that MurmurHash3 and CityHash are the best hash functions to use for hash tables at the time this article is being written</li>
+</ul>
+</li>
+</ul>
+<p>Implementations</p>
+<ul>
+<li>unordered_map from TR1<br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_unordered_map_web.jpg" alt=""></li>
+<li>dense_hash_map from SparseHash<ul>
+<li>quadratic internal probing</li>
+<li>given that each pair is 16 bytes and that the cache line is 64 bytes on most processors, the probing steps are very likely to be on the same cache line<br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_dense_hash_map_web.jpg" alt=""></li>
+</ul>
+</li>
+<li><p>HashDB from Kyoto Cabinet<br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_kyoto_cabinet_web.jpg" alt=""><br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_kyoto_cabinet_record_web.jpg" alt=""></p>
+</li>
+<li><p>When designing the data organization of a hash table, the preferred solution should be to store the collision data with the buckets and not with the entries</p>
+</li>
+</ul>
+<h3 id="Open-Addressing-Hash-Tables"><a href="#Open-Addressing-Hash-Tables" class="headerlink" title="Open-Addressing Hash Tables"></a>Open-Addressing Hash Tables</h3><p>Metrics</p>
+<ul>
+<li>DIB: Distance to Initial Bucket</li>
+<li>DFB: Distance to Free Bucket</li>
+<li>DMB: Distance to Missing Bucket</li>
+<li>DSB: Distance to Shift Bucket<br><img src="http://codecapsule.com/wp-content/uploads/2014/05/kvstore-part6-metrics.png" alt=""></li>
+<li>Number of bucket swaps</li>
+<li>Aligned DIB, DFB, DMB, and DSB</li>
+<li>Other metrics of interest<ul>
+<li>number of exact collisions</li>
+<li>cache misses</li>
+</ul>
+</li>
+</ul>
+<p>Results and Discussion</p>
+<ul>
+<li>Robin Hood hashing has the best DIB and DMB, and an acceptable DFB</li>
+<li>In Robin Hood hashing, the maximum DIB increases with the table size</li>
+<li>Robin Hood hashing has an acceptable rate of swapped buckets during insertions</li>
+<li>Hopscotch hashing uses bucket swaps only at high load factors</li>
+<li>Robin Hood hashing has an acceptable DSB</li>
+</ul>
+<h3 id="Optimizing-Data-Structures-for-SSDs"><a href="#Optimizing-Data-Structures-for-SSDs" class="headerlink" title="Optimizing Data Structures for SSDs"></a>Optimizing Data Structures for SSDs</h3><p>Fast data structures on SSDs</p>
+<ul>
+<li>In-place updates are useless</li>
+<li>Metadata must be buffered or avoided</li>
+<li>Data is never really sequential</li>
+<li>Random writes are fast if they are large enough</li>
+<li>Random reads are fast</li>
+<li>Log-structured storage</li>
+</ul>
+<p>File I/O optimizations</p>
+<ul>
+<li>Every syscall has a cost</li>
+<li>Memory maps</li>
+<li>Zero-copy</li>
+</ul>
+<p>Done is better than perfect</p>
+<h3 id="Architecture-of-KingDB"><a href="#Architecture-of-KingDB" class="headerlink" title="Architecture of KingDB"></a>Architecture of KingDB</h3><p>Database, Snapshots and Iterators</p>
+<p>Architectural overview<br><img src="http://codecapsule.com/wp-content/uploads/2015/05/Architecture-of-KingDB-vecto.svg" alt=""></p>
+<p>Index</p>
+<p>The ByteArray class: RAII and zero-copy buffering through memory maps</p>
+<p>Multipart API</p>
+<p>Write buffer and the Order class</p>
+<p>Threads and synchronization</p>
+<ul>
+<li>Buffer Manager</li>
+<li>Entry Writer</li>
+<li>Index Updater</li>
+<li>Compactor</li>
+<li>System Statistics Poller</li>
+<li>Error management</li>
+</ul>
+<p>Parametrization and Logging</p>
+<ul>
+<li>DatabaseOptions</li>
+<li>ReadOptions</li>
+<li>WriteOptions</li>
+<li>ServerOptions</li>
+</ul>
+<p>Compression, checksum, and hashing</p>
+<h3 id="Data-Format-and-Memory-Management-in-KingDB"><a href="#Data-Format-and-Memory-Management-in-KingDB" class="headerlink" title="Data Format and Memory Management in KingDB"></a>Data Format and Memory Management in KingDB</h3><hr>
+<h2 id="The-NoSQL-Ecosystem"><a href="#The-NoSQL-Ecosystem" class="headerlink" title="The NoSQL Ecosystem"></a><a href="http://www.aosabook.org/en/nosql.html" target="_blank" rel="external">The NoSQL Ecosystem</a></h2><p>Roadmap of considerations</p>
 <ul>
 <li>Data and query model: Is your data represented as rows, objects, data structures, or documents? Can you ask the database to calculate aggregates over multiple records? </li>
 <li>Durability: When you change a value, does it immediately go to stable storage? Does it get stored on multiple machines in case one crashes?</li>
@@ -413,18 +654,31 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 </ul>
 <p>Data Durability</p>
 <ul>
-<li>Single-server Durability</li>
+<li>Single-server Durability<ul>
+<li>Control fsync Frequency</li>
+<li>Increase Sequential Writes by Logging</li>
+<li>Increase Throughput by Grouping Writes</li>
+</ul>
+</li>
 <li>Multi-server Durability</li>
 </ul>
 <p>Scaling for Performance</p>
 <ul>
-<li>Do Not Shard Until You Have To</li>
-<li>Sharding Through Coordinators</li>
-<li>Consistent Hash Rings</li>
-<li>Range Partitioning</li>
+<li><p>Do Not Shard Until You Have To</p>
+<ul>
+<li>Read Replicas</li>
+<li>Caching</li>
+</ul>
+</li>
+<li><p>Sharding Through Coordinators</p>
+</li>
+<li><p>Consistent Hash Rings</p>
+</li>
+<li><p>Range Partitioning</p>
+</li>
 </ul>
 <p>Consistency</p>
-<p>de/2009/09/21/key-value-stores-a-practical-overview/</p>
+<p><a href="http://blog.marc-seeger.de/2009/09/21/key-value-stores-a-practical-overview/" target="_blank" rel="external">http://blog.marc-seeger.de/2009/09/21/key-value-stores-a-practical-overview/</a></p>
 
       
     </div>
@@ -442,6 +696,14 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/SQL/" rel="tag"># SQL</a>
+          
+            <a href="/blog/tags/KV-Store/" rel="tag"># KV Store</a>
+          
+        </div>
       
 
       
@@ -571,7 +833,11 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -661,7 +927,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-NoSQL-Ecosystem"><span class="nav-number">1.</span> <span class="nav-text">The NoSQL Ecosystem</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementing-a-Key-Value-Store"><span class="nav-number">1.</span> <span class="nav-text">Implementing a Key-Value Store</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-are-key-value-stores-and-why-implement-one"><span class="nav-number">1.1.</span> <span class="nav-text">What are key-value stores, and why implement one?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-existing-key-value-stores-as-models"><span class="nav-number">1.2.</span> <span class="nav-text">Using existing key-value stores as models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparative-Analysis-of-the-Architectures-of-Kyoto-Cabinet-and-LevelDB"><span class="nav-number">1.3.</span> <span class="nav-text">Comparative Analysis of the Architectures of Kyoto Cabinet and LevelDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash-table-implementations"><span class="nav-number">1.4.</span> <span class="nav-text">Hash table implementations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-Addressing-Hash-Tables"><span class="nav-number">1.5.</span> <span class="nav-text">Open-Addressing Hash Tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizing-Data-Structures-for-SSDs"><span class="nav-number">1.6.</span> <span class="nav-text">Optimizing Data Structures for SSDs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Architecture-of-KingDB"><span class="nav-number">1.7.</span> <span class="nav-text">Architecture of KingDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Format-and-Memory-Management-in-KingDB"><span class="nav-number">1.8.</span> <span class="nav-text">Data Format and Memory Management in KingDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-NoSQL-Ecosystem"><span class="nav-number">2.</span> <span class="nav-text">The NoSQL Ecosystem</span></a></li></ol></div>
             
 
           </div>
