@@ -8,29 +8,29 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
         crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div id="list">
-        <div id="blog" style="text-align: center; margin:auto; font-size: 28px; color:gray;">
+    <div id='container'></div>
+    <ul id="menu">
+        <li id="blog"  ">
             <i class="fa fa-cog fa-spin"></i> 
-            <a href='./blog' style="text-decoration:none; color:black"> blog </a>
-        </div>
-        <div id="cube" style="text-align: center; margin:auto; margin-top:24px; font-size: 28px;color:gray">
+            <a href='./blog' style="text-decoration:none; color:black"> BLOG </a>
+        </li>
+        <li id="cube">
             <i class="fa fa-cube fa-spin"></i> 
-            <a href='./cube' style="text-decoration:none; color:black"> cube </a>
-        </div>
-    </div>
+            <a href='./cube' style="text-decoration:none; color:black"> CUBE </a>
+        </li>
+    </ul>
 
-  <script src="blog/lib/canvas-nest/canvas-nest.min.js"></script>
 <!-- <canvas id="c_n8" width="1390" height="984" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5; color:white;"></canvas> -->
 
-  <div id='container'></div>
   <script src='js/RequestAnimationFrame.js'></script>
   <script src="js/index.js"></script>
+  <script src="blog/lib/canvas-nest/canvas-nest.min.js"></script>
 </body>
 </html>
