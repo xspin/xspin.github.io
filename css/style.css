@@ -1,0 +1,12 @@
+html, body {
+  background: #111111;
+}
+
+#container {
+  background: #111111;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+}
+
