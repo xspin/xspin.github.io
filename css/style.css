@@ -2,25 +2,31 @@ html, body {
   background: white;
 }
 
-#container {
-   /* background: red;  */
+#interface {
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 25%;
+}
+#container {
+   /* background: blue;  */
+  position: relative;
+  /* left: 50%;
+  top: 30%; */
+  margin-top: 100px;
   text-align: center;
-  z-index: -1;
+  /* z-index: -1; */
 }
 ul#menu{
   position: relative;
-  margin-top: 25%;
+  margin-top: -80px;
   /* left: 50%; */
   text-align: center;
 }
 ul#menu li {
   display: inline;
   list-style: none;
-  margin-left: auto; 
-  margin-right: 20px;
-  font-size: 24px; 
+  margin-right: auto; 
+  margin-left: 20px;
+  font-size: 22px; 
   color:gray;
 }
