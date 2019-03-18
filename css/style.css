@@ -1,12 +1,17 @@
 html, body {
-  background: #111111;
+  background: white;
 }
 
 #container {
-  background: #111111;
+  /* background: white; */
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 35%;
   z-index: -1;
+}
+#list {
+  position: absolute;
+  top: 20%;
+  left: 50%;
 }
 
