@@ -3,23 +3,30 @@ html, body {
 }
 
 #interface {
-  position: absolute;
-  left: 50%;
-  top: 25%;
+  position: relative;
+  width: 900px;
+  height: 400px;
+  /* left: 50%; */
+  /* top: 25%; */
+  margin: 10% auto;
+  /* border-style: dotted; */
 }
 #container {
    /* background: blue;  */
   position: relative;
-  /* left: 50%; */
-  /* top: 30%;  */
+  left: 50%;
+  top: 30%; 
+  /* margin-top: 500px; */
   /* margin-top: 100px; */
-  text-align: center;
+  /* text-align: center; */
   /* z-index: -1; */
 }
 ul#menu{
   position: relative;
-  margin-top: -80px;
-  margin-right: -200px;
+  /* margin: auto; */
+  margin-top: 20px;
+  margin-left: -30px;
+  /* margin-right: -200px; */
   /* text-align: center; */
   /* right: 10%; */
 }
