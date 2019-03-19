@@ -14,7 +14,7 @@
     <!-- <div id = "title" style="text-align: center; margin-top:40px; font-size:30px; color:gray;"> -->
     <!-- </div> -->
     <div id = "title" style="text-align: center; margin:auto; font-size:20px; color:gray;">
-        <select name="dim" id="dim" onchange="update()" >
+        <select name="dim" id="dim" onchange="init()" >
             <!--<option value="1">1</option>-->
             <option value="2">2</option>
             <option value="3" selected="selected">3</option>
@@ -35,10 +35,17 @@
 
 </body>
 
-<script type="text/javascript" src="./canvas.js"> </script>
-
-<script type="text/javascript">
-update();
+<script type="text/javascript"> 
+    window.requestAnimationFrame = ( function() {
+        return window.mozRequestAnimationFrame ||
+        // window.webkitRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback, element) {
+            window.setTimeout( callback, 1000/50);
+        };
+    } )();
 </script>
+<script type="text/javascript" src="./canvas.js"> </script>
 
 </html>

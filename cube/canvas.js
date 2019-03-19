@@ -4,19 +4,41 @@ var tx = 1, ty=1, tz=1, tw=1;
 var canvas = document.getElementById("myCanvas");
 var cxt=canvas.getContext("2d");
 
+var animate_flag = true;
 
 var D, T;
-function update(){
+function init(){
     var sel = g("dim");
     D = sel.options[sel.selectedIndex].value;
     D = parseInt(D);
     T = new Array(D)
     for(var i=0; i<D; i++) T[i] = 1;
     //g("title").innerHTML = D + " Dimensional Hypercube";
+    // draw();
+    animate_flag = true;
+    animate();
+}
+
+var TIME = 0;
+function step(){
+    var r = Math.random()*Math.PI;
+    var m=13, n=18;
+    // m = 7+m*r; n=9+n*r;
+
+    var dt = 0.0001;
+    var t = 0.005;
+    var a = Math.cos(m*TIME)*t;
+    var b = Math.sin(n*TIME)*t;
+    TIME += dt;
+    for(var i=0; i<D/2; ++i) {
+        T[i] -= a;
+        T[i+Math.floor(D/2)] -= b;
+    }
     draw();
 }
 
 g("myCanvas").onmousedown = function(e) {
+    animate_flag = false;
     var x0 = e.clientX,
         y0 = e.clientY;
     document.onmousemove = function(e) {
@@ -146,3 +168,11 @@ function RotateN(t) {
     }
     return R;
 }
+function animate() {
+    step();
+    // console.log(cnt);
+    // window.setTimeout(animate, 1000);
+    if(animate_flag) requestAnimationFrame(animate);
+}
+
+init();

@@ -10,17 +10,18 @@ html, body {
 #container {
    /* background: blue;  */
   position: relative;
-  /* left: 50%;
-  top: 30%; */
-  margin-top: 100px;
+  /* left: 50%; */
+  /* top: 30%;  */
+  /* margin-top: 100px; */
   text-align: center;
   /* z-index: -1; */
 }
 ul#menu{
   position: relative;
   margin-top: -80px;
-  /* left: 50%; */
-  text-align: center;
+  margin-right: -200px;
+  /* text-align: center; */
+  /* right: 10%; */
 }
 ul#menu li {
   display: inline;
