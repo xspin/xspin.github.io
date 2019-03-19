@@ -36,5 +36,8 @@ ul#menu li {
   margin-right: auto; 
   margin-left: 20px;
   font-size: 22px; 
-  color:gray;
+}
+ul#menu li a{
+  text-decoration:none; 
+  color:black;
 }
