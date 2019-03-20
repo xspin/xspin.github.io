@@ -6,29 +6,24 @@ html, body {
   position: relative;
   width: 900px;
   height: 400px;
-  /* left: 50%; */
-  /* top: 25%; */
-  margin: 10% auto;
+  margin: auto;
+  margin-top: 5%;
   /* border-style: dotted; */
 }
 #container {
    /* background: blue;  */
   position: relative;
   left: 50%;
-  top: 30%; 
+  top: 50%; 
   /* margin-top: 500px; */
-  /* margin-top: 100px; */
-  /* text-align: center; */
-  /* z-index: -1; */
 }
 ul#menu{
   position: relative;
   /* margin: auto; */
-  margin-top: 20px;
-  margin-left: -30px;
+  margin-top: 110px;
+  margin-left: -40px;
   /* margin-right: -200px; */
   /* text-align: center; */
-  /* right: 10%; */
 }
 ul#menu li {
   display: inline;
