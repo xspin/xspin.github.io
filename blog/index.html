@@ -15,10 +15,10 @@
 
 
 <html class="theme-next mist use-motion" lang="en">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -46,6 +44,21 @@
 
 
 
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=7.1.2" color="#222">
 
 
 
@@ -53,40 +66,15 @@
 
 
 
-
-
-
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/blog/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.4.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.png?v=6.4.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.png?v=6.4.2">
-
-
-  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.4.2" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/blog/',
     scheme: 'Mist',
-    version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -108,13 +96,13 @@
 
 
 
-
   <meta name="description" content="Stay Here!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="xspin">
-<meta property="og:url" content="https://xspin.github.io/blog/index.html">
+<meta property="og:url" content="http://xspin.github.io/blog/index.html">
 <meta property="og:site_name" content="xspin">
 <meta property="og:description" content="Stay Here!">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xspin">
 <meta name="twitter:description" content="Stay Here!">
@@ -123,12 +111,13 @@
 
 
 
+  
+  
+  <link rel="canonical" href="http://xspin.github.io/blog/">
 
-  <link rel="canonical" href="https://xspin.github.io/blog/"/>
 
 
-
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -145,30 +134,31 @@
 
 
 
+
+
+
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -187,7 +177,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -197,6 +187,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
     
   </div>
 
@@ -220,24 +211,51 @@
         
           
           <li class="menu-item menu-item-home">
-    <a href="/blog/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/blog/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-about">
-    <a href="/blog/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
   </li>
 
       
@@ -258,10 +276,6 @@
   
 
 
-<script type="text/javascript">
-title = document.title
-document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-cog fa-spin'></i> " + title
-</script>
 
 </div>
     </header>
@@ -292,12 +306,12 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/Key-Value-Store/">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2018/10/23/Key-Value-Store/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
       <meta itemprop="description" content="Stay Here!">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -311,9 +325,8 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2018/10/Key-Value-Store/" itemprop="url">
-                  Key-Value Store
-                </a>
+                
+                <a href="/blog/2018/10/23/Key-Value-Store/" class="post-title-link" itemprop="url">Key-Value Store</a>
               
             
           </h1>
@@ -364,6 +377,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 
           
             
+            
           
 
           
@@ -390,34 +404,270 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
       
         
           
-          Implementing a Key-Value StoreWhat are key-value stores, and why implement one?A quick overview of key-value stores
-Interfaces:
+            <h2 id="Implementing-a-Key-Value-Store"><a href="#Implementing-a-Key-Value-Store" class="headerlink" title="Implementing a Key-Value Store"></a><a href="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/" target="_blank" rel="noopener">Implementing a Key-Value Store</a></h2><h3 id="What-are-key-value-stores-and-why-implement-one"><a href="#What-are-key-value-stores-and-why-implement-one" class="headerlink" title="What are key-value stores, and why implement one?"></a>What are key-value stores, and why implement one?</h3><p>A quick overview of key-value stores</p>
+<p>Interfaces:</p>
+<ul>
+<li>Get(key)</li>
+<li>Set(key, value)</li>
+<li>Delete(key)</li>
+</ul>
+<p>Main characteristics:</p>
+<ul>
+<li>Do not use the SQL query language</li>
+<li>May not provide full support of the ACID paradigm </li>
+<li>May offer a distributed, fault-tolerant architecture</li>
+</ul>
+<p>Key-value stores and relational databases</p>
+<p>Why implement a key-value store</p>
+<ul>
+<li>The C++ programming language</li>
+<li>Object-oriented design</li>
+<li>Algorithmics and data structures</li>
+<li>Memory management</li>
+<li>Concurrency control with multi-processors or multi-threading</li>
+<li>Networking with a server/client model</li>
+<li>I/O problems with disk access and use of the file system</li>
+</ul>
+<h3 id="Using-existing-key-value-stores-as-models"><a href="#Using-existing-key-value-stores-as-models" class="headerlink" title="Using existing key-value stores as models"></a>Using existing key-value stores as models</h3><p>Not reinventing the wheel</p>
+<ul>
+<li>Use models</li>
+<li>Start small</li>
+</ul>
+<p>Model candidates and selection criteria</p>
+<ul>
+<li>DBM</li>
+<li>Berkeley DB</li>
+<li>Kyoto Cabinet</li>
+<li>Memcached and MemcacheDB</li>
+<li>LevelDB</li>
+<li>MongoDB</li>
+<li>Redis</li>
+<li>OpenLDAP</li>
+<li>SQLite</li>
+</ul>
+<p>Overview of the selected key-value stores</p>
+<ul>
+<li>Berkeley DB<ul>
+<li>26 years </li>
+<li>implemented in C</li>
+</ul>
+</li>
+<li>Kyoto Cabinet<ul>
+<li>2009</li>
+<li>implemented in C++</li>
+<li>a hash table, a B+ Tree, and other esoteric data structures</li>
+</ul>
+</li>
+<li>LevelDB<ul>
+<li>developed by Google</li>
+<li>not using hash table or B-tree but based on a Log-Structured Merge Tree (LSM) </li>
+<li>implemented in C++</li>
+<li>LevelDB might not be the best choice for heavy load or large databases (1e6-&gt;1e9-&gt;) as often required by serious back-end projects</li>
+</ul>
+</li>
+</ul>
+<h3 id="Comparative-Analysis-of-the-Architectures-of-Kyoto-Cabinet-and-LevelDB"><a href="#Comparative-Analysis-of-the-Architectures-of-Kyoto-Cabinet-and-LevelDB" class="headerlink" title="Comparative Analysis of the Architectures of Kyoto Cabinet and LevelDB"></a>Comparative Analysis of the Architectures of Kyoto Cabinet and LevelDB</h3><p><img src="http://codecapsule.com/wp-content/uploads/2012/12/kvstore_kyotocabinet.jpg" alt><br><img src="http://codecapsule.com/wp-content/uploads/2012/12/kvstore_leveldb.jpg" alt></p>
+<p>Overview of the Components of a Key-Value Store</p>
+<ul>
+<li>Interface</li>
+<li>Parametrization</li>
+<li>Data Storage</li>
+<li>Data Structure</li>
+<li>Memory Management</li>
+<li>Iteration</li>
+<li>String</li>
+<li>Lock Management</li>
+<li>Error Management</li>
+<li>Logging</li>
+<li>Transaction Management</li>
+<li>Compression</li>
+<li>Comparators</li>
+<li>Checksum</li>
+<li>Snapshot</li>
+<li>Partitioning</li>
+<li>Replication</li>
+<li>Testing Framework</li>
+</ul>
+<p>Structural and conceptual analysis of Kyoto Cabinet and LevelDB</p>
+<p>API Design</p>
+<ul>
+<li><p>General principles for API design</p>
+<ul>
+<li>When in doubt, leave it out</li>
+<li>Don’t make the client do anything the library could do</li>
+</ul>
+</li>
+<li><p>Defining the functionalities for the public API of KingDB</p>
+<ul>
+<li>Opening and closing a database</li>
+<li>Reading and writing data to a database</li>
+<li>Iterating over the full collection of keys and values in a database</li>
+<li>Offer a way to tune parameters</li>
+<li>Offer a decent error notification interface</li>
+</ul>
+</li>
+<li><p>Comparing the APIs of existing databases</p>
+<ul>
+<li><p>Opening and closing a database</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.open(...)</span><br><span class="line">db.close(...)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Reads and Writes</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.get(...)</span><br><span class="line">db.put(...)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Iteration</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for (it-&gt;SeekToFirst(); it-&gt;Valid(); it-&gt;Next()) &#123;...&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Parametrization</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DB::Options option;</span><br><span class="line">option.a = ...; </span><br><span class="line">option.b = ...;</span><br><span class="line">db.open(..., option);</span><br><span class="line"></span><br><span class="line">DB::WriteOptions write_options;</span><br><span class="line">db.put(..., write_options)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Error management</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::Status s = db-&gt;Put(DB::WriteOptions(), &quot;key&quot;, &quot;value&quot;);</span><br></pre></td></tr></table></figure>
 
-Get(key)
-Set(key, value)
-Delete(key)
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Hash-table-implementations"><a href="#Hash-table-implementations" class="headerlink" title="Hash table implementations"></a>Hash table implementations</h3><p>Hash tables</p>
+<blockquote>
+<p>Hashtables are arguably the single most important data structure known to mankind.<br>— Steve Yegge</p>
+</blockquote>
+<ul>
+<li>Hash functions<ul>
+<li>it is clear that MurmurHash3 and CityHash are the best hash functions to use for hash tables at the time this article is being written</li>
+</ul>
+</li>
+</ul>
+<p>Implementations</p>
+<ul>
+<li><p>unordered_map from TR1<br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_unordered_map_web.jpg" alt></p>
+</li>
+<li><p>dense_hash_map from SparseHash</p>
+<ul>
+<li>quadratic internal probing</li>
+<li>given that each pair is 16 bytes and that the cache line is 64 bytes on most processors, the probing steps are very likely to be on the same cache line<br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_dense_hash_map_web.jpg" alt></li>
+</ul>
+</li>
+<li><p>HashDB from Kyoto Cabinet<br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_kyoto_cabinet_web.jpg" alt><br><img src="http://codecapsule.com/wp-content/uploads/2013/04/kvstore_hash_kyoto_cabinet_record_web.jpg" alt></p>
+</li>
+<li><p>When designing the data organization of a hash table, the preferred solution should be to store the collision data with the buckets and not with the entries</p>
+</li>
+</ul>
+<h3 id="Open-Addressing-Hash-Tables"><a href="#Open-Addressing-Hash-Tables" class="headerlink" title="Open-Addressing Hash Tables"></a>Open-Addressing Hash Tables</h3><p>Metrics</p>
+<ul>
+<li>DIB: Distance to Initial Bucket</li>
+<li>DFB: Distance to Free Bucket</li>
+<li>DMB: Distance to Missing Bucket</li>
+<li>DSB: Distance to Shift Bucket<br><img src="http://codecapsule.com/wp-content/uploads/2014/05/kvstore-part6-metrics.png" alt></li>
+<li>Number of bucket swaps</li>
+<li>Aligned DIB, DFB, DMB, and DSB</li>
+<li>Other metrics of interest<ul>
+<li>number of exact collisions</li>
+<li>cache misses</li>
+</ul>
+</li>
+</ul>
+<p>Results and Discussion</p>
+<ul>
+<li>Robin Hood hashing has the best DIB and DMB, and an acceptable DFB</li>
+<li>In Robin Hood hashing, the maximum DIB increases with the table size</li>
+<li>Robin Hood hashing has an acceptable rate of swapped buckets during insertions</li>
+<li>Hopscotch hashing uses bucket swaps only at high load factors</li>
+<li>Robin Hood hashing has an acceptable DSB</li>
+</ul>
+<h3 id="Optimizing-Data-Structures-for-SSDs"><a href="#Optimizing-Data-Structures-for-SSDs" class="headerlink" title="Optimizing Data Structures for SSDs"></a>Optimizing Data Structures for SSDs</h3><p>Fast data structures on SSDs</p>
+<ul>
+<li>In-place updates are useless</li>
+<li>Metadata must be buffered or avoided</li>
+<li>Data is never really sequential</li>
+<li>Random writes are fast if they are large enough</li>
+<li>Random reads are fast</li>
+<li>Log-structured storage</li>
+</ul>
+<p>File I/O optimizations</p>
+<ul>
+<li>Every syscall has a cost</li>
+<li>Memory maps</li>
+<li>Zero-copy</li>
+</ul>
+<p>Done is better than perfect</p>
+<h3 id="Architecture-of-KingDB"><a href="#Architecture-of-KingDB" class="headerlink" title="Architecture of KingDB"></a>Architecture of KingDB</h3><p>Database, Snapshots and Iterators</p>
+<p>Architectural overview<br><img src="http://codecapsule.com/wp-content/uploads/2015/05/Architecture-of-KingDB-vecto.svg" alt></p>
+<p>Index</p>
+<p>The ByteArray class: RAII and zero-copy buffering through memory maps</p>
+<p>Multipart API</p>
+<p>Write buffer and the Order class</p>
+<p>Threads and synchronization</p>
+<ul>
+<li>Buffer Manager</li>
+<li>Entry Writer</li>
+<li>Index Updater</li>
+<li>Compactor</li>
+<li>System Statistics Poller</li>
+<li>Error management</li>
+</ul>
+<p>Parametrization and Logging</p>
+<ul>
+<li>DatabaseOptions</li>
+<li>ReadOptions</li>
+<li>WriteOptions</li>
+<li>ServerOptions</li>
+</ul>
+<p>Compression, checksum, and hashing</p>
+<h3 id="Data-Format-and-Memory-Management-in-KingDB"><a href="#Data-Format-and-Memory-Management-in-KingDB" class="headerlink" title="Data Format and Memory Management in KingDB"></a>Data Format and Memory Management in KingDB</h3><hr>
+<h2 id="The-NoSQL-Ecosystem"><a href="#The-NoSQL-Ecosystem" class="headerlink" title="The NoSQL Ecosystem"></a><a href="http://www.aosabook.org/en/nosql.html" target="_blank" rel="noopener">The NoSQL Ecosystem</a></h2><p>Roadmap of considerations</p>
+<ul>
+<li>Data and query model: Is your data represented as rows, objects, data structures, or documents? Can you ask the database to calculate aggregates over multiple records? </li>
+<li>Durability: When you change a value, does it immediately go to stable storage? Does it get stored on multiple machines in case one crashes?</li>
+<li>Scalability: Does your data fit on a single server? Do the amount of reads and writes require multiple disks to handle the workload?</li>
+<li>Partitioning: For scalability, availability, or durability reasons, does the data need to live on multiple servers? How do you know which record is on which server?</li>
+<li>Consistency: If you’ve partitioned and replicated your records across multiple servers, how do the servers coordinate when a record changes?</li>
+<li>Transactional semantics: When you run a series of operations, some databases allow you to wrap them in a transaction, which provides some subset of ACID (Atomicity, Consistency, Isolation, and Durability) guarantees on the transaction and all others currently running. Does your business logic require these guarantees, which often come with performance tradeoffs?</li>
+<li>Single-server performance: If you want to safely store data on disk, what on-disk data structures are best-geared toward read-heavy or write-heavy workloads? Is writing to disk your bottleneck?</li>
+<li>Analytical workloads: We’re going to pay a lot of attention to lookup-heavy workloads of the kind you need to run a responsive user-focused web application. In many cases, you will want to build dataset-sized reports, aggregating statistics across multiple users for example. Does your use-case and toolchain require such functionality?</li>
+</ul>
+<p>NoSQL Data and Query Models</p>
+<ul>
+<li>Key-based NoSQL Data Models<ul>
+<li>Key-Value Stores</li>
+<li>Key-Data Structure Stores</li>
+<li>Key-Document Stores</li>
+<li>BigTable Column Family Stores</li>
+</ul>
+</li>
+<li>Graph Storage</li>
+<li>Complex Queries</li>
+<li>Transactions</li>
+<li>Schema-free Storage</li>
+</ul>
+<p>Data Durability</p>
+<ul>
+<li>Single-server Durability<ul>
+<li>Control fsync Frequency</li>
+<li>Increase Sequential Writes by Logging</li>
+<li>Increase Throughput by Grouping Writes</li>
+</ul>
+</li>
+<li>Multi-server Durability</li>
+</ul>
+<p>Scaling for Performance</p>
+<ul>
+<li><p>Do Not Shard Until You Have To</p>
+<ul>
+<li>Read Replicas</li>
+<li>Caching</li>
+</ul>
+</li>
+<li><p>Sharding Through Coordinators</p>
+</li>
+<li><p>Consistent Hash Rings</p>
+</li>
+<li><p>Range Partitioning</p>
+</li>
+</ul>
+<p>Consistency</p>
+<p><a href="http://blog.marc-seeger.de/2009/09/21/key-value-stores-a-practical-overview/" target="_blank" rel="noopener">http://blog.marc-seeger.de/2009/09/21/key-value-stores-a-practical-overview/</a></p>
 
-Main characteristics:
-
-Do not use the SQL query language
-May not provide full support of the ACID paradigm 
-May offer a distributed, fault-tolerant architecture
-
-Key-value stores and relational databases
-Why implement a key-value store
-
-The C++ programming language
-Object-oriented design
-Algorithmics and data structures
-Memory mana
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2018/10/Key-Value-Store/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -430,6 +680,9 @@ Memory mana
 
     
 
+    
+      
+    
     
 
     
@@ -469,12 +722,12 @@ Memory mana
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/ProjectEuler597/">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2018/10/14/ProjectEuler597/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
       <meta itemprop="description" content="Stay Here!">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -488,9 +741,8 @@ Memory mana
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2018/10/ProjectEuler597/" itemprop="url">
-                  Project Euler Problem 597
-                </a>
+                
+                <a href="/blog/2018/10/14/ProjectEuler597/" class="post-title-link" itemprop="url">Project Euler Problem 597</a>
               
             
           </h1>
@@ -541,6 +793,7 @@ Memory mana
 
           
             
+            
           
 
           
@@ -567,20 +820,59 @@ Memory mana
       
         
           
-          TropidsThe Torpids are rowing races held annually in Oxford, following some curious rules:
+            <h2 id="Tropids"><a href="#Tropids" class="headerlink" title="Tropids"></a><a href="https://projecteuler.net/problem=597" target="_blank" rel="noopener">Tropids</a></h2><p>The Torpids are rowing races held annually in Oxford, following some curious rules:</p>
+<ul>
+<li>A division consists of n boats (typically 13), placed in order based on past performance.</li>
+<li>All boats within a division start at 40 metre intervals along the river, in order with the highest-placed boat starting furthest upstream.</li>
+<li>The boats all start rowing simultaneously, upstream, trying to catch the boat in front while avoiding being caught by boats behind.</li>
+<li>Each boat continues rowing until either it reaches the finish line or it catches up with (“bumps”) a boat in front.</li>
+<li>The finish line is a distance L metres (the course length, in reality about 1800 metres) upstream from the starting position of the lowest-placed boat. (Because of the staggered starting positions, higher-placed boats row a slightly shorter course than lower-placed boats.)</li>
+<li>When a “bump” occurs, the “bumping” boat takes no further part in the race. The “bumped” boat must continue, however, and may even be “bumped” again by boats that started two or more places behind it.</li>
+<li>After the race, boats are assigned new places within the division, based on the bumps that occurred. Specifically, for any boat A that started in a lower place than B, then A will be placed higher than B in the new order if and only if one of the following occurred:<ol>
+<li>A bumped B directly</li>
+<li>A bumped another boat that went on to bump B</li>
+<li>A bumped another boat, that bumped yet another boat, that bumped B</li>
+<li>etc</li>
+</ol>
+</li>
+</ul>
+<p><strong>NOTE</strong>: For the purposes of this problem you may disregard the boats’ lengths, and assume that a bump occurs precisely when the two boats draw level. (In reality, a bump is awarded as soon as physical contact is made, which usually occurs when there is much less than a full boat length’s overlap.)</p>
+<p>Suppose that, in a particular race, each boat Bj rows at a steady speed vj=−logXj metres per second, where the Xj are chosen randomly (with uniform distribution) between 0 and 1, independently from one another. These speeds are relative to the riverbank: you may disregard the flow of the river.</p>
+<p>Let p(n,L) be the probability that the new order is an even permutation of the starting order, when there are n boats in the division and L is the course length.</p>
+<p>You are also given that p(4,400)=0.5107843137, rounded to 10 digits after the decimal point.</p>
+<p>Find p(13,1800) rounded to 10 digits after the decimal point.</p>
+<hr>
+<h2 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h2><p>Notations</p>
+<ul>
+<li>Uniform random variable $X_i\sim U(0,1)$</li>
+<li>Speed of boat $B_i$, $v_i = -\log X_i$</li>
+<li>Number of boats $N$</li>
+<li>Interval $d=40$ (m)</li>
+<li>Course length $L$</li>
+</ul>
+<p>The initial order of boats is assumed as $B_0, B_1, \cdots, B_n$, with $B_0$ at the original point and $B_i$ at $id$. And the finish line is at $D=L+d(n-1)$. We denote $d_i = D-id = L+(n-1-i)d$ as the distance of $B_i$ to the finish line.</p>
+<p><strong>Theorem 1</strong></p>
+<blockquote>
+<p>For any $i&lt;j$, $B_i$ bumps $B_j$ iff<br>$$X_i^{d_j} &lt; X_j^{d_i}$$<br>or<br>$$X_i &lt; X_j^{d_i/d_j},\quad X_i^{d_j/d_i} &lt; X_j$$</p>
+</blockquote>
+<p><em>Proof.</em> If $B_i$ bumps $B_j$ $\frac{d_i}{v_i} &lt; \frac{d_j}{v_j}$ So $\frac{d_i}{-\log X_i} &lt; \frac{d_j}{-\log X_j}$ and $d_j\log X_i &lt; d_i\log X_j$ Obviously, the result holds. $\square$</p>
+<p><strong>Definition 1.</strong> $A_{ij}$ is the event of “$B_i$ bumps $B_j$”.</p>
+<p><strong>Theorem 2</strong></p>
+<blockquote>
+<p>The probability of “$B_i$ bumps $B_j$” is<br>$$ P[A{ij}] = P[X_i^{d_j}&lt;X_j^{d_i}] = P[X_i&lt;X_j^{d_i/d_j}]<br>= \int_0^1 X_j^{d_i/d_j}dX_j<br>= \frac{1}{d_i/d_j+1}<br>= \frac{d_j}{d_i+d_j}$$</p>
+</blockquote>
+<p><strong>Corollary 1</strong> </p>
+<blockquote>
+<p>For any two independent bumps $A_{ij}$ and $A_{kl}$,<br>$$ P[A_{ij}\land A_{kl}] = P[A_{ij}]P[A_{kl}] = \frac{d_jd_l}{(d_i+d_j)(d_l+d_m)}$$</p>
+</blockquote>
+<p><strong>Definition 2.</strong> </p>
+<blockquote>
+<p>$Q(d,x)$ is the probability of “A bumps B” where the distance between A and B is $d$ and the distance between A and the finish line is $x$. Then, according to Theorem 2,<br>$$Q(d,x) = \frac{x-d}{2x-d}$$</p>
+</blockquote>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Calculate the numeric result of the integral for the probability, such as<br>$$P[E_1\land E_2\cdots] = \int\cdots\int_{E1,E_2\cdots}1dX_1dX_2\cdots dX_n$$ </p>
+<p>If the dispersion is $\epsilon$, the search space is of $O(1/\epsilon^n)$, which is too large.</p>
 
-A division consists of n boats (typically 13), placed in order based on past performance.
-All boats within a division start at 40 metre intervals along the river, in order with the highest-placed boat starting furthest upstream.
-The boats all start rowing simultaneously, upstream, trying to catch the boat in front while avoiding being caught by boats behind.
-Each boat continues rowing until either it reac
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2018/10/ProjectEuler597/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -593,6 +885,9 @@ Each boat continues rowing until either it reac
 
     
 
+    
+      
+    
     
 
     
@@ -632,12 +927,12 @@ Each boat continues rowing until either it reac
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/combination/">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2018/10/09/combination/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
       <meta itemprop="description" content="Stay Here!">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -651,9 +946,8 @@ Each boat continues rowing until either it reac
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2018/10/combination/" itemprop="url">
-                  组合数求解
-                </a>
+                
+                <a href="/blog/2018/10/09/combination/" class="post-title-link" itemprop="url">组合数求解</a>
               
             
           </h1>
@@ -704,6 +998,7 @@ Each boat continues rowing until either it reac
 
           
             
+            
           
 
           
@@ -730,28 +1025,47 @@ Each boat continues rowing until either it reac
       
         
           
-          方法一：Pascal公式打表Pascal公式如下
+            <h2 id="方法一：Pascal公式打表"><a href="#方法一：Pascal公式打表" class="headerlink" title="方法一：Pascal公式打表"></a>方法一：Pascal公式打表</h2><p><a href="http://mathworld.wolfram.com/PascalsFormula.html" target="_blank" rel="noopener"><strong>Pascal公式</strong></a>如下<br>$$<br>{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}<br>$$</p>
+<p>为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对任意 $n,k$ 上式都成立，于是只要储存C[i][j]（$ｊ\le i/2$）即可。</p>
+<p>时空复杂度为 $O(n\times\min(k,n-k))$</p>
+<h2 id="方法二：逆元（费马小定理）"><a href="#方法二：逆元（费马小定理）" class="headerlink" title="方法二：逆元（费马小定理）"></a>方法二：逆元（费马小定理）</h2><p><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="noopener"><strong>费马小定理</strong></a></p>
+<blockquote>
+<p>若 $p$ 是素数，那么对于任意整数 $a$<br>$$a^p \equiv a \quad (mod, p)$$<br>如果 $p\nmid a$，上式等价于<br>$$a^{p-1} \equiv 1 \quad (mod, p)$$</p>
+</blockquote>
+<p><strong>逆元</strong></p>
+<blockquote>
+<p>对于正整数$a$和$p$，如果 $ax\equiv 1 ,(mod, p)$，则 $x$ 的最小正整数解为 $a, mod, p$ 的逆元。</p>
+</blockquote>
+<p>模运算($%$)对 $+,-,\times$ 都满足分配律，除了 $\div$。对于<br>$$\frac{a}{b}= m  \quad (mod, p)$$<br>假设<br>$$ ax=m  \quad (mod, p)$$<br>同乘$b$得<br>$$a = mb  \quad (mod, p),\quad axb = mb \quad (mod, p)$$<br>于是<br>$$a=axb  \quad (mod, p)$$<br>则有<br>$$xb=1\quad (mod, p)$$<br>那么$x$是$b$的逆元，于是<br>$$<br>a/b = ax \quad (mod, p)<br>$$<br>其中 $x$是$b$的逆元。逆元求解算法</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm" target="_blank" rel="noopener">拓展欧几里得算法</a></li>
+<li>若$p$是素数，根据费马小定理 $b^{p-1}%p=1$，可得其逆元为 $b^{p-2}%p$</li>
+</ul>
+<p>为求解取模组合数<br>$$<br>{n\choose k}% p = \frac{n!}{k!(n-k)!} % p<br>$$</p>
+<p>算法如下：</p>
+<ul>
+<li>x = n! %p</li>
+<li>分别计算k!和(n-k)!的逆元t1,t2</li>
+<li>x = x*t1 %p 得到 $n!/k!%p$</li>
+<li>x = x*t2 %p 得到 $n!/k!(n-k)!%p$</li>
+</ul>
+<p>时间复杂度：$O(n)$</p>
+<p>最大可计算的$n$为$10^6$左右[1]。</p>
+<h2 id="Lucas定理求解大组合数"><a href="#Lucas定理求解大组合数" class="headerlink" title="Lucas定理求解大组合数"></a>Lucas定理求解大组合数</h2><p><a href="https://en.wikipedia.org/wiki/Lucas%27s_theorem" target="_blank" rel="noopener"><strong>Lucas定理</strong></a></p>
+<blockquote>
+<p>For non-negative integers $m$ and $n$ and a prime $p$, the following congruence relation holds:<br>$${m\choose n}\equiv\prod_{i=0}^k{m_i\choose n_i}\quad(mod, p)$$<br>where $m=m_kp^k+\cdots+m_1p+m_0$<br>and $n=n_kp^k+\cdots+n_1p+n_0$</p>
+</blockquote>
+<p>对较大的$n$，根据Lucas定理分解${n\choose k}$，然后对每项用前面的方法求解组合数。</p>
+<p>对$n$分解为在$p$进制下的表示的复杂度为 $O(\log_p n)$，故算法总复杂度为$O(\log_pn+n_k+\cdots+n_0), k=\log_pn$，因$n_i&lt;p$所以复杂度为$O(p\log_pn)$.</p>
+<p>可计算的最大$p$为$10^5$左右[2]。</p>
+<hr>
+<p>参考资料</p>
+<ol>
+<li><a href="https://www.zybuluo.com/ArrowLLL/note/713749" target="_blank" rel="noopener">https://www.zybuluo.com/ArrowLLL/note/713749</a></li>
+<li><a href="https://blog.csdn.net/wukonwukon/article/details/7341270" target="_blank" rel="noopener">https://blog.csdn.net/wukonwukon/article/details/7341270</a></li>
+</ol>
 
-{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对任意 $n,k$ 上式都成立，于是只要储存C[i][j]（$ｊ\le i/2$）即可。
-时空复杂度为 $O(n\times\min(k,n-k))$
-方法二：逆元（费马小定理）费马小定理
-
-若 $p$ 是素数，那么对于任意整数 $a$ 
-a^p \equiv a \quad (mod\, p)如果 $p\nmid a$，上式等价于
-a^{p-1} \equiv 1 \quad (mod\, p)
-逆元
-
-对于正整数$a$和$p$，如果 $ax\equiv 1 \,(mod\, p)$，则 $x$ 的最小正整数解为 $a\, mod\, p$ 的逆元。
-
-模运算($\%$)对 $+,-,\tim
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2018/10/combination/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -764,6 +1078,9 @@ a^{p-1} \equiv 1 \quad (mod\, p)
 
     
 
+    
+      
+    
     
 
     
@@ -803,12 +1120,12 @@ a^{p-1} \equiv 1 \quad (mod\, p)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/Probability-Statistics/">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2018/10/02/Probability-Statistics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
       <meta itemprop="description" content="Stay Here!">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -822,9 +1139,8 @@ a^{p-1} \equiv 1 \quad (mod\, p)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2018/10/Probability-Statistics/" itemprop="url">
-                  Probability & Statistics
-                </a>
+                
+                <a href="/blog/2018/10/02/Probability-Statistics/" class="post-title-link" itemprop="url">Probability & Statistics</a>
               
             
           </h1>
@@ -875,6 +1191,7 @@ a^{p-1} \equiv 1 \quad (mod\, p)
 
           
             
+            
           
 
           
@@ -901,18 +1218,88 @@ a^{p-1} \equiv 1 \quad (mod\, p)
       
         
           
-          Chapter 1 Introduction to Statistics and Data AnalysisChapter 2 Probability2.1 Sample SpaceDefinition 2.1: The set of all possible outcomes of a statistical experiment is called the sample space.
-2.2 EventsDefinition 2.2: An event is a subset of a sample space.
-Definition 2.3: The complement of an event A with respect to S is the subset of all elements of S that are not in A. Denote A’=S\A.
-Definition 2.4: The intersection of two events A and B, denoted by $A\cap B$, is the event containing all 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2018/10/Probability-Statistics/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="Chapter-1-Introduction-to-Statistics-and-Data-Analysis"><a href="#Chapter-1-Introduction-to-Statistics-and-Data-Analysis" class="headerlink" title="Chapter 1 Introduction to Statistics and Data Analysis"></a>Chapter 1 Introduction to Statistics and Data Analysis</h2><h2 id="Chapter-2-Probability"><a href="#Chapter-2-Probability" class="headerlink" title="Chapter 2 Probability"></a>Chapter 2 Probability</h2><h3 id="2-1-Sample-Space"><a href="#2-1-Sample-Space" class="headerlink" title="2.1 Sample Space"></a>2.1 Sample Space</h3><p>Definition 2.1: The set of all possible outcomes of a statistical experiment is called the <strong>sample space</strong>.</p>
+<h3 id="2-2-Events"><a href="#2-2-Events" class="headerlink" title="2.2 Events"></a>2.2 Events</h3><p>Definition 2.2: An <strong>event</strong> is a subset of a sample space.</p>
+<p>Definition 2.3: The <strong>complement</strong> of an event A with respect to S is the subset of all elements of S that are not in A. Denote A’=S\A.</p>
+<p>Definition 2.4: The <strong>intersection</strong> of two events A and B, denoted by $A\cap B$, is the event containing all elements that are common to A and  B.</p>
+<p>Definition 2.5: Two events A and B are <strong>mutually exclusive</strong>, or disjoint, if $A\cap B=\emptyset$.</p>
+<p>Definition 2.6: The <strong>union</strong> of the two events A and B, denoted by the symbol $A\cup  B$, is the events containing all the elements that belong to A or B or both.</p>
+<h3 id="2-3-Counting-Sample-Pints"><a href="#2-3-Counting-Sample-Pints" class="headerlink" title="2.3 Counting Sample Pints"></a>2.3 Counting Sample Pints</h3><p>Definition 2.7: A <strong>permutation</strong> is an arrangement of all or part of a set of objects.</p>
+<p>Theorem 2.1: The number of permutations of n objects is $n!$.</p>
+<p>Theorem 2.2: The number of permutations of n distinct objects taken r at a time is $_nP_r=\frac{n!}{(n-r)!}$</p>
+<p>Theorem 2.3: The number of permutations of n objects arrange in a circle is $(n-1)!$.</p>
+<p>Theorem 2.4: The number of distinct permutations of n things of which $n_k$ are of a $k$th kind is<br>$$<br>\frac{n!}{n_1!n_2!\cdots n_k!}<br>$$<br>Theorem 2.5: The number of ways of partitioning a set of n objects into r cells with $n_i$th elements in the i-th cell, is<br>$$<br>{n\choose n_1,n_2,\cdots,n_r} = \frac{n!}{n_1!n_2!\cdots n_r!}<br>$$<br>where $n_1+\cdots+n_r=n$.</p>
+<p>Theorem 2.6: The number of combinations of n distinct objects taken r at a time is<br>$$<br>{n\choose r}=\frac{n!}{r!(n-r)!}<br>$$</p>
+<h3 id="2-4-Probability-of-an-Event"><a href="#2-4-Probability-of-an-Event" class="headerlink" title="2.4 Probability of an Event"></a>2.4 Probability of an Event</h3><p>Definition 2.9: The probability of an event A is the sum of the weights of all sample points in A. Therefore, </p>
+<ul>
+<li>$0\le P(A)\le1, P(\emptyset)=0 $, and $P(S)=1$.</li>
+</ul>
+<p>Rule 2.3: If an experiment can result in any one of N different equally likely outcomes, and if exactly n of these outcomes correspond to event A, then the probability of event A is $P(A)=n/N$.</p>
+<p>Theorem 2.7: If A and B are two events, then<br>$$<br>P(A\cup B)=P(A)+P(B)-P(A\cap B).<br>$$<br>Corollary 2.1: If A and B are mutually exclusive, then<br>$$<br>P(A\cup B)=P(A)+P(B).<br>$$<br>Theorem 2.8: For three events A, B, and C,<br>$$<br>P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C).<br>$$<br>Theorem 2.9: If A and A’ are complementary events, then $P(A)+P(A’)=1$.</p>
+<h3 id="2-6-Conditional-Probability-Independence-and-the-Product-Rule"><a href="#2-6-Conditional-Probability-Independence-and-the-Product-Rule" class="headerlink" title="2.6 Conditional Probability, Independence, and the Product Rule"></a>2.6 Conditional Probability, Independence, and the Product Rule</h3><p>Definition 2.10: The conditional probability of B, given A, denoted by $P(B|A)$, is defined by<br>$$<br>P(B|A)=\frac{P(A\cap B)}{P(A)}, P(A)&gt;0.<br>$$<br>Definition 2.11: Two events A and B are <strong>independent</strong> is and only if<br>$$<br>P(B|A)=P(B) \mbox{ or } P(A|B)=P(A).<br>$$<br>Theorem 2.10: If in an experiment the events A and B can both occur, then<br>$$<br>P(A\cap B)=P(A)P(B|A), P(A)&gt;0.<br>$$</p>
+<h3 id="2-7-Bayes’-Rule"><a href="#2-7-Bayes’-Rule" class="headerlink" title="2.7 Bayes’ Rule"></a>2.7 Bayes’ Rule</h3><p>Theorem 2.13: If the events $B_1,\cdots,B_k$ constitute a partition of the sample space $S$ such that $P(B_i)\ne0$, the for any event $A$ of $S$, </p>
+<p>$$<br>P(A)=\sum_{i=1}^kP(B_i\cap A)=\sum_{i=1}^kP(B_i)P(A|B_i).<br>$$</p>
+<p>Theorem 2.14: (Bayes’ Rule)</p>
+<p>$$<br>P(B_r|A)=\frac{P(B_r\cap A)}{\sum_{i=1}^kP(B_i\cap A)}=\frac{P(B_r)P( A|B_r)}{\sum_{i=1}^kP(B_i)P(A|B_i)}<br>$$</p>
+<h2 id="Chapter-3-Random-Variables-and-Probability-Distributions"><a href="#Chapter-3-Random-Variables-and-Probability-Distributions" class="headerlink" title="Chapter 3 Random Variables and Probability Distributions"></a>Chapter 3 Random Variables and Probability Distributions</h2><p>Def. 3.1: A <strong>random variable</strong> is a function that associates a real number with each element in the sample space.</p>
+<h3 id="3-1-Concept-of-a-Random-Variable"><a href="#3-1-Concept-of-a-Random-Variable" class="headerlink" title="3.1 Concept of a Random Variable"></a>3.1 Concept of a Random Variable</h3><h3 id="3-2-Discrete-Probability-Distributions"><a href="#3-2-Discrete-Probability-Distributions" class="headerlink" title="3.2 Discrete Probability Distributions"></a>3.2 Discrete Probability Distributions</h3><h3 id="3-3-Continuous-Probability-Distributions"><a href="#3-3-Continuous-Probability-Distributions" class="headerlink" title="3.3 Continuous Probability Distributions"></a>3.3 Continuous Probability Distributions</h3><h3 id="3-4-Joint-Probability-Distributions"><a href="#3-4-Joint-Probability-Distributions" class="headerlink" title="3.4 Joint Probability Distributions"></a>3.4 Joint Probability Distributions</h3><p>Def. 3.10: (Marginal Distribution)<br>$$<br>g(x)=\int_{-\infty}^{\infty}f(x,y)dy.<br>$$<br>Def. 3.11: (Conditional Distribution)<br>$$<br>f(y|x)=\frac{f(x,y)}{g(x)}.<br>$$<br>Def 3.13: (mutually Statistically Independent)<br>$$<br>f(x_1,\cdots,x_n) = f_1(x_1)\cdots f_n(x_n)<br>$$</p>
+<h2 id="Chapter-4-Mathematical-Expectation"><a href="#Chapter-4-Mathematical-Expectation" class="headerlink" title="Chapter 4 Mathematical Expectation"></a>Chapter 4 Mathematical Expectation</h2><h3 id="4-1-Mean-of-a-Random-Variable"><a href="#4-1-Mean-of-a-Random-Variable" class="headerlink" title="4.1 Mean of a Random Variable"></a>4.1 Mean of a Random Variable</h3><p>Def. 4.1: (expected value / mean)<br>$$<br>\mu=E(x)<br>$$</p>
+<h3 id="4-2-Variance-and-Covariance-of-Random-Variables"><a href="#4-2-Variance-and-Covariance-of-Random-Variables" class="headerlink" title="4.2 Variance and Covariance of Random Variables"></a>4.2 Variance and Covariance of Random Variables</h3><p>Def 4.3: (variance)<br>$$<br>\sigma^2=E[(X-\mu)^2]<br>$$<br>The. 4.2: $\sigma^2=E(X^2)-\mu^2$</p>
+<p>Def. 4.4: (covariance)<br>$$<br>\sigma_{XY}=E[(X-\mu_X)(Y-\mu_Y)]<br>$$<br>The. 4.4: $\sigma_{XY} = E(XY)-\mu_X\mu_Y$</p>
+<p>Def. 4.5: (correlation coefficient) $\rho_{XY}=\sigma_{XY}/\sigma_X\sigma_Y$</p>
+<h3 id="4-3-Means-and-Variances-of-Linear-Combinations-of-Random-Variables"><a href="#4-3-Means-and-Variances-of-Linear-Combinations-of-Random-Variables" class="headerlink" title="4.3 Means and Variances of Linear Combinations of Random Variables"></a>4.3 Means and Variances of Linear Combinations of Random Variables</h3><p>The. 4.7: $E[g(X,Y)\pm h(X,Y)] = E[g(X,Y)]\pm [h(X,Y)]$</p>
+<p>The. 4.8: If X and Y are independent, then $E(XY)=E(X)E(Y)$ </p>
+<p>Approximation</p>
+<ul>
+<li>$E[g(X)]\approx g(\mu_x)+\partial^2g(x)/\partial x^2|_{x=\mu_x} \sigma_X^2/2$</li>
+<li>$Var[g(X)]\approx [\partial g(x)/\partial x]^2_{x=\mu_X}\sigma_X^2$</li>
+</ul>
+<h3 id="4-4-Chebyshev’s-Theorem"><a href="#4-4-Chebyshev’s-Theorem" class="headerlink" title="4.4 Chebyshev’s Theorem"></a>4.4 Chebyshev’s Theorem</h3><p>The. 4.10: $P(\mu-k\sigma&lt;X&lt;\mu+k\sigma)\ge 1-1/k^2$</p>
+<h2 id="Chapter-5-Some-Discrete-Probability-Distributions"><a href="#Chapter-5-Some-Discrete-Probability-Distributions" class="headerlink" title="Chapter 5 Some Discrete Probability Distributions"></a>Chapter 5 Some Discrete Probability Distributions</h2><h3 id="5-1-Introduction-and-Motivation"><a href="#5-1-Introduction-and-Motivation" class="headerlink" title="5.1 Introduction and Motivation"></a>5.1 Introduction and Motivation</h3><h3 id="5-2-Binomial-and-Multinomial-Distributions"><a href="#5-2-Binomial-and-Multinomial-Distributions" class="headerlink" title="5.2 Binomial and Multinomial Distributions"></a>5.2 Binomial and Multinomial Distributions</h3><p>Binomial Distribution $b(x;n,p)={n\choose x}p^xq^{n-x}$</p>
+<p>The. 5.1: The mean and variance of binomial distribution are $\mu=np$ and $\sigma^2=npq$.</p>
+<p>Multinomial Distribution<br>$$<br>f(x_1,\cdots,x_k;p_1,\cdots,p_k) = {n\choose {x_1,\cdots,x_k}} p_1^{x_1}\cdots p_k^{x_k} = \frac{n!}{x_1!\cdots x_k!} p_1^{x_1}\cdots p_k^{x_k}<br>$$</p>
+<h3 id="5-3-Hypergeometric-Distribution"><a href="#5-3-Hypergeometric-Distribution" class="headerlink" title="5.3 Hypergeometric Distribution"></a>5.3 Hypergeometric Distribution</h3><p>Hypergeometric Distribution<br>$$<br>h(x;N,n,k)=\frac{~{k\choose n}{N-k\choose n-x}}{N\choose n}<br>$$<br>The. 5.2: $\mu=nk/N$ and $\sigma^2 = \frac{N-n}{N-1}n\frac{k}{N}(1-\frac{k}{N})$</p>
+<h3 id="5-4-Negative-Binomial-and-Geometric-Distributions"><a href="#5-4-Negative-Binomial-and-Geometric-Distributions" class="headerlink" title="5.4 Negative Binomial and Geometric Distributions"></a>5.4 Negative Binomial and Geometric Distributions</h3><p>Negative Binomial Distribution $B(k,p)$<br>$$<br>b^*(x;k,p) = {x-1 \choose k-1} p^kq^{x-k}<br>$$<br>Geometric Distribution<br>$$<br>g(x;p)=pq^{x-1}<br>$$<br>The. 5.3: $\mu=1/p$ and $\sigma^2=(1-p)/p^2$</p>
+<h3 id="5-5-Poisson-Distribution-and-the-Poisson-Process"><a href="#5-5-Poisson-Distribution-and-the-Poisson-Process" class="headerlink" title="5.5 Poisson Distribution and the Poisson Process"></a>5.5 Poisson Distribution and the Poisson Process</h3><p>Poisson Distribution<br>$$<br>p(x;\lambda t)=\frac{e^{-\lambda t}(\lambda t)^x}{x!}<br>$$<br>The. 5.4: $\sigma^2=\mu=\lambda t$</p>
+<p>The. 5.5: When $np\to \mu$ as $n\to \infty$, $b(x;n,p)\to p(x;\mu)$</p>
+<h3 id="5-6-Potential-Misconceptions-and-Hazards"><a href="#5-6-Potential-Misconceptions-and-Hazards" class="headerlink" title="5.6 Potential Misconceptions and Hazards"></a>5.6 Potential Misconceptions and Hazards</h3><h2 id="Chapter-6-Some-Continuous-Probability-Distributions"><a href="#Chapter-6-Some-Continuous-Probability-Distributions" class="headerlink" title="Chapter 6 Some Continuous Probability Distributions"></a>Chapter 6 Some Continuous Probability Distributions</h2><h3 id="6-1-Continuous-Uniform-Distribution"><a href="#6-1-Continuous-Uniform-Distribution" class="headerlink" title="6.1 Continuous Uniform Distribution"></a>6.1 Continuous Uniform Distribution</h3><p>Uniform Distribution (rectangular distribution)<br>$$<br>f(x;A,B) =<br>\begin{cases}<br>\frac{1}{B-A}, &amp; A\le x\le B,\<br>0, &amp; \mbox{elsewhere}.<br>\end{cases}<br>$$<br>The. 6.1: $\mu=(A+B)/2, \sigma^2=(B-A)^2/12$.</p>
+<h3 id="6-2-Normal-Distribution"><a href="#6-2-Normal-Distribution" class="headerlink" title="6.2 Normal Distribution"></a>6.2 Normal Distribution</h3><p>Normal/Gaussian Distribution $\mathcal N(\mu,\sigma^2)$<br>$$<br>n(x;\mu,\sigma) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)<br>$$</p>
+<h3 id="6-3-Areas-under-the-Normal-Curve"><a href="#6-3-Areas-under-the-Normal-Curve" class="headerlink" title="6.3 Areas under the Normal Curve"></a>6.3 Areas under the Normal Curve</h3><h3 id="6-4-Applications-of-the-Normal-Distribution"><a href="#6-4-Applications-of-the-Normal-Distribution" class="headerlink" title="6.4 Applications of the Normal Distribution"></a>6.4 Applications of the Normal Distribution</h3><h3 id="6-5-Normal-Approximation-to-the-Binomial"><a href="#6-5-Normal-Approximation-to-the-Binomial" class="headerlink" title="6.5 Normal Approximation to the Binomial"></a>6.5 Normal Approximation to the Binomial</h3><p>The. 6.3: If $X\sim B(n,p)$, then<br>$$<br>Z=\frac{X-np}{\sqrt{npq}},<br>$$<br>as $n\to\infty$, is the standard normal distribution $n(z;0,1)$.<br>$$<br>\begin{align}<br>P(X\le x) &amp; = \sum_{k=0}^xb(k;n,p)\<br>&amp;\approx P(Z\le\frac{x+0.5-np}{\sqrt{npq}}),<br>\end{align}<br>$$<br>and the approximation will be good if $np,n(1-p)\ge 5$.</p>
+<h3 id="6-6-Gamma-and-Exponential-Distributions"><a href="#6-6-Gamma-and-Exponential-Distributions" class="headerlink" title="6.6 Gamma and Exponential Distributions"></a>6.6 Gamma and Exponential Distributions</h3><p>Def. 6.2: Gamma Function<br>$$<br>\Gamma(\alpha) = \int_0^\infty x^{\alpha-1}e^{-x}dx, \quad \alpha&gt;0.<br>$$<br>Properties</p>
+<ul>
+<li>$\Gamma(n) =  n!$</li>
+<li>$\Gamma(\alpha)=(\alpha-1)\Gamma(\alpha-1)$</li>
+<li>$\Gamma(1/2)=\sqrt{\pi}$</li>
+</ul>
+<p>Gamma Distribution<br>$$<br>f(x;\alpha,\beta) =<br>\begin{cases}<br>\frac{x^{\alpha-1}e^{-x/\beta}}{\beta^\alpha\Gamma(\alpha)}, &amp; x&gt;0,\<br>0, &amp; x\le 0.<br>\end{cases}<br>$$<br>where $\alpha,\beta&gt;0$</p>
+<ul>
+<li>$\mu=\alpha\beta$</li>
+<li>$\sigma^2=\alpha\beta^2$</li>
+</ul>
+<p>Exponential Distribution<br>$$<br>f(x;\beta) =<br>\begin{cases}<br>\frac{e^{-x/\beta}}{\beta}, &amp; x&gt;0,\<br>0, &amp; x\le 0.<br>\end{cases}<br>$$<br>where $\beta&gt;0$.</p>
+<ul>
+<li>$\mu=\beta$</li>
+<li>$\sigma^2=\beta^2$</li>
+</ul>
+<h3 id="6-7-Chi-Squared-Distribution"><a href="#6-7-Chi-Squared-Distribution" class="headerlink" title="6.7 Chi-Squared Distribution"></a>6.7 Chi-Squared Distribution</h3><p>$$<br>f(x;v) =<br>\begin{cases}<br>\frac{x^{v/2-1}e^{-x}}{\beta^{v/2}\Gamma(v/2)}, &amp; x&gt;0,\<br>0, &amp; x\le 0.<br>\end{cases}<br>$$</p>
+<p>where $v&gt;0$.</p>
+<ul>
+<li>$\mu=v$, $\sigma^2=2v$.</li>
+</ul>
+<h3 id="6-8-Beta-Distribution"><a href="#6-8-Beta-Distribution" class="headerlink" title="6.8 Beta Distribution"></a>6.8 Beta Distribution</h3><h3 id="6-9-Lognormal-Distribution"><a href="#6-9-Lognormal-Distribution" class="headerlink" title="6.9 Lognormal Distribution"></a>6.9 Lognormal Distribution</h3><h3 id="6-10-Weibull-Distribution"><a href="#6-10-Weibull-Distribution" class="headerlink" title="6.10 Weibull Distribution"></a>6.10 Weibull Distribution</h3><h2 id="Chapter-7-Functions-of-Random-Variables"><a href="#Chapter-7-Functions-of-Random-Variables" class="headerlink" title="Chapter 7 Functions of Random Variables"></a>Chapter 7 Functions of Random Variables</h2><h2 id="Chapter-8-Fundamental-Sampling-Distributions-and-Data-Descriptions"><a href="#Chapter-8-Fundamental-Sampling-Distributions-and-Data-Descriptions" class="headerlink" title="Chapter 8 Fundamental Sampling Distributions and Data Descriptions"></a>Chapter 8 Fundamental Sampling Distributions and Data Descriptions</h2><h3 id="8-1-Random-Sampling"><a href="#8-1-Random-Sampling" class="headerlink" title="8.1 Random Sampling"></a>8.1 Random Sampling</h3><p>Def 8.1: A <strong>population</strong> consists of the totality of the observations with which we are concerned.</p>
+<p>Def 8.2: A <strong>sample</strong> is a subset of a population</p>
+<p>Def 8.3: x are independent RVs. the joint probability distribution $f(x_1,\cdots,x_n) = f(x_1)\cdots f(x_n)$.</p>
+<h3 id="8-2-Some-Important-Statistics"><a href="#8-2-Some-Important-Statistics" class="headerlink" title="8.2 Some Important Statistics"></a>8.2 Some Important Statistics</h3><p>Def 8.4: Any function of the random variables constituting a random sample is called a statistic.</p>
+<h3 id="8-3-Sampling-Distributions"><a href="#8-3-Sampling-Distributions" class="headerlink" title="8.3 Sampling Distributions"></a>8.3 Sampling Distributions</h3><p>Def 8.5: The probability distribution of a statistic is called a sampling distribution.</p>
+<h3 id="8-4-Sampling-Distribution-of-Means-and-the-Central-Limit-Theorem"><a href="#8-4-Sampling-Distribution-of-Means-and-the-Central-Limit-Theorem" class="headerlink" title="8.4 Sampling Distribution of Means and the Central Limit Theorem"></a>8.4 Sampling Distribution of Means and the Central Limit Theorem</h3><p>Them 8.2: $Z=\frac{\bar X-\mu}{\sigma/\sqrt{n}}$ as $n\to\infty$, is the standard normal distribution $n(z;,0,1)$.</p>
+<p>Them 8.3:  $Z=\frac{\bar X_1-\bar X_2-(\mu_1-\mu_2)}{\sqrt{\sigma_1^2/n_1+\sigma_2^2/n_2}}$ is approximately a standard normal variable.</p>
+<h3 id="8-5-Sampling-Distribution-of-S-2"><a href="#8-5-Sampling-Distribution-of-S-2" class="headerlink" title="8.5 Sampling Distribution of S^2^"></a>8.5 Sampling Distribution of S^2^</h3><p>Them 8.4:<br>$$<br>\chi^2=\frac{(n-1)S^2}{\sigma^2}=\sum^n_{i=1}\frac{(X_i-\bar X)}{\sigma^2}<br>$$<br>has a chi-squared distribution with $v=n-1$ degrees of freedom.</p>
+<h3 id="8-6-t-Distribution"><a href="#8-6-t-Distribution" class="headerlink" title="8.6 t-Distribution"></a>8.6 t-Distribution</h3><p>Them 8.5: Let $Z \sim  n(0,1), V\sim \chi^2(v)$ ,$T=Z/\sqrt{V/v}$ is given by the density function<br>$$<br>h(t) = \frac{\Gamma[(v+1)/2]}{\Gamma(v/2)\sqrt{\pi v}}(1+t^2/v)^{-(v+1)/2}<br>$$<br>of the t-distribution with $v$ degree of freedom.</p>
+<p>The t-distribution is used extensively in problems that deal with inference about the population mean or in problems that involve comparative samples.</p>
+<h3 id="8-7-F-Distribution"><a href="#8-7-F-Distribution" class="headerlink" title="8.7 F-Distribution"></a>8.7 F-Distribution</h3><p>Them 8.6: </p>
+<p>The F-distribution is called the variance ratio distribution.</p>
+<h2 id="Chapter-9-One-and-Two-Sample-Estimation-Problems"><a href="#Chapter-9-One-and-Two-Sample-Estimation-Problems" class="headerlink" title="Chapter 9 One- and Two-Sample Estimation Problems"></a>Chapter 9 One- and Two-Sample Estimation Problems</h2><h2 id="Chapter-10-One-and-Two-Sample-Tests-of-Hypotheses"><a href="#Chapter-10-One-and-Two-Sample-Tests-of-Hypotheses" class="headerlink" title="Chapter 10 One- and Two-Sample Tests of Hypotheses"></a>Chapter 10 One- and Two-Sample Tests of Hypotheses</h2>
+          
         
       
     </div>
@@ -925,6 +1312,9 @@ Definition 2.4: The intersection of two events A and B, denoted by $A\cap B$, is
 
     
 
+    
+      
+    
     
 
     
@@ -964,12 +1354,12 @@ Definition 2.4: The intersection of two events A and B, denoted by $A\cap B$, is
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2018/10/a-new-post/">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2018/10/02/a-new-post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
       <meta itemprop="description" content="Stay Here!">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -983,9 +1373,8 @@ Definition 2.4: The intersection of two events A and B, denoted by $A\cap B$, is
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2018/10/a-new-post/" itemprop="url">
-                  a new post
-                </a>
+                
+                <a href="/blog/2018/10/02/a-new-post/" class="post-title-link" itemprop="url">a new post</a>
               
             
           </h1>
@@ -1024,6 +1413,7 @@ Definition 2.4: The intersection of two events A and B, denoted by $A\cap B$, is
 
           
             
+            
           
 
           
@@ -1050,38 +1440,35 @@ Definition 2.4: The intersection of two events A and B, denoted by $A\cap B$, is
       
         
           
-          section 1sec 2this is test poset 
+            <h1 id="section-1"><a href="#section-1" class="headerlink" title="section 1"></a>section 1</h1><h2 id="sec-2"><a href="#sec-2" class="headerlink" title="sec 2"></a>sec 2</h2><p>this is test poset </p>
+<ul>
+<li>item 1</li>
+<li>item 2<ul>
+<li>sub item<ul>
+<li>sub sub item</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>item 3</li>
+</ul>
+<h2 id="sec-3"><a href="#sec-3" class="headerlink" title="sec 3"></a>sec 3</h2><p>comments</p>
+<blockquote>
+<p>the site is comming from what is called the fucking shit<br>and nothing is of my …</p>
+</blockquote>
+<p>coding:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-item 1
-item 2
-sub item
-sub sub item
+<p><em>python</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array(range(<span class="number">3</span>))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
 
-
-
-
-item 3
-
-sec 3comments
-
-the site is comming from what is called the fucking shitand nothing is of my …
-
-coding:
-1234#include&lt;iostream&gt;int main() &#123;    return 0;&#125;
-python123import numpy as npa = np.array(range(3))print(a)
-bold font
-delete
-math formula
-\max_{i\in N} f(x)^2+\cos(g(x))\tan(x)inline math $g(x)=x^2+\sin(x)+\frac{x}{4}$
+<p><strong>bold font</strong></p>
+<p><del>delete</del></p>
+<p>math formula</p>
+<p>$$ \max_{i\in N} f(x)^2+\cos(g(x))\tan(x) $$</p>
+<p>inline math $g(x)=x^2+\sin(x)+\frac{x}{4}$</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2018/10/a-new-post/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1094,6 +1481,9 @@ math formula
 
     
 
+    
+      
+    
     
 
     
@@ -1133,12 +1523,12 @@ math formula
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2017/02/Test-Post/">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2017/02/18/Test-Post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
       <meta itemprop="description" content="Stay Here!">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1152,9 +1542,8 @@ math formula
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/02/Test-Post/" itemprop="url">
-                  Test Post
-                </a>
+                
+                <a href="/blog/2017/02/18/Test-Post/" class="post-title-link" itemprop="url">Test Post</a>
               
             
           </h1>
@@ -1205,6 +1594,7 @@ math formula
 
           
             
+            
           
 
           
@@ -1231,20 +1621,14 @@ math formula
       
         
           
-          I am a test. $a=b+c$
-f(x) = \sum_{i}\frac{1}{i^2}
+            <p>I am a test. $a=b+c$<br>$$f(x) = \sum_{i}\frac{1}{i^2}$$</p>
+<p><img src="./b.jpg" alt="name" title="not right"></p>
+<p>&lt;img src=”b.jpg” title=”not right”&gt;</p>
 
 
-
+<iframe src="https://github.com/xspin/sokoban/blob/master/index.html" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2017/02/Test-Post/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1257,6 +1641,9 @@ f(x) = \sum_{i}\frac{1}{i^2}
 
     
 
+    
+      
+    
     
 
     
@@ -1296,12 +1683,12 @@ f(x) = \sum_{i}\frac{1}{i^2}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xspin.github.io/blog/blog/2017/01/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2017/02/17/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xspin">
       <meta itemprop="description" content="Stay Here!">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1315,9 +1702,8 @@ f(x) = \sum_{i}\frac{1}{i^2}
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/01/hello-world/" itemprop="url">
-                  Hello World
-                </a>
+                
+                <a href="/blog/2017/02/17/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
               
             
           </h1>
@@ -1342,7 +1728,7 @@ f(x) = \sum_{i}\frac{1}{i^2}
                 
               
 
-              <time title="Created: 2017-01-02 23:05:51" itemprop="dateCreated datePublished" datetime="2017-01-02T23:05:51+08:00">2017-01-02</time>
+              <time title="Created: 2017-02-17 13:54:48" itemprop="dateCreated datePublished" datetime="2017-02-17T13:54:48+08:00">2017-02-17</time>
             
 
             
@@ -1359,7 +1745,7 @@ f(x) = \sum_{i}\frac{1}{i^2}
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-20 13:18:55" itemprop="dateModified" datetime="2018-10-20T13:18:55+08:00">2018-10-20</time>
+                <time title="Modified: 2019-06-13 15:54:26" itemprop="dateModified" datetime="2019-06-13T15:54:26+08:00">2019-06-13</time>
               
             
           </span>
@@ -1367,6 +1753,7 @@ f(x) = \sum_{i}\frac{1}{i^2}
           
 
           
+            
             
           
 
@@ -1394,26 +1781,21 @@ f(x) = \sum_{i}\frac{1}{i^2}
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More info: Server
-Generate static files1$ hexo generate
-More info: Generating
-Deploy to remote sites1$ hexo deploy
-More info: Deployment
-Solutions for Bugs or Problems
-https://www.jianshu.com/p/a9f26f4cd4e6
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2017/01/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
         
       
     </div>
@@ -1426,6 +1808,9 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 
     
 
+    
+      
+    
     
 
     
@@ -1471,23 +1856,20 @@ https://www.jianshu.com/p/a9f26f4cd4e6
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/blog/uploads/avatar.png"
-                alt="xspin" />
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.gif" alt="xspin">
             
               <p class="site-author-name" itemprop="name">xspin</p>
-              <p class="site-description motion-element" itemprop="description">Stay Here!</p>
+              <div class="site-description motion-element" itemprop="description">Stay Here!</div>
           </div>
 
           
@@ -1509,7 +1891,11 @@ https://www.jianshu.com/p/a9f26f4cd4e6
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/blog/tags/index.html">
+                  
+                    
+                      <a href="/blog/tags/">
+                    
+                  
                     
                     
                       
@@ -1536,11 +1922,7 @@ https://www.jianshu.com/p/a9f26f4cd4e6
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1551,22 +1933,35 @@ https://www.jianshu.com/p/a9f26f4cd4e6
           
 
           
+
+          
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/xspin" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/xspin" title="GitHub &rarr; https://github.com/xspin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:nipse@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:nipse@gmail.com" title="E-Mail &rarr; mailto:nipse@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                 </span>
               
             </div>
           
 
-          
           
 
           
@@ -1575,50 +1970,10 @@ https://www.jianshu.com/p/a9f26f4cd4e6
           
             
           
-          <div class="header-inner">
-  <div class="site-brand-wrapper" >
-
-    <div class="site-meta"  style="margin-left:110px; float:none;">
-      <div class="custom-logo-site-title">
-        <a href="/" class="brand" rel="start" style="opacity: 1;">
-          <span class="logo-line-before"><i class="" style="transform: translateX(100%);"></i></span>
-          <span class="site-title" style=" opacity: 1; top: 0px;">
-          <i class="fa fa-cog fa-spin" style="margin-left:0px;"></i> xspin
-          </span>
-          <span class="logo-line-after"><i class="" style="transform: translateX(-100%);"></i></span>
-        </a>
-      </div>
-    </div>
-
-  <nav class="site-nav nav-vert">
-    <ul id="menu" class="menu">
-      <li class="menu-item menu-item-home" style="opacity: 1; transform: translateY(0px);">
-        <a href="/blog/" rel="section">
-          <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
-      </li>
-      <li class="menu-item menu-item-archives" style="opacity: 1; transform: translateY(0px);">
-        <a href="/blog/archives/" rel="section">
-          <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
-      </li>
-      <li class="menu-item menu-item-about" style="opacity: 1; transform: translateY(0px);">
-        <a href="/blog/about/" rel="section">
-          <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-      </li>
-    </ul>
-  </nav>
-
-<style type="text/css">
-  .nav-vert ul {
-    display: table-row;
-  }
-  .nav-vert {
-    align: center;
-    margin-left: 25px;
-  }
-</style>
+          
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1626,6 +1981,7 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 
     </div>
   </aside>
+  
 
 
         
@@ -1646,9 +2002,7 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 </div>
 
 
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
 
 
 
@@ -1656,7 +2010,7 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a></div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
 
 
 
@@ -1682,7 +2036,7 @@ https://www.jianshu.com/p/a9f26f4cd4e6
     
 
     
-	
+
     
 
     
@@ -1690,7 +2044,7 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1710,6 +2064,10 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 
 
   
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -1724,59 +2082,48 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 
 
   
-  
-    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/blog/lib/jquery/index.js?v=3.4.1"></script>
 
   
-  
-    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
-  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.4.2"></script>
+  <script src="/blog/js/utils.js?v=7.1.2"></script>
 
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.4.2"></script>
+  <script src="/blog/js/motion.js?v=7.1.2"></script>
 
 
 
   
   
 
+
+  <script src="/blog/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
   
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.4.2"></script>
-
-
-
-  
-
+  <script src="/blog/js/next-boot.js?v=7.1.2"></script>
 
 
   
 
+  
 
+  
 
-
-
-
-
+  
 
 
 
@@ -1784,9 +2131,6 @@ https://www.jianshu.com/p/a9f26f4cd4e6
 
 
 
-
-
-  
 
   
 
@@ -1815,33 +2159,18 @@ https://www.jianshu.com/p/a9f26f4cd4e6
   
 
   
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
-  
 
 
   
+
+  
+
+  
+
+  
+
+  
+
   
 
   
