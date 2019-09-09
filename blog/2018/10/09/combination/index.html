@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="xspin">
 <meta property="og:description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$ 为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-10T02:50:13.948Z">
+<meta property="og:updated_time" content="2019-09-09T13:59:45.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组合数求解">
 <meta name="twitter:description" content="方法一：Pascal公式打表Pascal公式如下$${n\choose k} = {n-1 \choose k-1} + {n-1\choose k}$$ 为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一">
@@ -371,7 +371,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-10 10:50:13" itemprop="dateModified" datetime="2018-10-10T10:50:13+08:00">2018-10-10</time>
+                <time title="Modified: 2019-09-09 21:59:45" itemprop="dateModified" datetime="2019-09-09T21:59:45+08:00">2019-09-09</time>
               
             
           </span>
@@ -408,6 +408,8 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
         <h2 id="方法一：Pascal公式打表"><a href="#方法一：Pascal公式打表" class="headerlink" title="方法一：Pascal公式打表"></a>方法一：Pascal公式打表</h2><p><a href="http://mathworld.wolfram.com/PascalsFormula.html" target="_blank" rel="noopener"><strong>Pascal公式</strong></a>如下<br>$$<br>{n\choose k} = {n-1 \choose k-1} + {n-1\choose k}<br>$$</p>
 <p>为计算${n\choose k}$，根据上面递推公式，依次计算一个二维数组C[n+1][k+1]即可。另外，根据等式 ${n\choose k}={n\choose n-k}$ 可以压缩数组大小为 C[n+1][min(k,n-k)+1]。进一步，对任意 $n,k$ 上式都成立，于是只要储存C[i][j]（$ｊ\le i/2$）即可。</p>
 <p>时空复杂度为 $O(n\times\min(k,n-k))$</p>
+<a id="more"></a>
+
 <h2 id="方法二：逆元（费马小定理）"><a href="#方法二：逆元（费马小定理）" class="headerlink" title="方法二：逆元（费马小定理）"></a>方法二：逆元（费马小定理）</h2><p><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="noopener"><strong>费马小定理</strong></a></p>
 <blockquote>
 <p>若 $p$ 是素数，那么对于任意整数 $a$<br>$$a^p \equiv a \quad (mod, p)$$<br>如果 $p\nmid a$，上式等价于<br>$$a^{p-1} \equiv 1 \quad (mod, p)$$</p>
