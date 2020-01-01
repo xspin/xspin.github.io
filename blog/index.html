@@ -317,6 +317,155 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2020/01/01/Calculator-Compiler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xspin">
+      <meta itemprop="description" content="Stay Here!">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xspin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2020/01/01/Calculator-Compiler/" class="post-title-link" itemprop="url">Calculator Compiler</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-01-01 15:03:17 / Modified: 16:50:30" itemprop="dateCreated datePublished" datetime="2020-01-01T15:03:17+08:00">2020-01-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h2 id="lex-词法分析"><a href="#lex-词法分析" class="headerlink" title="lex 词法分析"></a>lex 词法分析</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C代码部分</span></span><br><span class="line">%&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"y.tab.h"</span></span></span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则匹配</span></span><br><span class="line">numbers ([<span class="number">0</span><span class="number">-9</span>])+</span><br><span class="line">plus <span class="string">"+"</span></span><br><span class="line">minus <span class="string">"-"</span></span><br><span class="line">times <span class="string">"*"</span></span><br><span class="line">divide <span class="string">"/"</span></span><br><span class="line">modulo <span class="string">"%"</span></span><br><span class="line">lp <span class="string">"("</span></span><br><span class="line">rp <span class="string">")"</span></span><br><span class="line">chars [A-Za-z]</span><br><span class="line">words &#123;chars&#125;+</span><br><span class="line">delim [ \n\t]</span><br><span class="line">ws &#123;delim&#125;*</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模式匹配规则及补充C代码处理</span></span><br><span class="line">%%</span><br><span class="line">&#123;numbers&#125; &#123;</span><br><span class="line">    <span class="built_in">sscanf</span>(yytext, <span class="string">"%d"</span>, &amp;yylval.val);</span><br><span class="line">    <span class="keyword">return</span> INTEGER;</span><br><span class="line">&#125;</span><br><span class="line">&#123;plus&#125; &#123;<span class="keyword">return</span> PLUS;&#125;</span><br><span class="line">&#123;minus&#125; &#123;<span class="keyword">return</span> MINUS;&#125;</span><br><span class="line">&#123;times&#125; &#123;<span class="keyword">return</span> TIMES;&#125;</span><br><span class="line">&#123;divide&#125; &#123;<span class="keyword">return</span> DIVIDE;&#125;</span><br><span class="line">&#123;modulo&#125; &#123;<span class="keyword">return</span> MODULO;&#125;</span><br><span class="line">&#123;lp&#125; &#123;<span class="keyword">return</span> LP;&#125;</span><br><span class="line">&#123;rp&#125; &#123;<span class="keyword">return</span> RP;&#125;</span><br><span class="line">&#123;ws&#125;       ;</span><br><span class="line">. &#123;<span class="built_in">printf</span>(<span class="string">"Error"</span>);<span class="built_in">exit</span>(<span class="number">1</span>);&#125;  </span><br><span class="line">%%</span><br></pre></td></tr></table></figure>
+
+<h2 id="yacc-语法分析"><a href="#yacc-语法分析" class="headerlink" title="yacc 语法分析"></a>yacc 语法分析</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// c代码部分</span></span><br><span class="line">%&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lex.yy.c"</span> <span class="comment">//lex生成的分词c代码</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cal.h"</span>  <span class="comment">//自定义的数据结构</span></span></span><br><span class="line">ExprAST *p;</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数据类型</span></span><br><span class="line">%<span class="keyword">union</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ExprAST *ast;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明项的返回数据</span></span><br><span class="line">%type &lt;val&gt; INTEGER</span><br><span class="line">%type &lt;ast&gt; expr factor</span><br><span class="line"></span><br><span class="line"><span class="comment">// 记号</span></span><br><span class="line">%token BRACKET INTEGER PLUS MINUS TIMES DIVIDE MODULO LP RP </span><br><span class="line"></span><br><span class="line">%left PLUS MINUS</span><br><span class="line">%left TIMES DIVIDE </span><br><span class="line">%left MODULO</span><br><span class="line"></span><br><span class="line"><span class="comment">// 语法规则及相应处理代码</span></span><br><span class="line">%%</span><br><span class="line">formula: </span><br><span class="line">    expr &#123;<span class="built_in">printf</span>(<span class="string">"Expr_AST: \n"</span>); <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; s; $<span class="number">1</span>-&gt;print(s);&#125;;</span><br><span class="line"></span><br><span class="line">expr: </span><br><span class="line">    expr PLUS expr &#123;p = <span class="keyword">new</span> ExprAST(PLUS); p-&gt;insert($<span class="number">1</span>, $<span class="number">3</span>); $$ = p;&#125;</span><br><span class="line">	| expr MINUS expr &#123;p = <span class="keyword">new</span> ExprAST(MINUS); p-&gt;insert($<span class="number">1</span>, $<span class="number">3</span>); $$ = p;&#125;</span><br><span class="line">	| expr TIMES expr &#123;p = <span class="keyword">new</span> ExprAST(TIMES); p-&gt;insert($<span class="number">1</span>, $<span class="number">3</span>); $$ = p;&#125;</span><br><span class="line">	| expr DIVIDE expr &#123;p = <span class="keyword">new</span> ExprAST(DIVIDE); p-&gt;insert($<span class="number">1</span>, $<span class="number">3</span>); $$ = p;&#125;</span><br><span class="line">	| expr MODULO expr &#123;p = <span class="keyword">new</span> ExprAST(MODULO); p-&gt;insert($<span class="number">1</span>, $<span class="number">3</span>); $$ = p;&#125;</span><br><span class="line">	| LP expr RP &#123;p = <span class="keyword">new</span> ExprAST(BRACKET); p-&gt;insert($<span class="number">2</span>); $$ = p;&#125;</span><br><span class="line">    | factor &#123;$$ = $<span class="number">1</span>;&#125;</span><br><span class="line">	;</span><br><span class="line"></span><br><span class="line">factor:</span><br><span class="line">    INTEGER &#123;p = <span class="keyword">new</span> ExprAST($<span class="number">1</span>); $$ = p;&#125;</span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">%%</span><br><span class="line"></span><br><span class="line"><span class="comment">// main及错误处理等函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> yyparse();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">yyerror</span><span class="params">(<span class="keyword">char</span>* s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"%s"</span>,s);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">yywrap</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>cal.h</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __cal_H__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __cal_H__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExprAST</span> &#123;</span></span><br><span class="line">    <span class="keyword">bool</span> isleaf;</span><br><span class="line">    <span class="keyword">int</span> op;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> mark;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;ExprAST*&gt; childs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ExprAST(<span class="keyword">int</span> op) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;op = op;</span><br><span class="line">        isleaf = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">switch</span>(op) &#123;</span><br><span class="line">            <span class="keyword">case</span> MINUS: mark = <span class="string">"MINUS"</span>; <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> PLUS: mark = <span class="string">"PLUS"</span>; <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> TIMES: mark = <span class="string">"TIMES"</span>; <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> DIVIDE: mark = <span class="string">"DIVIDE"</span>; <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> MODULO: mark = <span class="string">"MODULO"</span>; <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> BRACKET: mark = <span class="string">"BRACKET"</span>; <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>: mark = <span class="string">"UNK"</span>; <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(ExprAST* a=<span class="literal">NULL</span>, ExprAST* b=<span class="literal">NULL</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a) childs.push_back(a);</span><br><span class="line">        <span class="keyword">if</span>(b) childs.push_back(b);</span><br><span class="line">        <span class="keyword">if</span>(a || b) isleaf = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;s, <span class="keyword">int</span> d=<span class="number">0</span>, <span class="keyword">bool</span> isleaf=<span class="literal">true</span>)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"  "</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>, k=<span class="number">1</span>; i&lt;s.size(); k++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(k == s[i]) &#123;</span><br><span class="line">                <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"│   "</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"    "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(k == -s[i]) i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(d&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(isleaf) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"└── "</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"├── "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(mark==<span class="string">"UNK"</span>) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; op &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; mark &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        s.push_back(isleaf?-d:d);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;a : childs) &#123;</span><br><span class="line">            a-&gt;print(s, d+<span class="number">1</span>, a==childs.back());</span><br><span class="line">        &#125;</span><br><span class="line">        s.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xspin.github.io/blog/blog/2018/10/23/Key-Value-Store/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1531,7 +1680,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1574,7 +1723,15 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1685,7 +1842,7 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1835,6 +1992,8 @@ document.getElementsByClassName('site-title')[0].innerHTML = "<i class='fa fa-co
 
   
   
+    
+      
     
       
     
