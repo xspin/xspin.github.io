@@ -147,11 +147,23 @@ function paths_tree_to_html(path_tree) {
     return html;
 }
 
+function process_git_url(path) {
+    var url = document.URL;
+    if (!url.match('github.io')) return path;
+    var temp = 'https://raw.githubusercontent.com/{}/{}.github.io/master'
+    var i = url.indexOf('//');
+    var j = url.indexOf('.git');
+    var gitname = match.substring(i+2, j);
+    url = path_join(temp.format(gitname, gitname), path);
+    console.log(url);
+    return url;
+}
+
 function load_md(path) {
     var data = null;
     $.ajax({
         async: false,
-        url: path,
+        url: process_git_url(path),
         dataType: 'text',
         success: function (response, status, xhr) {
             data = response;
@@ -302,7 +314,3 @@ function init() {
     show_sidebar();
     jump();
 }
-
-var a='UMl'
-console.log(a.toLowerCase())
-console.log(['UML', 'ab'].includes(a))
