@@ -153,7 +153,7 @@ function process_git_url(path) {
     var temp = 'https://raw.githubusercontent.com/{}/{}.github.io/master'
     var i = url.indexOf('//');
     var j = url.indexOf('.git');
-    var gitname = match.substring(i+2, j);
+    var gitname = url.substring(i+2, j);
     url = path_join(temp.format(gitname, gitname), path);
     console.log(url);
     return url;
@@ -313,4 +313,16 @@ function init() {
     hljs.initHighlightingOnLoad();
     show_sidebar();
     jump();
+}
+
+var url = 'https://xspin.github.io/mdblog/source/Home.md'
+url = url.replace(/.*github\.io/, function(match, n){
+    var temp = 'https://raw.githubusercontent.com/{}/{}.github.io/master'
+    var i = match.indexOf('//');
+    var j = match.indexOf('.git');
+    var gitname = match.substring(i+2, j);
+    return temp.format(gitname, gitname);
+});
+if (!url.match('github')) {
+    console.log("Fuck");
 }
