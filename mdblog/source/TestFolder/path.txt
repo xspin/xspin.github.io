@@ -1,4 +1,4 @@
-Sub Folder
+SubFolder
 Markdown-it.md
 Typora Help.md
 path.txt
