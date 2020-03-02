@@ -155,7 +155,7 @@ function process_git_url(path) {
     var j = url.indexOf('.git');
     var gitname = url.substring(i+2, j);
     url = path_join(temp.format(gitname, gitname), path);
-    console.log(url);
+    // console.log(url);
     return url;
 }
 
