@@ -150,7 +150,7 @@ function paths_tree_to_html(path_tree) {
 function process_git_url(path) {
     var url = document.URL;
     if (!url.match('github.io')) return path;
-    var temp = 'https://raw.githubusercontent.com/{}/{}.github.io/master'
+    var temp = 'https://raw.githubusercontent.com/{}/{}.github.io/master/mdblog'
     var i = url.indexOf('//');
     var j = url.indexOf('.git');
     var gitname = url.substring(i+2, j);
