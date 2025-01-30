@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Hyper-Cube </title>
+		<meta name="generator" content="vimer.cn" />
+		<meta name="author" content="" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+
+	</head>
+
+<body>
+
+    <!-- <div id = "title" style="text-align: center; margin-top:40px; font-size:30px; color:gray;"> -->
+    <!-- </div> -->
+    <div id = "title" style="text-align: center; margin:auto; font-size:20px; color:gray;">
+        <select name="dim" id="dim" onchange="update()" >
+            <!--<option value="1">1</option>-->
+            <option value="2">2</option>
+            <option value="3" selected="selected">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+
+    <div id = "canvas" style="text-align: center;  margin:auto; margin-top:20px; ">
+        <canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+        </canvas>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="./canvas.js"> </script>
+
+<script type="text/javascript">
+update();
+</script>
+
+</html>
