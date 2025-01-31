@@ -1,0 +1,5 @@
+- docs
+  - test
+    - [index](docs/test/index.md)
+    - [page1](docs/test/page1/page1.md)
+    - [page2](docs/test/page2/page2.md)
