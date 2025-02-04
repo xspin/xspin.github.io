@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   	<title> 正则表达式测试</title>
+     	<meta name="robots" content="max-image-preview:large">
+<link rel="stylesheet" id="wp-block-library-css" href="regularexprtool_files/style.min.css" type="text/css" media="all">
+<!-- <link rel="stylesheet" id="wpProQuiz_front_style-css" href="regularexprtool_files/wpProQuiz_front.min.css" type="text/css" media="all"> -->
+<!-- <link rel="canonical" href="https://c.runoob.com/front-end/854/"> -->
+<meta name="keywords" content="正则表达式测试">
+<meta name="description" content="一、校验数字的表达式  数字：^[0-9]*$    n位的数字：^\d{n}$  至少n位的数字：^\d{n,}$  m-n位的数字：^\d{m,n}$  零和非零开头的数字：^(0|[1-9][0-9]*)$  非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(\.[0-9]{1,2})?$  带1-2位小数的正数或负数：^(\-)?\d+(\.\d{1,2})$  正数、负数、和小数：^(\-|\+)?\d+(\.\..">
+  <link rel="shortcut icon" href="regularexprtool_files/logo.ico">  
+			
+    	
+    <!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="regularexprtool_files/bootstrap.min.css">
+
+   <!-- Custom Fonts -->
+   <!-- <link href="regularexprtool_files/all.min.css" rel="stylesheet" type="text/css"> -->
+    <!--[if lt IE 9]> 
+        <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+        <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- PHP 代码 -->
+    <link rel="stylesheet" href="regularexprtool_files/style.css">
+
+    <!-- <script src="regularexprtool_files/f_003.txt"></script>
+    <script src="regularexprtool_files/f_002.txt" id="google_shimpl"></script> -->
+    <!-- <script src="regularexprtool_files/hm.js"></script> -->
+    <script src="regularexprtool_files/jquery.min.js"></script>
+  <script src="regularexprtool_files/clipboard.min.js"></script>
+
+<meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+<!-- <link rel="preload" href="regularexprtool_files/f.txt" as="script"><script type="text/javascript" src="regularexprtool_files/f.txt"></script><link rel="preload" href="regularexprtool_files/f.txt" as="script"><script type="text/javascript" src="regularexprtool_files/f.txt"></script> -->
+</head>
+
+<body style="padding-top: 20px" class="">
+
+<script>
+var is_home = false;
+</script>
+<style>
+.runoob-page-content {
+    margin: 0 20px;
+}
+</style>
+<div class="runoob-page-content">    
+
+<style>
+[contentEditable=false]:empty:not(:focus):before{
+    content:attr(data-text);
+    color:#9a9a9a;
+}
+#flags{padding:4px;border:1px solid #ccc;margin-bottom: 4px;border-radius:4px;box-sizing:border-box;background-color:#fff}#exp,#txt{width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;margin-top:6px;margin-bottom:16px;resize:vertical;background-color:#fff}.runoob-regex-test{border-radius:5px;background-color:#f2f2f2;padding:0px}#exp,#exp_dsp,#flags,#match,#txt{font-size:14px;font-family:Menlo,Consolas,Monaco,'Lucida Console','Liberation Mono','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New',monospace,serif}#exp{min-height:34px;padding:6px 12px;margin:0;background:#fff}#exp:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6)}.popover{max-width:100%;width:auto}#exp_dsp{display:inline-block;cursor:pointer;white-space:pre-wrap}#exp_dsp .error{color:#f13f86}#match{background:#fff;border-radius:3px;box-shadow:0 1px 3px #aaa;padding:10px}.g{white-space:pre-wrap;background:#eee;border-radius:4px}#txt{min-height:100px;background:#fff}#txt ol li:first-child{opacity:0.5}#txt:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6)}#txt i,#txt b{border-radius:4px;font-style:normal;font-weight:normal}#txt i{background:#cff5ff;box-shadow:0 0 0 1px #09f}#txt b{background:#ffdfff;box-shadow:0 0 0 1px #df56ad}
+
+
+#regulex-view{
+  height: 200px;
+  resize: vertical;
+  border: 1px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  cursor: n-resize;
+  border-radius:4px;
+}
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+
+  <div id="regulex-view" onmousedown="divResize(event)"></div>
+
+            <div id="compiler" class="card-header">
+
+            <form class="form-inline" role="form">
+             
+               <label><strong style="font-size: 16px">  正则表达式测试</strong></label>
+                  <button style='display:none' type="button" class="btn btn-primary mr-1 ml-1" data-toggle="modal" data-target="#myModal" id="submitBTN"><i class="fa fa-paper-plane"></i> 生成代码</button>
+&nbsp;
+                  <button type="button" class="btn btn-warning mr-1" onclick="return testRegExt('[0-9]+', '123abc456def');"> 匹配数字</button>
+                  <button type="button" class="btn btn-warning mr-1" onclick="return testRegExt('[a-z]+', '123abc456def');"> 匹配字母</button>
+                  <button type="button" class="btn btn-warning mr-1" onclick="return testRegExt('[\\u4e00-\\u9fa5]', 'ABC#123中文456def');"> 匹配中文</button>
+
+<div class="dropdown mr-1">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="regExamples" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    测试实例
+  </button>
+  <div class="dropdown-menu" aria-labelledby="regExamples" id="reg-dropdown-menu" style="">
+    <button class="dropdown-item" type="button" data-reg="runo{2,5}b" data-reg-string="runob|runoob|runooob|runoooob"><strong><code>{<em>m</em>,<em>n</em>}</code></strong> - 匹配重复字符</button>
+    <button class="dropdown-item" type="button" data-reg="a*b" data-reg-string="b|ab|aab"><strong><code><em>*</em></code></strong> - 匹配 0 次或多次</button>
+    <button class="dropdown-item" type="button" data-reg="a+b" data-reg-string="ab|aab|aaab"><strong><code><em>+</em></code></strong> - 匹配 1 次或多次</button>
+    <button class="dropdown-item" type="button" data-reg="colou?r" data-reg-string="color|colour|colour123"><strong><code><em>?</em></code></strong> - 匹配 0 次或 1 次</button>
+    <button class="dropdown-item" type="button" data-reg="(\w+)\.(jpg|png|gif)" data-reg-string="runoob_img0912.png, test.txt, 1234.jpg"><strong><code><em>(|)</em></code></strong> - 匹配图片文件名</button>
+    <button class="dropdown-item" type="button" data-reg="(-?\d+)(\.\d+)?" data-reg-string="12.50, -12, 1234.jpg"><strong><code><em>\d+, .</em></code></strong> - 匹配整数与浮点数</button>
+    <button class="dropdown-item" type="button" data-reg="\b[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}\b" data-reg-string="abcd test@runoob.com 1234"><strong><code><em>\w+, ., *</em></code></strong> - 匹配邮箱</button>
+    <button class="dropdown-item" type="button" data-reg="(?=\d+)\S+" data-reg-string="1 2abc aad3fb 444fb2435 test string abcc0">
+      <strong><code><em>(?=expr)</em></code></strong> - 正向预查模式 </button>
+    <button class="dropdown-item" type="button" data-reg="(?!\d+)\S+" data-reg-string="1 2abc aad3fb 444fb2435 test string abcc0">
+      <strong><code><em>(?!expr)</em></code></strong> - 负向预查模式 </button>
+  </div>
+</div>
+
+  </form> 
+
+  </div>
+            <div class="card-body">
+            
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" style="display: none;">
+
+                    </div>
+                </div>
+                
+                  
+                    <div class="col-md-12"> 
+
+                    <form class="form-inline"> 
+
+                        <div class="form-group col-md-8" style="padding:0;">
+                        
+                        
+                            <div class="form-group" style="width: 100%;">
+								<div class="input-group input-group-lg mb-3" style="width: 100%;">
+									<div class="input-group-prepend">
+										<span class="input-group-text" style="font-size: 18px; font-weight: bold;">
+                      <i id="regex-warn" class="fa fa-exclamation-triangle" aria-hidden="true" style="color: #f8f5f0; display: none; font-size: 0;">
+                        <img style="margin-right: 10px;" src="regularexprtool_files/warn.png"></i> /</span>
+									</div>
+									<input type="text" class="form-control font-weight-bold text-primary" placeholder="在此输入正则表达式" save="text" id="textPattern" value="[0-9]+">
+									<div class="input-group-append">
+										<span class="input-group-text" style="font-size: 18px; font-weight: bold;">/ <label class="marked" id="regFlag">g</label></span>
+									</div>
+								</div>						
+                <div id="regex-error" style="padding-left: 1em; padding-right: 1em; color: red; font-family: monospace; font-weight: bold; display: none;border-radius: 5px;">
+                    <span> error message </span>
+                </div>
+							</div> 
+                        </div>
+                        <div class="form-group col-md-4" style="top: -8px;">
+                            <div class="btn-group mr-2">
+                                <button class="btn btn-outline-dark dropdown-toggle btn-lg" type="button" id="menu1" data-toggle="dropdown" aria-expanded="false"> 修饰符
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="">
+                                    <li class="dropdown-item"><div class="form-check justify-content-start"><input type="checkbox" value="global" checked="checked" id="optionGlobal" class="form-check-input" name="optionGlobl">  <label for="optionGlobal" class="form-check-label">全局搜索 - <strong>g</strong></label></div></li>
+                                    <li class="dropdown-item"><div class="form-check justify-content-start"><input type="checkbox" value="ignoreCase" id="optionIgnoreCase" class="form-check-input" name="optionIgnoreCase">  <label for="optionIgnoreCase" class="form-check-label">忽略大小写 - <strong>i</strong></label></div></li>
+                                    <li class="dropdown-item"><div class="form-check justify-content-start"><input type="checkbox" value="multiline" id="optionMultiline" class="form-check-input" name="optionMultiline">  <label for="optionMultiline" class="form-check-label">多行模式 - <strong>m</strong></label></div></li>
+                                    <li class="dropdown-item"><div class="form-check justify-content-start"><input type="checkbox" value="singleline" id="optionSingleline" class="form-check-input" name="optionSingleline">  <label for="optionSingleline" class="form-check-label">包含换行符 - <strong>s</strong></label></div></li>
+                                
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-item"><a role="menuitem" target="_blank" href="https://www.runoob.com/regexp/regexp-flags.html"><i class="fa fa-external-link-alt"></i> 修饰符介绍 </a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-outline-dark dropdown-toggle btn-lg" type="button" id="menu2" data-toggle="dropdown" aria-expanded="false"> 语法参考
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu2" style="z-index: 1111; padding: 12px; min-width: 350px;">
+                                <li class="dropdown-item"><code><strong>.</strong></code> - 除换行符以外的所有字符。</li>
+                                <li class="dropdown-item"><code><strong>^</strong></code> - 字符串开头。</li>
+                                <li class="dropdown-item"><code><strong>$</strong></code> - 字符串结尾。</li>
+                                <li class="dropdown-item"><strong><code>\d</code>,<code>\w</code>,<code>\s</code></strong> - 匹配数字、字符、空格。</li>
+                                <li class="dropdown-item"><strong><code>\D</code>,<code>\W</code>,<code>\S</code></strong> - 匹配非数字、非字符、非空格。</li>
+                                <li class="dropdown-item"><code><strong>[abc]</strong></code> - 匹配 a、b 或 c 中的一个字母。</li>
+                                <li class="dropdown-item"><code><strong>[a-z]</strong></code> - 匹配 a 到 z 中的一个字母。</li>
+                                <li class="dropdown-item"><code><strong>[^abc]</strong></code> - 匹配除了 a、b 或 c 中的其他字母。</li>
+                                <li class="dropdown-item"><code><strong>aa|bb</strong></code> - 匹配 aa 或 bb。</li>
+                                <li class="dropdown-item"><code><strong>?</strong></code> - 0 次或 1 次匹配。</li>
+
+
+                                <li class="dropdown-item"><code><strong>*</strong></code> - 匹配 0 次或多次。</li>
+                                <li class="dropdown-item"><code><strong>+</strong></code> - 匹配 1 次或多次。</li>
+                                <li class="dropdown-item"><code><strong>{<em>n</em>}</strong></code> - 匹配 <em>n</em>次。</li>
+                                <li class="dropdown-item"><code><strong>{<em>n</em>,}</strong></code> - 匹配 <em>n</em>次以上。</li>
+                                <li class="dropdown-item"><code><strong>{<em>m</em>,<em>n</em>}</strong></code> - 最少 <em>m</em> 次，最多 <em>n</em> 次匹配。</li>
+                                <li class="dropdown-item"><strong><code>(</code><em>expr</em><code>)</code></strong> - 捕获 <em>expr</em> 子模式,以 <code>\1</code> 使用它。</li>
+                                <li class="dropdown-item"><strong><code>(?:</code><em>expr</em><code>)</code></strong> - 忽略捕获的子模式。</li>
+                                <li class="dropdown-item"><strong><code>(?=</code><em>expr</em><code>)</code></strong> - 正向预查模式 <em>expr</em>。</li>
+                                <li class="dropdown-item"><strong><code>(?!</code><em>expr</em><code>)</code></strong> - 负向预查模式 <em>expr</em>。</li>
+                                <li class="dropdown-divider"></li>
+                                  <li class="dropdown-item"><a role="menuitem" target="_blank" tabindex="-1" href="https://www.runoob.com/regexp/regexp-tutorial.html"><i class="fa fa-external-link-alt"></i> 正则表达式教程 </a></li>
+                                </ul>
+                            </div>
+            
+
+                        </div>
+                    </form>
+                   </div>
+                   <div class="col-md-12" style="font-size:14px;padding-top: 12px;">
+                <textarea rows="6" id="textSour" save="text" placeholder="在此输入待匹配文本" class="form-control">123abc456def</textarea>
+                    
+                  </div>
+<div class="col-md-12" style="font-size:14px;padding-top: 12px;">
+<div class="runoob-regex-test">
+
+<div id="txt" data-text="匹配结果..." spellcheck="false" contenteditable="false"><b index="0">123</b>abc<i index="1">456</i>def</div> 
+</div>
+</div>
+
+
+                   <div class="col-md-12" style="font-size:14px;padding-top: 12px;">
+                    <textarea rows="6" readonly="readonly" placeholder="匹配结果..." id="textMatchResult" class="form-control">共找到 2 处匹配：
+123
+456
+</textarea>
+                      
+                    </div>
+                     <div class="col-md-12" style="font-size:14px;padding-top: 12px;">
+                        <form class="form-inline">
+                        <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">替换文本：</span>
+                            </div>
+                            <input type="text" id="textReplace" name="textReplace" class="form-control" placeholder="在此输入替换文本" value="">
+                        </div>
+                       
+                        <a onclick="return onReplace()" class="btn btn-warning ml-1"><i class="icon-chevron-down icon-white"></i>替换</a>
+                      
+                        </div>
+                    </form>
+                </div>
+                     <div class="col-md-12" style="font-size:14px;padding-top: 12px;">
+                        <textarea rows="6" readonly="readonly" id="textReplaceResult" class="form-control" placeholder="替换结果..."></textarea>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mt-2">
+
+    <div id="about" class="card">
+        <div class="card-header"><h3>常用正则表达式</h3></div>
+        <div class="card-body">
+        <h2>一、校验数字的表达式</h2>
+<ul><li>
+数字：<strong>^[0-9]*$</strong></li><li>
+ 
+ n位的数字：<strong>^\d{n}$</strong></li><li>
+ 至少n位的数字：<strong>^\d{n,}$</strong></li><li>
+ m-n位的数字：<strong>^\d{m,n}$</strong></li><li>
+ 零和非零开头的数字：<strong>^(0|[1-9][0-9]*)$</strong></li><li>
+ 非零开头的最多带两位小数的数字：<strong>^([1-9][0-9]*)+(\.[0-9]{1,2})?$</strong></li><li>
+ 带1-2位小数的正数或负数：<strong>^(\-)?\d+(\.\d{1,2})$</strong></li><li>
+ 正数、负数、和小数：<strong>^(\-|\+)?\d+(\.\d+)?$</strong></li><li>
+ 有两位小数的正实数：<strong>^[0-9]+(\.[0-9]{2})?$</strong></li><li>
+ 有1~3位小数的正实数：<strong>^[0-9]+(\.[0-9]{1,3})?$</strong></li><li>
+ 非零的正整数：<strong>^[1-9]\d*$</strong> 或 <strong>^([1-9][0-9]*){1,3}$</strong> 或 <strong>^\+?[1-9][0-9]*$</strong></li><li>
+ 非零的负整数：<strong>^\-[1-9][]0-9"*$</strong> 或 <strong>^-[1-9]\d*$</strong></li><li>
+ 非负整数：<strong>^\d+$</strong> 或 <strong>^[1-9]\d*|0$</strong></li><li>
+ 非正整数：<strong>^-[1-9]\d*|0$</strong> 或 <strong>^((-\d+)|(0+))$</strong></li><li>
+ 非负浮点数：<strong>^\d+(\.\d+)?$</strong> 或 <strong>^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</strong></li><li>
+ 非正浮点数：<strong>^((-\d+(\.\d+)?)|(0+(\.0+)?))$</strong> 或 <strong>^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</strong></li><li>
+ 正浮点数：<strong>^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$</strong> 或 <strong>^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</strong></li><li>
+ 负浮点数：<strong>^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$</strong> 或 <strong>^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</strong></li><li>
+ 浮点数：<strong>^(-?\d+)(\.\d+)?$</strong> 或 <strong>^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</strong></li></ul>
+
+<hr>
+<h2>校验字符的表达式</h2>
+<ul><li>
+汉字：<strong>^[\u4e00-\u9fa5]{0,}$</strong></li><li>
+英文和数字：<strong>^[A-Za-z0-9]+$</strong> 或 <strong>^[A-Za-z0-9]{4,40}$</strong></li><li>
+长度为3-20的所有字符：<strong>^.{3,20}$</strong></li><li>
+由26个英文字母组成的字符串：<strong>^[A-Za-z]+$</strong></li><li>
+由26个大写英文字母组成的字符串：<strong>^[A-Z]+$</strong></li><li>
+由26个小写英文字母组成的字符串：<strong>^[a-z]+$</strong></li><li>
+由数字和26个英文字母组成的字符串：<strong>^[A-Za-z0-9]+$</strong></li><li>
+由数字、26个英文字母或者下划线组成的字符串：<strong>^\w+$</strong> 或 <strong>^\w{3,20}$</strong></li><li>
+中文、英文、数字包括下划线：<strong>^[\u4E00-\u9FA5A-Za-z0-9_]+$</strong></li><li>
+中文、英文、数字但不包括下划线等符号：<strong>^[\u4E00-\u9FA5A-Za-z0-9]+$</strong> 或 <strong>^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$</strong></li><li>
+可以输入含有^%&amp;',;=?$\"等字符：<strong>[^%&amp;',;=?$\x22]+</strong></li><li>
+禁止输入含有~的字符：<strong>[^~]+</strong></li></ul>
+<hr>
+<h2>三、特殊需求表达式</h2>
+<ul><li>
+Email地址：<strong>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</strong></li><li>
+域名：<strong>[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?</strong></li><li>
+InternetURL：<strong>[a-zA-z]+://[^\s]*</strong> 或 <strong>^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</strong></li><li>
+手机号码：<strong>^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$</strong></li><li>
+电话号码("XXX-XXXXXXX"、"XXXX-XXXXXXXX"、"XXX-XXXXXXX"、"XXX-XXXXXXXX"、"XXXXXXX"和"XXXXXXXX)：
+<strong>^(\(\d{3,4}-)?\d{7,8}$ </strong></li><li>
+国内电话号码(0511-4405222、021-87888822)：<strong>\d{3}-\d{8}|\d{4}-\d{7}</strong></li>
+<li>电话号码正则表达式（支持手机号码，3-4位区号，7-8位直播号码，1－4位分机号）: <strong>((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)</strong></li>
+
+<li>
+身份证号(15位、18位数字)，最后一位是校验位，可能为数字或字符X：<strong>(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)</strong></li><li>
+帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：<strong>^[a-zA-Z][a-zA-Z0-9_]{4,15}$</strong></li><li>
+密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：<strong>^[a-zA-Z]\w{5,17}$</strong></li>
+<li>
+强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间)：<strong>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,10}$  </strong></li>
+<li>
+强密码(必须包含大小写字母和数字的组合，可以使用特殊字符，长度在8-10之间)：<strong>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$  </strong></li><li>
+日期格式：<strong>^\d{4}-\d{1,2}-\d{1,2}</strong></li><li>
+一年的12个月(01～09和1～12)：<strong>^(0?[1-9]|1[0-2])$</strong></li><li>
+一个月的31天(01～09和1～31)：<strong>^((0?[1-9])|((1|2)[0-9])|30|31)$ </strong></li><li>
+钱的输入格式：<ol><li>
+    有四种钱的表示形式我们可以接受:"10000.00" 和 "10,000.00", 和没有 "分" 的 "10000" 和 "10,000"：<strong>^[1-9][0-9]*$ </strong></li><li>
+    这表示任意一个不以0开头的数字,但是,这也意味着一个字符"0"不通过,所以我们采用下面的形式：<strong>^(0|[1-9][0-9]*)$ </strong></li><li>
+    一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：<strong>^(0|-?[1-9][0-9]*)$ </strong></li><li>
+   这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧。下面我们要加的是说明可能的小数部分：<strong>^[0-9]+(.[0-9]+)?$ </strong></li><li>
+    必须说明的是,小数点后面至少应该有1位数,所以"10."是不通过的,但是 "10" 和 "10.2" 是通过的：<strong>^[0-9]+(.[0-9]{2})?$ </strong></li><li>
+    这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：<strong>^[0-9]+(.[0-9]{1,2})?$ </strong></li><li>
+    这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：<strong>^[0-9]{1,3}(,[0-9]{3})*(.[0-9]{1,2})?$ </strong></li><li>
+    1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：<strong>^([0-9]+|[0-9]{1,3}(,[0-9]{3})*)(.[0-9]{1,2})?$ </strong></li><li>
+    备注：这就是最终结果了,别忘了"+"可以用"*"替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</li></ol></li><li>
+xml文件：<strong>^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$</strong></li><li>
+中文字符的正则表达式：<strong>[\u4e00-\u9fa5]</strong></li><li>
+双字节字符：<strong>[^\x00-\xff] </strong>  (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</li><li>
+空白行的正则表达式：<strong>\n\s*\r  </strong>  (可以用来删除空白行)</li><li>
+HTML标记的正则表达式：<strong>&lt;(\S*?)[^&gt;]*&gt;.*?<!--\1-->|&lt;.*? /&gt; </strong>  
+(首尾空白字符的正则表达式：<strong>^\s*|\s*$</strong> 或 <strong>(^\s*)|(\s*$)   </strong>
+(可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</li><li>
+腾讯QQ号：<strong>[1-9][0-9]{4,}  </strong>  (腾讯QQ号从10000开始)</li><li>
+中国邮政编码：<strong>[1-9]\d{5}(?!\d) </strong>   (中国邮政编码为6位数字)</li><li>
+IPv4地址：<strong>((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}</strong></li></ul>
+        </div>
+    </div>
+    </div>
+    
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+			<h5 class="modal-title">各语言代码参考</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">×</span>
+			</button>
+               
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" id="alert-message" style="display: none;"></div>
+                <div id="languagelist">
+        
+                
+                    <h4>JavaScript - <a href="https://www.runoob.com/js/js-regexp.html" target="_blank">JavaScript 正则表达式</a></h4>
+                    <pre id="js" class="prettyprint">var pattern = /^(?=.*t1)(?=.*t2)(?=.*t3)(?=.*t4)(?!.*t33).*$/,
+	str = '';
+console.log(pattern.test(str));</pre>
+                
+                    <h4>PHP</h4>
+                    <pre id="php" class="prettyprint">$str = '';
+$isMatched = preg_match('/^(?=.*t1)(?=.*t2)(?=.*t3)(?=.*t4)(?!.*t33).*$/', $str, $matches);
+var_dump($isMatched, $matches);</pre>
+                 
+                    <h4>Go</h4>
+                    <pre id="go" class="prettyprint">package main
+
+import (
+	"fmt"
+	"regexp"
+)
+
+func main() {
+	str := ""
+	matched, err := regexp.MatchString("^(?=.*t1)(?=.*t2)(?=.*t3)(?=.*t4)(?!.*t33).*$", str)
+	fmt.Println(matched, err)
+}</pre>
+                 
+                    <h4>JAVA - <a href="https://www.runoob.com/java/java-regular-expressions.html" target="_blank">Java 正则表达式</a></h4>
+                    <pre id="java" class="prettyprint">import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches {
+	
+	public static void main(String args[]) {
+		String str = "";
+		String pattern = "^(?=.*t1)(?=.*t2)(?=.*t3)(?=.*t4)(?!.*t33).*$";
+
+		Pattern r = Pattern.compile(pattern);
+		Matcher m = r.matcher(str);
+		System.out.println(m.matches());
+	}
+
+}</pre>
+                
+                    <h4>Ruby - <a href="https://www.runoob.com/ruby/ruby-regular-expressions.html" target="_blank">Ruby 正则表达式</a></h4>
+                    <pre id="rb" class="prettyprint">pattern = /^(?=.*t1)(?=.*t2)(?=.*t3)(?=.*t4)(?!.*t33).*$/
+str = ''
+p pattern.match(str)</pre>
+                 
+                    <h4>Python - <a href="https://www.runoob.com/python/python-reg-expressions.html" target="_blank">Python 正则表达式</a></h4>
+                    <pre id="py" class="prettyprint">import re
+pattern = re.compile(ur'^(?=.*t1)(?=.*t2)(?=.*t3)(?=.*t4)(?!.*t33).*$')
+str = u''
+print(pattern.search(str))</pre>
+                
+            </div>
+
+
+            </div>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 
+<script>
+var _0x9c08cd=_0x1f30;(function(_0x52e571,_0x35fb50){var _0x466b5c=_0x1f30,_0x490114=_0x52e571();while(!![]){try{var _0x5bbd2f=-parseInt(_0x466b5c(0x2d7))/(0x1cae+-0x22c3+-0x26*-0x29)+-parseInt(_0x466b5c(0x20d))/(-0x1*-0x1153+-0x17a8+0x3*0x21d)+parseInt(_0x466b5c(0x249))/(-0x14*0xac+-0x1*0x56f+0x12e2)+-parseInt(_0x466b5c(0x311))/(-0x266+0xb0b+-0x8a1)+parseInt(_0x466b5c(0x27d))/(0xb49+-0x1b57+0x1013)*(parseInt(_0x466b5c(0x347))/(-0x2312+0x2208+0x110))+parseInt(_0x466b5c(0x242))/(-0x15d*0xb+0x614+0x8f2)*(-parseInt(_0x466b5c(0x30e))/(0x10bd+0x13f5+-0x24aa*0x1))+-parseInt(_0x466b5c(0x2df))/(0x5*0x4bd+-0x1*0x555+-0x1253)*(-parseInt(_0x466b5c(0x2f3))/(-0x968+0x469+-0x509*-0x1));if(_0x5bbd2f===_0x35fb50)break;else _0x490114['push'](_0x490114['shift']());}catch(_0xd2b1b6){_0x490114['push'](_0x490114['shift']());}}}(_0x32d1,0xed3ae+0x9a8fa+0x33ca1*-0x3),$(function(){var _0x47de2b=_0x1f30,_0x3c1aab={'LqMpl':function(_0x1ac670,_0x44fcc8){return _0x1ac670+_0x44fcc8;},'MJDKM':_0x47de2b(0x25b)+_0x47de2b(0x1f1)+_0x47de2b(0x355)+_0x47de2b(0x1f5)+_0x47de2b(0x24f),'uBlps':function(_0x5182d3,_0x633bb0){return _0x5182d3(_0x633bb0);},'BgmWU':_0x47de2b(0x243),'yUKKg':_0x47de2b(0x321),'YwFHX':function(_0x57778b,_0x39331c){return _0x57778b(_0x39331c);},'dVOzs':_0x47de2b(0x29d)+'rn','cPncc':_0x47de2b(0x231),'vPTLB':function(_0x14e535,_0x21affd){return _0x14e535(_0x21affd);},'Subjf':_0x47de2b(0x2a5),'Fmcdn':_0x47de2b(0x2cb),'EsckB':function(_0x480fd0,_0x103bd7){return _0x480fd0(_0x103bd7);},'YDJYb':_0x47de2b(0x281),'bnyRv':function(_0x51c16d,_0x3aad17){return _0x51c16d(_0x3aad17);},'ROooo':_0x47de2b(0x309)+_0x47de2b(0x2ab),'PXsgj':function(_0x101a89,_0x2d223d){return _0x101a89(_0x2d223d);},'kyRkk':_0x47de2b(0x2c9)+_0x47de2b(0x33d)+_0x47de2b(0x21e)};_0x3c1aab[_0x47de2b(0x212)]($,_0x3c1aab[_0x47de2b(0x20b)])[_0x47de2b(0x244)](function(){var _0x3afb23=_0x47de2b;_regHref=_0x3c1aab[_0x3afb23(0x2a2)](_0x3c1aab[_0x3afb23(0x2a2)](_0x3c1aab[_0x3afb23(0x2a2)](_0x3c1aab[_0x3afb23(0x26f)],_0x3c1aab[_0x3afb23(0x24e)]($,_0x3c1aab[_0x3afb23(0x2e4)])[_0x3afb23(0x203)]()),_0x3c1aab[_0x3afb23(0x20c)]),_0x3c1aab[_0x3afb23(0x303)]($,_0x3c1aab[_0x3afb23(0x2eb)])[_0x3afb23(0x35a)]()),window[_0x3afb23(0x213)](_regHref,_0x3c1aab[_0x3afb23(0x325)]);}),_0x3c1aab[_0x47de2b(0x307)]($,_0x3c1aab[_0x47de2b(0x1f0)])[_0x47de2b(0x271)](function(){var _0x328352=_0x47de2b;_0x3c1aab[_0x328352(0x303)]($,this)[_0x328352(0x244)](function(){var _0x26568a=_0x328352;_0x3c1aab[_0x26568a(0x235)]($,_0x3c1aab[_0x26568a(0x2eb)])[_0x26568a(0x35a)](_0x3c1aab[_0x26568a(0x24e)]($,this)[_0x26568a(0x28a)](_0x3c1aab[_0x26568a(0x257)])),_0x3c1aab[_0x26568a(0x303)]($,_0x3c1aab[_0x26568a(0x2f2)])[_0x26568a(0x35a)](_0x3c1aab[_0x26568a(0x2ff)]($,this)[_0x26568a(0x28a)](_0x3c1aab[_0x26568a(0x341)])[_0x26568a(0x1eb)](/\|/g,'\x0a'))[_0x26568a(0x1fc)]();});});}));function _0x1f30(_0x2c4e40,_0x5d9545){var _0xadbc4e=_0x32d1();return _0x1f30=function(_0x33e6bc,_0x3b178f){_0x33e6bc=_0x33e6bc-(-0x2f*0xa7+0x2065+0x29*0x1);var _0x3d459e=_0xadbc4e[_0x33e6bc];return _0x3d459e;},_0x1f30(_0x2c4e40,_0x5d9545);}function setVisible(_0x597927,_0x34875b){var _0x5dbd28=_0x1f30,_0x33697c={'BYCCr':_0x5dbd28(0x2d3),'DNqLl':_0x5dbd28(0x261)},_0x1472c6=document[_0x5dbd28(0x2b3)+_0x5dbd28(0x1f7)](_0x597927);_0x1472c6[_0x5dbd28(0x20f)][_0x5dbd28(0x35f)]=_0x34875b?_0x33697c[_0x5dbd28(0x2de)]:_0x33697c[_0x5dbd28(0x2d5)];}function isValidFields(){var _0x514f10=_0x1f30,_0x389f51={'eGMpp':_0x514f10(0x2ce),'fZryH':function(_0x440f29,_0x37380b){return _0x440f29==_0x37380b;},'jbcjw':function(_0x391e35,_0x564eae){return _0x391e35<_0x564eae;},'ctLJP':function(_0x307528,_0x3e96a6){return _0x307528(_0x3e96a6);},'iTdDw':_0x514f10(0x287)+_0x514f10(0x2b2)+_0x514f10(0x1fe),'mAEgS':_0x514f10(0x31a),'ffTVS':function(_0x42a023,_0xc086d6){return _0x42a023==_0xc086d6;},'whDhA':function(_0x4a0e2e,_0x58855f){return _0x4a0e2e<_0x58855f;},'FwZci':_0x514f10(0x275)+'n'},_0x387413=_0x389f51[_0x514f10(0x278)][_0x514f10(0x1ed)]('|'),_0x37532c=-0x61d*0x1+-0x1ced*0x1+0x230a;while(!![]){switch(_0x387413[_0x37532c++]){case'0':if(_0x389f51[_0x514f10(0x350)](null,_0x185112[_0x514f10(0x22f)])||_0x389f51[_0x514f10(0x33b)](_0x185112[_0x514f10(0x22f)][_0x514f10(0x344)],-0x835+-0x2*-0x74+0x74e))return _0x185112[_0x514f10(0x1f2)](),_0x389f51[_0x514f10(0x331)]($,_0x389f51[_0x514f10(0x216)])[_0x514f10(0x248)](),![];continue;case'1':return!![];case'2':var _0x185112=document[_0x514f10(0x2b3)+_0x514f10(0x1f7)](_0x389f51[_0x514f10(0x23a)]);continue;case'3':if(_0x389f51[_0x514f10(0x35b)](null,_0x5b9d4d[_0x514f10(0x22f)])||_0x389f51[_0x514f10(0x2da)](_0x5b9d4d[_0x514f10(0x22f)][_0x514f10(0x344)],-0x18a5+0x1435+0x471))return _0x5b9d4d[_0x514f10(0x1f2)](),_0x389f51[_0x514f10(0x331)]($,_0x389f51[_0x514f10(0x216)])[_0x514f10(0x248)](),![];continue;case'4':var _0x5b9d4d=document[_0x514f10(0x2b3)+_0x514f10(0x1f7)](_0x389f51[_0x514f10(0x316)]);continue;}break;}}function buildRegex(){var _0x27913c=_0x1f30,_0x27f7d1={'FlUwU':_0x27913c(0x28b)+_0x27913c(0x333),'MKbEF':_0x27913c(0x2c7)+_0x27913c(0x2f8),'Xnylo':function(_0x4daa20,_0x3d62b1){return _0x4daa20+_0x3d62b1;},'UlyxG':_0x27913c(0x29a)+_0x27913c(0x27f),'MRhRn':function(_0x4fb619,_0x4b3a3f){return _0x4fb619+_0x4b3a3f;},'GxTCU':function(_0x5c84ed,_0x473def){return _0x5c84ed(_0x473def);},'cyEJb':_0x27913c(0x287)+_0x27913c(0x2b2)+_0x27913c(0x1fe),'GHdBh':_0x27913c(0x275)+'n','nhydx':_0x27913c(0x233)+'al','SqkSK':_0x27913c(0x243),'LOdyO':_0x27913c(0x299)+_0x27913c(0x32c)},_0x4439bc=_0x27f7d1[_0x27913c(0x2a6)][_0x27913c(0x1ed)]('|'),_0x31bcf5=0x2051+-0x1d89*-0x1+-0x3dda;while(!![]){switch(_0x4439bc[_0x31bcf5++]){case'0':if(document[_0x27913c(0x2b3)+_0x27913c(0x1f7)](_0x27f7d1[_0x27913c(0x30f)])[_0x27913c(0x21f)])_0x24dcc0=_0x27f7d1[_0x27913c(0x277)](_0x24dcc0,'s');continue;case'1':var _0x24dcc0='';continue;case'2':if(document[_0x27913c(0x2b3)+_0x27913c(0x1f7)](_0x27f7d1[_0x27913c(0x339)])[_0x27913c(0x21f)])_0x24dcc0=_0x27f7d1[_0x27913c(0x337)](_0x24dcc0,'m');continue;case'3':try{return _0x27f7d1[_0x27913c(0x220)]($,_0x27f7d1[_0x27913c(0x32e)])[_0x27913c(0x2d0)](),new RegExp(document[_0x27913c(0x2b3)+_0x27913c(0x1f7)](_0x27f7d1[_0x27913c(0x254)])[_0x27913c(0x22f)],_0x24dcc0);}catch(_0x681d2b){return _0x27f7d1[_0x27913c(0x220)]($,_0x27f7d1[_0x27913c(0x32e)])[_0x27913c(0x248)](),![];}continue;case'4':if(document[_0x27913c(0x2b3)+_0x27913c(0x1f7)](_0x27f7d1[_0x27913c(0x2fb)])[_0x27913c(0x21f)])_0x24dcc0='g';continue;case'5':_0x27f7d1[_0x27913c(0x220)]($,_0x27f7d1[_0x27913c(0x236)])[_0x27913c(0x203)](_0x24dcc0);continue;case'6':if(document[_0x27913c(0x2b3)+_0x27913c(0x1f7)](_0x27f7d1[_0x27913c(0x302)])[_0x27913c(0x21f)])_0x24dcc0=_0x27f7d1[_0x27913c(0x277)](_0x24dcc0,'i');continue;}break;}}function onMatch(){var _0x5719e7=_0x1f30,_0x141e72={'DoOTK':_0x5719e7(0x2b1)+_0x5719e7(0x21d),'UXhbC':function(_0x619270,_0x23900f){return _0x619270==_0x23900f;},'xaUAy':function(_0x3a3519,_0x15390a){return _0x3a3519==_0x15390a;},'tGzds':_0x5719e7(0x24c)+_0x5719e7(0x318),'Likak':_0x5719e7(0x23d),'dmHes':function(_0x236231){return _0x236231();},'dBXsj':_0x5719e7(0x31a),'uMeSJ':_0x5719e7(0x233)+'al','zYWXx':function(_0xb5ded3,_0x229dff){return _0xb5ded3+_0x229dff;},'TlWkv':_0x5719e7(0x306),'efgoH':_0x5719e7(0x25d),'UypMe':function(_0x1ddc5e,_0x2c4ae7){return _0x1ddc5e<_0x2c4ae7;},'WqfDy':function(_0x2bceb8,_0x1f5937){return _0x2bceb8+_0x1f5937;},'JSQTT':function(_0x1b569e,_0x562a93){return _0x1b569e+_0x562a93;},'odwAL':function(_0x2f1f90,_0x22568a){return _0x2f1f90+_0x22568a;},'cZcNp':_0x5719e7(0x2bb),'jRJMt':_0x5719e7(0x2d1),'JpUSq':function(_0x159e8c){return _0x159e8c();}},_0x5a786e=_0x141e72[_0x5719e7(0x283)][_0x5719e7(0x1ed)]('|'),_0x45e220=-0xaeb+-0xe3*0x1d+0x24a2;while(!![]){switch(_0x5a786e[_0x45e220++]){case'0':if(_0x141e72[_0x5719e7(0x237)](null,_0x5d6b88)||_0x141e72[_0x5719e7(0x25e)](-0xcf5+0x26e*-0x2+0x11d1,_0x5d6b88[_0x5719e7(0x344)]))return document[_0x5719e7(0x2b3)+_0x5719e7(0x1f7)](_0x141e72[_0x5719e7(0x2f7)])[_0x5719e7(0x22f)]=_0x141e72[_0x5719e7(0x2b7)],![];continue;case'1':document[_0x5719e7(0x2b3)+_0x5719e7(0x1f7)](_0x141e72[_0x5719e7(0x2f7)])[_0x5719e7(0x22f)]='';continue;case'2':_0x141e72[_0x5719e7(0x32b)](setRegColor);continue;case'3':var _0x3158b3=_0x141e72[_0x5719e7(0x32b)](buildRegex);continue;case'4':return!![];case'5':var _0x5d6b88=document[_0x5719e7(0x2b3)+_0x5719e7(0x1f7)](_0x141e72[_0x5719e7(0x26a)])[_0x5719e7(0x22f)][_0x5719e7(0x227)](_0x3158b3);continue;case'6':if(document[_0x5719e7(0x2b3)+_0x5719e7(0x1f7)](_0x141e72[_0x5719e7(0x35c)])[_0x5719e7(0x21f)]){var _0x4531fb=_0x141e72[_0x5719e7(0x358)](_0x141e72[_0x5719e7(0x358)](_0x141e72[_0x5719e7(0x264)],_0x5d6b88[_0x5719e7(0x344)]),_0x141e72[_0x5719e7(0x348)]);for(var _0x2d360e=-0x2507+-0x11fc+-0x3703*-0x1;_0x141e72[_0x5719e7(0x1e5)](_0x2d360e,_0x5d6b88[_0x5719e7(0x344)]);++_0x2d360e)_0x4531fb=_0x141e72[_0x5719e7(0x358)](_0x141e72[_0x5719e7(0x245)](_0x4531fb,_0x5d6b88[_0x2d360e]),'\x0d\x0a');document[_0x5719e7(0x2b3)+_0x5719e7(0x1f7)](_0x141e72[_0x5719e7(0x2f7)])[_0x5719e7(0x22f)]=_0x4531fb;}else document[_0x5719e7(0x2b3)+_0x5719e7(0x1f7)](_0x141e72[_0x5719e7(0x2f7)])[_0x5719e7(0x22f)]=_0x141e72[_0x5719e7(0x358)](_0x141e72[_0x5719e7(0x258)](_0x141e72[_0x5719e7(0x31c)](_0x141e72[_0x5719e7(0x247)],_0x3158b3[_0x5719e7(0x241)]),_0x141e72[_0x5719e7(0x340)]),_0x5d6b88[-0x8*-0x2d8+-0x1763*-0x1+0x5d*-0x7f]);continue;case'7':if(!_0x141e72[_0x5719e7(0x2e7)](isValidFields))return![];continue;}break;}}function onReplace(){var _0xeb1318=_0x1f30,_0x44d7ef={'vcOEh':_0xeb1318(0x31a),'fqthj':function(_0x56037b){return _0x56037b();},'UQvOr':_0xeb1318(0x31b)+_0xeb1318(0x304),'sPDkI':_0xeb1318(0x31b)+'e'},_0x2e7f86=document[_0xeb1318(0x2b3)+_0xeb1318(0x1f7)](_0x44d7ef[_0xeb1318(0x239)])[_0xeb1318(0x22f)],_0x2f6f33=_0x44d7ef[_0xeb1318(0x1fa)](buildRegex);document[_0xeb1318(0x2b3)+_0xeb1318(0x1f7)](_0x44d7ef[_0xeb1318(0x204)])[_0xeb1318(0x22f)]=_0x2e7f86[_0xeb1318(0x1eb)](_0x2f6f33,document[_0xeb1318(0x2b3)+_0xeb1318(0x1f7)](_0x44d7ef[_0xeb1318(0x317)])[_0xeb1318(0x22f)]);}function reset(){var _0x32aab8=_0x1f30,_0xabec07={'wGDmJ':_0x32aab8(0x289),'cRpKH':function(_0x126ee3,_0x587d29){return _0x126ee3(_0x587d29);},'NzxYC':_0x32aab8(0x353)+'ce','cswXP':_0x32aab8(0x353)+_0x32aab8(0x269),'xsYOo':function(_0x1204ce,_0x3361ca){return _0x1204ce(_0x3361ca);},'SYekn':_0x32aab8(0x1e7)+_0x32aab8(0x33f),'jCLAZ':function(_0x3d1e65,_0x18267f){return _0x3d1e65(_0x18267f);},'FZqxs':_0x32aab8(0x29d)+'rn','RoicF':function(_0x459a45,_0x561979){return _0x459a45(_0x561979);},'iqyAj':_0x32aab8(0x2cb)},_0x4cd6d6=_0xabec07[_0x32aab8(0x263)][_0x32aab8(0x1ed)]('|'),_0x12d068=0x1c4e+0x25b7*-0x1+0x969;while(!![]){switch(_0x4cd6d6[_0x12d068++]){case'0':_0xabec07[_0x32aab8(0x2b5)]($,_0xabec07[_0x32aab8(0x338)])[_0x32aab8(0x35a)]('');continue;case'1':_0xabec07[_0x32aab8(0x2b5)]($,_0xabec07[_0x32aab8(0x26b)])[_0x32aab8(0x35a)]('');continue;case'2':_0xabec07[_0x32aab8(0x320)]($,_0xabec07[_0x32aab8(0x359)])[_0x32aab8(0x35a)]('');continue;case'3':_0xabec07[_0x32aab8(0x224)]($,_0xabec07[_0x32aab8(0x2d4)])[_0x32aab8(0x35a)]('');continue;case'4':_0xabec07[_0x32aab8(0x300)]($,_0xabec07[_0x32aab8(0x25f)])[_0x32aab8(0x35a)]('');continue;}break;}}function testReg(_0x37a1e5,_0x240db1){var _0x37ea80=_0x1f30,_0x1f648a={'XJFdp':function(_0x4f4026,_0x51b12b){return _0x4f4026(_0x51b12b);},'WZTyC':_0x37ea80(0x2cb),'bwVKi':function(_0x13c64b,_0x2913ee){return _0x13c64b(_0x2913ee);},'kkaGP':_0x37ea80(0x29d)+'rn','IZCMY':function(_0x4c3c12){return _0x4c3c12();}};_0x1f648a[_0x37ea80(0x2d6)]($,_0x1f648a[_0x37ea80(0x266)])[_0x37ea80(0x35a)](_0x240db1),_0x1f648a[_0x37ea80(0x30c)]($,_0x1f648a[_0x37ea80(0x274)])[_0x37ea80(0x35a)](_0x37a1e5),_0x1f648a[_0x37ea80(0x298)](onMatch);}document[_0x9c08cd(0x259)+_0x9c08cd(0x256)](_0x9c08cd(0x29b))[_0x9c08cd(0x296)+_0x9c08cd(0x327)](_0x9c08cd(0x244),function(_0x300fbb){var _0x1a2e8f=_0x9c08cd,_0x5b308e={'uuDNN':function(_0x2efc5d,_0x376a33){return _0x2efc5d(_0x376a33);}};_0x5b308e[_0x1a2e8f(0x2ea)](save_data,_0x300fbb);},![]);function setRegColor(){var _0x25405b=_0x9c08cd,_0x27587e={'ztJOa':_0x25405b(0x273)+_0x25405b(0x2d8),'NyQcR':function(_0x1d2041,_0x4f0b68){return _0x1d2041!=_0x4f0b68;},'AaDrR':function(_0x5d8988,_0x30ee15){return _0x5d8988%_0x30ee15;},'jwdNb':function(_0x27d6c2,_0x2c44c8){return _0x27d6c2(_0x2c44c8);},'muwrn':function(_0x25774b,_0x368977){return _0x25774b+_0x368977;},'yjmyQ':function(_0x21f5d7,_0x489887){return _0x21f5d7+_0x489887;},'gbxFW':_0x25405b(0x319),'rnfdK':function(_0x3fc3af,_0x449d85){return _0x3fc3af+_0x449d85;},'fwYFx':_0x25405b(0x1f9),'jHFUr':function(_0xf4da5c,_0x40735a){return _0xf4da5c(_0x40735a);},'BiBed':function(_0x2f846f,_0x8bc794){return _0x2f846f+_0x8bc794;},'Hyeqb':function(_0x85bff3,_0x2a08a2){return _0x85bff3+_0x2a08a2;},'nntVY':function(_0x1cf794,_0x2faaf7){return _0x1cf794+_0x2faaf7;},'Bpfmt':_0x25405b(0x2db),'bgRRA':function(_0x39b387,_0x46b80f){return _0x39b387+_0x46b80f;},'VfkZr':_0x25405b(0x2fe),'yaPia':function(_0x125b9d,_0x5d36e0){return _0x125b9d>_0x5d36e0;},'wIBTf':function(_0x53dcaa,_0x2826f7){return _0x53dcaa>_0x2826f7;},'rFOPb':function(_0x49cec3){return _0x49cec3();},'CkrTp':function(_0x37b2bc,_0x382b39){return _0x37b2bc(_0x382b39);},'RTNOa':_0x25405b(0x31e),'pFZdo':_0x25405b(0x246),'ceqxi':function(_0x548d30,_0x2fbc09){return _0x548d30(_0x2fbc09);},'SLUGm':_0x25405b(0x31a)},_0x1469de=_0x27587e[_0x25405b(0x32a)][_0x25405b(0x1ed)]('|'),_0x2a87bb=-0xba1+0x77*-0x25+0x1cd4;while(!![]){switch(_0x1469de[_0x2a87bb++]){case'0':while(_0x27587e[_0x25405b(0x26c)](match=_0x37f851[_0x25405b(0x31f)](_0x4ac6a9),null)){position=match[_0x25405b(0x21c)];_0x27587e[_0x25405b(0x30b)](_0x3fb476,0x1a6a+0x18e5+-0x334d)?_0xc3fa04+=[_0x27587e[_0x25405b(0x351)](escapeHtml,_0x4ac6a9[_0x25405b(0x2dd)](_0x27587e[_0x25405b(0x34a)](-0x1dab+0x34c+0x1a5f,_0x1bdfc4),position)),_0x27587e[_0x25405b(0x34a)](_0x27587e[_0x25405b(0x22c)](_0x27587e[_0x25405b(0x1f4)],_0x3fb476),'\x27>'),_0x27587e[_0x25405b(0x351)](escapeHtml,_0x4ac6a9[_0x25405b(0x2dd)](position,_0x27587e[_0x25405b(0x33a)](match[-0x2398+0x1020+-0x1378*-0x1][_0x25405b(0x344)],position))),_0x27587e[_0x25405b(0x310)]][_0x25405b(0x34e)](''):_0xc3fa04+=[_0x27587e[_0x25405b(0x290)](escapeHtml,_0x4ac6a9[_0x25405b(0x2dd)](_0x27587e[_0x25405b(0x1f6)](-0xda3+-0x1c1*0xe+0x2631,_0x1bdfc4),position)),_0x27587e[_0x25405b(0x1e6)](_0x27587e[_0x25405b(0x202)](_0x27587e[_0x25405b(0x2b8)],_0x3fb476),'\x27>'),_0x27587e[_0x25405b(0x351)](escapeHtml,_0x4ac6a9[_0x25405b(0x2dd)](position,_0x27587e[_0x25405b(0x209)](match[0x3*0x2d7+-0x1*0xc82+-0x1*-0x3fd][_0x25405b(0x344)],position))),_0x27587e[_0x25405b(0x2af)]][_0x25405b(0x34e)]('');_0x3fb476++,_0x1bdfc4=_0x27587e[_0x25405b(0x33a)](match[-0x9*-0x27a+-0x4ed*-0x1+0x1*-0x1b37][_0x25405b(0x344)],position);if(_0x27587e[_0x25405b(0x2a9)](_0x3fb476,matches[_0x25405b(0x344)]))break;else{if(_0x27587e[_0x25405b(0x201)](_0x3fb476,-0x267+-0x17e5+0x1c*0x1a3))break;}}continue;case'1':matches=_0x4ac6a9[_0x25405b(0x227)](_0x37f851);continue;case'2':var _0x3fb476=0x1d8c*0x1+-0x127d*-0x1+-0x3009,_0xc3fa04='',_0x1bdfc4=0x13ed+-0x1ed0+0xae3;continue;case'3':console[_0x25405b(0x22a)](matches);continue;case'4':var _0x37f851=_0x27587e[_0x25405b(0x349)](buildRegex);continue;case'5':_0x27587e[_0x25405b(0x265)]($,_0x27587e[_0x25405b(0x20e)])[_0x25405b(0x203)](_0xc3fa04[_0x25405b(0x1eb)](/\r?\n/g,_0x27587e[_0x25405b(0x2e6)]));continue;case'6':_0xc3fa04+=_0x27587e[_0x25405b(0x2c4)](escapeHtml,[_0x4ac6a9[_0x25405b(0x2dd)](_0x1bdfc4)][_0x25405b(0x34e)](''));continue;case'7':var _0x4ac6a9=document[_0x25405b(0x2b3)+_0x25405b(0x1f7)](_0x27587e[_0x25405b(0x2ef)])[_0x25405b(0x22f)];continue;}break;}}String[_0x9c08cd(0x334)][_0x9c08cd(0x272)]=function(_0x39d3c4){var _0x20bdc2=_0x9c08cd,_0x43defb={'KlHtb':function(_0x3d5534,_0x56aba9){return _0x3d5534>_0x56aba9;},'QKaKa':function(_0x9b92a4,_0x21a695){return _0x9b92a4==_0x21a695;},'qGGBP':function(_0x3a4920,_0x5deb06){return _0x3a4920==_0x5deb06;},'SwqHq':_0x20bdc2(0x29f),'qTXwC':function(_0x2eb412,_0x3fdba6){return _0x2eb412+_0x3fdba6;},'czrlG':function(_0x2e79d5,_0x10a4c3){return _0x2e79d5<_0x10a4c3;},'GImJZ':function(_0x116a24,_0x1215d6){return _0x116a24==_0x1215d6;},'ckdCv':function(_0x45e9d0,_0x468a13){return _0x45e9d0+_0x468a13;}};if(_0x43defb[_0x20bdc2(0x23e)](arguments[_0x20bdc2(0x344)],-0x968+0x2aa*0xa+-0x1*0x113c)){var _0x8ea4f8=this;if(_0x43defb[_0x20bdc2(0x232)](arguments[_0x20bdc2(0x344)],0xbc4+0x108+-0xccb)&&_0x43defb[_0x20bdc2(0x346)](typeof _0x39d3c4,_0x43defb[_0x20bdc2(0x23b)]))for(var _0x4d5463 in _0x39d3c4){var _0x47ed3b=new RegExp(_0x43defb[_0x20bdc2(0x214)](_0x43defb[_0x20bdc2(0x214)]('({',_0x4d5463),'})'),'g');_0x8ea4f8=_0x8ea4f8[_0x20bdc2(0x1eb)](_0x47ed3b,_0x39d3c4[_0x4d5463]);}else for(var _0xca6a85=0x11c*-0x7+-0xc37*-0x3+-0x1*0x1ce1;_0x43defb[_0x20bdc2(0x34d)](_0xca6a85,arguments[_0x20bdc2(0x344)]);_0xca6a85++){if(_0x43defb[_0x20bdc2(0x2ac)](arguments[_0xca6a85],undefined))_0x8ea4f8=_0x8ea4f8[_0x20bdc2(0x1eb)](_0x47ed3b,arguments[_0xca6a85]);else{var _0x47ed3b=new RegExp(_0x43defb[_0x20bdc2(0x31d)](_0x43defb[_0x20bdc2(0x214)]('\x5c{',_0xca6a85),'\x5c}'),'gm');;_0x8ea4f8=_0x8ea4f8[_0x20bdc2(0x1eb)](_0x47ed3b,arguments[_0xca6a85]);}}return _0x8ea4f8;}else return this;};var languageCode={'js':_0x9c08cd(0x2e2)+_0x9c08cd(0x356)+_0x9c08cd(0x2e9)+_0x9c08cd(0x33e)+_0x9c08cd(0x34f)+_0x9c08cd(0x1e9)+_0x9c08cd(0x345),'php':_0x9c08cd(0x2bf)+_0x9c08cd(0x2f0)+_0x9c08cd(0x222)+_0x9c08cd(0x223)+_0x9c08cd(0x225)+_0x9c08cd(0x35e)+_0x9c08cd(0x354)+_0x9c08cd(0x291)+_0x9c08cd(0x205)+_0x9c08cd(0x332),'py':_0x9c08cd(0x27e)+_0x9c08cd(0x262)+_0x9c08cd(0x34c)+_0x9c08cd(0x207)+_0x9c08cd(0x330)+_0x9c08cd(0x22d)+_0x9c08cd(0x217)+_0x9c08cd(0x2cd),'java':_0x9c08cd(0x2fa)+_0x9c08cd(0x33c)+_0x9c08cd(0x24b)+_0x9c08cd(0x2c2)+_0x9c08cd(0x2ad)+_0x9c08cd(0x28d)+_0x9c08cd(0x284)+_0x9c08cd(0x20a)+_0x9c08cd(0x2c3)+_0x9c08cd(0x21b)+_0x9c08cd(0x28f)+_0x9c08cd(0x25c)+_0x9c08cd(0x251)+_0x9c08cd(0x2f1)+_0x9c08cd(0x2ed)+_0x9c08cd(0x219)+_0x9c08cd(0x25a)+_0x9c08cd(0x2fd)+_0x9c08cd(0x27b)+_0x9c08cd(0x343)+_0x9c08cd(0x1e8)+_0x9c08cd(0x2ae)+_0x9c08cd(0x228)+_0x9c08cd(0x336)+_0x9c08cd(0x30d)+_0x9c08cd(0x229)+_0x9c08cd(0x280)+_0x9c08cd(0x22b)+_0x9c08cd(0x210)+_0x9c08cd(0x28e),'go':_0x9c08cd(0x230)+_0x9c08cd(0x288)+_0x9c08cd(0x23f)+_0x9c08cd(0x215)+_0x9c08cd(0x2f5)+_0x9c08cd(0x2aa)+_0x9c08cd(0x208)+_0x9c08cd(0x2c1)+_0x9c08cd(0x23c)+_0x9c08cd(0x24a)+_0x9c08cd(0x250)+_0x9c08cd(0x328)+_0x9c08cd(0x29e)+_0x9c08cd(0x2f9)+_0x9c08cd(0x2bd),'rb':_0x9c08cd(0x262)+_0x9c08cd(0x297)+_0x9c08cd(0x26e)+_0x9c08cd(0x1f8)+_0x9c08cd(0x2a7)};function escapeHtml(_0x499e76){var _0x188964=_0x9c08cd,_0xf277a0={'gIJZH':_0x188964(0x2c0),'QyUlO':_0x188964(0x21a),'lQNTe':_0x188964(0x2d9),'NqiQu':_0x188964(0x2a4),'epaEq':_0x188964(0x2a3)};return _0x499e76[_0x188964(0x1eb)](/&/g,_0xf277a0[_0x188964(0x324)])[_0x188964(0x1eb)](/</g,_0xf277a0[_0x188964(0x1f3)])[_0x188964(0x1eb)](/>/g,_0xf277a0[_0x188964(0x2f6)])[_0x188964(0x1eb)](/"/g,_0xf277a0[_0x188964(0x32f)])[_0x188964(0x1eb)](/'/g,_0xf277a0[_0x188964(0x329)]);}$(document)[_0x9c08cd(0x255)](function(){var _0x10c0d2=_0x9c08cd,_0x5c4c92={'RmIRC':_0x10c0d2(0x276)+_0x10c0d2(0x2bc),'LNVLt':function(_0x3cc0cf,_0x451a65){return _0x3cc0cf(_0x451a65);},'uafNa':_0x10c0d2(0x1fd)+_0x10c0d2(0x357),'byhZt':_0x10c0d2(0x2cb),'mjMtM':_0x10c0d2(0x2a8)+_0x10c0d2(0x1ec),'MnqEp':function(_0x18a301){return _0x18a301();},'hhXLG':_0x10c0d2(0x2e8),'bMZhP':_0x10c0d2(0x301)+_0x10c0d2(0x260),'RwUTz':function(_0x370775,_0x4b29f5){return _0x370775(_0x4b29f5);},'fLBqI':_0x10c0d2(0x29d)+'rn','ggKMM':function(_0x156599,_0xbe37e2){return _0x156599(_0xbe37e2);},'rIxWl':_0x10c0d2(0x27a),'YOOuk':function(_0x34c3f6){return _0x34c3f6();},'PAfWd':function(_0x2df313,_0x118b30){return _0x2df313!=_0x118b30;},'uEOWU':function(_0x2bb5de,_0x266645){return _0x2bb5de>_0x266645;},'qFfwR':function(_0x474391,_0x282f25){return _0x474391(_0x282f25);},'ClEXf':function(_0x2d97c0,_0x15af03){return _0x2d97c0!=_0x15af03;},'MkcYu':function(_0x1b1c88,_0x221856){return _0x1b1c88(_0x221856);},'qyiyz':_0x10c0d2(0x268)+_0x10c0d2(0x2b0),'kMKBk':_0x10c0d2(0x314),'FZTKO':function(_0x4d8795,_0x461ca2){return _0x4d8795(_0x461ca2);},'oPjFJ':function(_0x96e367,_0xe23b86){return _0x96e367(_0xe23b86);},'PLeOj':_0x10c0d2(0x226)+_0x10c0d2(0x2cf),'kjeBA':function(_0x4c3736,_0x36588b){return _0x4c3736<_0x36588b;},'tmUoc':function(_0x49a04b,_0xe9bfd8){return _0x49a04b==_0xe9bfd8;},'TPPtt':_0x10c0d2(0x234),'eoGFv':function(_0x1cdffd,_0x6aefe){return _0x1cdffd(_0x6aefe);},'uVYST':_0x10c0d2(0x292),'ncbIw':_0x10c0d2(0x253)+_0x10c0d2(0x28c)},_0x149859=_0x5c4c92[_0x10c0d2(0x286)][_0x10c0d2(0x1ed)]('|'),_0x89df45=-0x1a8e+-0xcec+0x146*0x1f;while(!![]){switch(_0x149859[_0x89df45++]){case'0':_0x5c4c92[_0x10c0d2(0x312)]($,_0x5c4c92[_0x10c0d2(0x2b4)])[_0x10c0d2(0x2a0)](function(){var _0x561cbe=_0x10c0d2;_0x56ca1b[_0x561cbe(0x308)](onMatch);});continue;case'1':_0x5c4c92[_0x10c0d2(0x312)]($,_0x5c4c92[_0x10c0d2(0x1ff)])['on'](_0x5c4c92[_0x10c0d2(0x1ee)],function(){var _0x2fcb5f=_0x10c0d2;if(_0x56ca1b[_0x2fcb5f(0x2d2)](_0x56ca1b[_0x2fcb5f(0x279)]($,_0x56ca1b[_0x2fcb5f(0x252)])[_0x2fcb5f(0x35a)](),'')&&_0x56ca1b[_0x2fcb5f(0x30a)](_0x56ca1b[_0x2fcb5f(0x1ef)]($,_0x56ca1b[_0x2fcb5f(0x252)])[_0x2fcb5f(0x35a)]()[_0x2fcb5f(0x344)],-0x1c92+0x397*0x7+-0x1*-0x371))_0x56ca1b[_0x2fcb5f(0x308)](onMatch);else{}});continue;case'2':_0x5c4c92[_0x10c0d2(0x270)](load_data);continue;case'3':_0x5c4c92[_0x10c0d2(0x312)]($,window)['on'](_0x5c4c92[_0x10c0d2(0x206)],function(_0x5a37e1){var _0x45f8c4=_0x10c0d2;_0x56ca1b[_0x45f8c4(0x2cc)](save_data,_0x5a37e1);});continue;case'4':_0x5c4c92[_0x10c0d2(0x312)]($,_0x5c4c92[_0x10c0d2(0x2ec)])[_0x10c0d2(0x244)](function(){var _0x2f2c8b=_0x10c0d2;_0x56ca1b[_0x2f2c8b(0x2cc)]($,_0x56ca1b[_0x2f2c8b(0x252)])[_0x2f2c8b(0x35a)](_0x56ca1b[_0x2f2c8b(0x2cc)]($,this)[_0x2f2c8b(0x218)](_0x56ca1b[_0x2f2c8b(0x2b9)])),_0x56ca1b[_0x2f2c8b(0x22e)](onMatch);});continue;case'5':_0x5c4c92[_0x10c0d2(0x2ba)]($,_0x5c4c92[_0x10c0d2(0x323)])['on'](_0x5c4c92[_0x10c0d2(0x1ee)],function(){var _0x580ddb=_0x10c0d2;_0x56ca1b[_0x580ddb(0x322)](_0x56ca1b[_0x580ddb(0x2cc)]($,_0x56ca1b[_0x580ddb(0x315)])[_0x580ddb(0x35a)](),'')&&_0x56ca1b[_0x580ddb(0x30a)](_0x56ca1b[_0x580ddb(0x1ef)]($,_0x56ca1b[_0x580ddb(0x315)])[_0x580ddb(0x35a)]()[_0x580ddb(0x344)],-0x4*0x5ed+0x7ca*0x4+-0x774)&&_0x56ca1b[_0x580ddb(0x308)](onMatch);});continue;case'6':var _0x56ca1b={'yNFwx':function(_0xdc1a69,_0x2a22ab){var _0x47dddc=_0x10c0d2;return _0x5c4c92[_0x47dddc(0x27c)](_0xdc1a69,_0x2a22ab);},'CJDKo':_0x5c4c92[_0x10c0d2(0x323)],'cbmqu':_0x5c4c92[_0x10c0d2(0x2e1)],'ajPiT':function(_0x396808){var _0x11214c=_0x10c0d2;return _0x5c4c92[_0x11214c(0x352)](_0x396808);},'fbGpd':function(_0x16f0e9){var _0x78ef46=_0x10c0d2;return _0x5c4c92[_0x78ef46(0x270)](_0x16f0e9);},'OtJpI':function(_0x5ab1b6,_0x4ac052){var _0x428d8e=_0x10c0d2;return _0x5c4c92[_0x428d8e(0x313)](_0x5ab1b6,_0x4ac052);},'mQINg':_0x5c4c92[_0x10c0d2(0x1ff)],'frgdn':function(_0x483d20,_0x569001){var _0x11a2bc=_0x10c0d2;return _0x5c4c92[_0x11a2bc(0x326)](_0x483d20,_0x569001);},'jmzfM':function(_0x2b2dd0,_0x556027){var _0x3be48b=_0x10c0d2;return _0x5c4c92[_0x3be48b(0x2ca)](_0x2b2dd0,_0x556027);},'gvjzR':function(_0x40779c,_0x152ea6){var _0x3d609d=_0x10c0d2;return _0x5c4c92[_0x3d609d(0x342)](_0x40779c,_0x152ea6);},'kLqpg':function(_0x51e108,_0x348006){var _0x2a33ed=_0x10c0d2;return _0x5c4c92[_0x2a33ed(0x27c)](_0x51e108,_0x348006);},'TZtTb':function(_0x482b17,_0x57f878){var _0x3757e5=_0x10c0d2;return _0x5c4c92[_0x3757e5(0x312)](_0x482b17,_0x57f878);},'MzApH':function(_0x2a47ba,_0x50cee7){var _0x36a898=_0x10c0d2;return _0x5c4c92[_0x36a898(0x335)](_0x2a47ba,_0x50cee7);},'FppLq':_0x5c4c92[_0x10c0d2(0x293)],'oTfzZ':_0x5c4c92[_0x10c0d2(0x200)],'QephG':function(_0x3d6bfa,_0x17093e){var _0x49d317=_0x10c0d2;return _0x5c4c92[_0x49d317(0x2e0)](_0x3d6bfa,_0x17093e);},'ARHYm':function(_0x569494,_0x2817a6){var _0x1bbdb5=_0x10c0d2;return _0x5c4c92[_0x1bbdb5(0x305)](_0x569494,_0x2817a6);},'hEjRX':_0x5c4c92[_0x10c0d2(0x2dc)],'AGCIe':function(_0x23f849,_0x2f4128){var _0x4ca201=_0x10c0d2;return _0x5c4c92[_0x4ca201(0x35d)](_0x23f849,_0x2f4128);},'BfWuE':function(_0x51fd9f,_0x242d46){var _0x508896=_0x10c0d2;return _0x5c4c92[_0x508896(0x360)](_0x51fd9f,_0x242d46);},'eYlSU':_0x5c4c92[_0x10c0d2(0x2be)]};continue;case'7':_0x5c4c92[_0x10c0d2(0x34b)]($,_0x5c4c92[_0x10c0d2(0x1ea)])['on'](_0x5c4c92[_0x10c0d2(0x2a1)],function(){var _0x1bd89b=_0x10c0d2,_0x5eef4d=_0x56ca1b[_0x1bd89b(0x267)]($,_0x56ca1b[_0x1bd89b(0x252)])[_0x1bd89b(0x35a)]();!_0x5eef4d?_0x56ca1b[_0x1bd89b(0x282)]($,_0x56ca1b[_0x1bd89b(0x285)])[_0x1bd89b(0x203)](_0x56ca1b[_0x1bd89b(0x2e5)])[_0x1bd89b(0x248)]():_0x56ca1b[_0x1bd89b(0x2e3)]($,_0x56ca1b[_0x1bd89b(0x285)])[_0x1bd89b(0x2d0)]();var _0x4bae93=_0x56ca1b[_0x1bd89b(0x29c)]($,_0x56ca1b[_0x1bd89b(0x221)]);for(var _0x4a84b6=-0x88e+-0x187+-0x1d*-0x59;_0x56ca1b[_0x1bd89b(0x2f4)](_0x4a84b6,_0x4bae93[_0x1bd89b(0x344)]);_0x4a84b6++){var _0x27453d=_0x56ca1b[_0x1bd89b(0x2e3)]($,_0x4bae93[_0x4a84b6]),_0x4da452=_0x27453d[_0x1bd89b(0x218)]('id');_0x56ca1b[_0x1bd89b(0x238)](_0x4da452,'go')||_0x56ca1b[_0x1bd89b(0x238)](_0x4da452,_0x56ca1b[_0x1bd89b(0x32d)])?(pattern2=_0x5eef4d[_0x1bd89b(0x1eb)](/\\/gi,'\x5c\x5c'),_0x27453d[_0x1bd89b(0x203)](languageCode[_0x4da452][_0x1bd89b(0x272)](pattern2,''))):_0x27453d[_0x1bd89b(0x203)](languageCode[_0x4da452][_0x1bd89b(0x272)](_0x5eef4d,''));}});continue;}break;}});function save_data(_0x27d611){var _0x56bfea=_0x9c08cd,_0x1170d0={'QdSqC':function(_0x44aa21,_0x767c12){return _0x44aa21(_0x767c12);},'yYOue':function(_0x23e3d5,_0x3ec8c2){return _0x23e3d5(_0x3ec8c2);},'RVrLa':_0x56bfea(0x240)};return _0x1170d0[_0x56bfea(0x26d)]($,_0x1170d0[_0x56bfea(0x24d)])[_0x56bfea(0x271)](function(){var _0x31259e=_0x56bfea,_0x1f024e,_0x37b742;return _0x1f024e=_0x1170d0[_0x31259e(0x2c6)]($,this),_0x37b742=_0x1f024e[_0x31259e(0x35a)](),localStorage[_0x31259e(0x2c5)](_0x1f024e[_0x31259e(0x218)]('id'),_0x37b742);}),_0x27d611[_0x56bfea(0x2c8)+_0x56bfea(0x1fb)]();};function _0x32d1(){var _0x134c55=['str);\x0a\x09\x09Sy','log','rintln(m.m','yjmyQ','}\x27\x0aprint(p','ajPiT','value','package\x20ma','_blank','QKaKa','optionGlob','java','vPTLB','SqkSK','UXhbC','BfWuE','vcOEh','mAEgS','SwqHq','\x20err\x20:=\x20re','（没有匹配）','KlHtb','\x20(\x0a\x09\x22fmt\x22\x0a','[save]','lastIndex','541933AubRxG','#regFlag','click','WqfDy','<br/>','cZcNp','show','3410397QLJbkU','gexp.Match','ex.Matcher','textMatchR','RVrLa','uBlps','ags=','String(\x22{0','String\x20arg','CJDKo','show.bs.mo','GHdBh','ready','tor','Subjf','JSQTT','querySelec','\x09String\x20pa','https://c.','void\x20main(','\x20处匹配：\x0d\x0a','xaUAy','iqyAj','a\x20li\x20a','hidden','pattern\x20=\x20','wGDmJ','TlWkv','CkrTp','WZTyC','TZtTb','#alert-mes','ceResult','dBXsj','cswXP','NyQcR','yYOue','=\x20\x27{1}\x27\x0ap\x20','MJDKM','MnqEp','each','format','7|4|1|3|2|','kkaGP','textPatter','6|2|3|4|0|','Xnylo','eGMpp','kLqpg','title','0}\x22;\x0a\x0a\x09\x09Pa','ggKMM','30epcfZD','import\x20re\x0a','iline','stem.out.p','reg-string','MzApH','DoOTK','rn;\x0a\x0apubli','FppLq','RmIRC','.fa-exclam','in\x0a\x0aimport','4|3|2|0|1','data','1|4|6|2|0|','dal','egex.Patte','\x0a\x09}\x0a\x0a}','ic\x20static\x20','jHFUr','mp($isMatc','#myModal','qyiyz','dbUzN','TIzer','addEventLi','/{0}/\x0astr\x20','IZCMY','optionIgno','optionMult','#submitBTN','ARHYm','#textPatte','fmt.Printl','object','change','ncbIw','LqMpl','&#039;','&quot;','reg','FlUwU','tch(str)','change\x20key','yaPia','in()\x20{\x0a\x09st','Reg','GImJZ','ava.util.r','mpile(patt','VfkZr','sage','3|7|1|2|5|','ation-tria','getElement','uafNa','cRpKH','sOEGV','Likak','Bpfmt','cbmqu','RwUTz','匹配位置：','5|1|7','\x20err)\x0a}','TPPtt','$str\x20=\x20\x27{1','&amp;','\x0a\x09matched,',';\x0aimport\x20j','gexMatches','ceqxi','setItem','QdSqC','optionSing','preventDef','#reg-dropd','qFfwR','#textSour','yNFwx','rch(str))','2|0|4|3|1','ist\x20pre','hide','\x0d\x0a匹配结果：','gvjzR','visible','FZqxs','DNqLl','XJFdp','1001182rQmDaA','0|6|5','&gt;','whDhA','<b\x20index=\x27','PLeOj','slice','BYCCr','81hFwkLF','FZTKO','rIxWl','var\x20patter','QephG','BgmWU','oTfzZ','pFZdo','JpUSq','unload','\x0a\x09str\x20=\x20\x27{','uuDNN','dVOzs','bMZhP','tring\x20str\x20','ZZJqQ','SLUGm','}\x27;\x0a$isMat','s[])\x20{\x0a\x09\x09S','Fmcdn','3824110rWCmYa','AGCIe',')\x0a\x0afunc\x20ma','lQNTe','tGzds','leline','n(matched,','import\x20jav','nhydx','LrVaE','ttern\x20=\x20\x22{','</b>','EsckB','RoicF','#right_are','LOdyO','YwFHX','eResult','oPjFJ','共找到\x20','PXsgj','fbGpd','#visualize','frgdn','AaDrR','bwVKi','r.matcher(','152OJqjjA','MKbEF','fwYFx','5624980FSlFkT','LNVLt','PAfWd','你还没输入正则表达式','mQINg','FwZci','sPDkI','esult','<i\x20index=\x27','textSour','textReplac','odwAL','ckdCv','#txt','exec','xsYOo','&re=','OtJpI','fLBqI','gIJZH','cPncc','uEOWU','stener','}\x22,\x20str)\x0a\x09','epaEq','ztJOa','dmHes','reCase','eYlSU','cyEJb','NqiQu','str\x20=\x20u\x27{1','ctLJP','hes);','5|3','prototype','MkcYu','tcher\x20m\x20=\x20','MRhRn','NzxYC','UlyxG','rnfdK','jbcjw','a.util.reg','own-menu\x20b','1}\x27;\x0aconso','Result','jRJMt','YDJYb','ClEXf','ttern\x20r\x20=\x20','length','str));','qGGBP','668214GBBYNk','efgoH','rFOPb','muwrn','eoGFv','re.compile','czrlG','join','le.log(pat','fZryH','jwdNb','YOOuk','#textRepla','s);\x0avar_du','/front-end','n\x20=\x20/{0}/,','k-input','zYWXx','SYekn','val','ffTVS','uMeSJ','kjeBA','r,\x20$matche','visibility','tmUoc','UypMe','Hyeqb','#textMatch','Pattern.co','tern.test(','uVYST','replace','up\x20paste','split','mjMtM','jmzfM','kyRkk','runoob.com','focus','QyUlO','gbxFW','/7625/#!fl','BiBed','ById','pattern.ma','</i>','fqthj','ault','keyup','.form-chec','ngle','byhZt','kMKBk','wIBTf','nntVY','html','UQvOr','hed,\x20$matc','hhXLG','(ur\x27{0}\x27)\x0a','r\x20:=\x20\x22{1}\x22','bgRRA','c\x20class\x20Re','ROooo','yUKKg','799870oxYXvV','RTNOa','style','atches());','getItem','bnyRv','open','qTXwC','\x09\x22regexp\x22\x0a','iTdDw','attern.sea','attr','=\x20\x22{1}\x22;\x0a\x09','&lt;','\x20{\x0a\x09\x0a\x09publ','index','0|6|4','utton','checked','GxTCU','hEjRX','ched\x20=\x20pre','g_match(\x27/','jCLAZ','{0}/\x27,\x20$st','#languagel','match','ern);\x0a\x09\x09Ma'];_0x32d1=function(){return _0x134c55;};return _0x32d1();}function load_data(){var _0x22dedf=_0x9c08cd,_0x397cbc={'ZZJqQ':function(_0x2ef54b,_0x379091){return _0x2ef54b(_0x379091);},'dbUzN':function(_0xeb10b5,_0x1db301){return _0xeb10b5!==_0x1db301;},'sOEGV':function(_0x434341,_0x386a02){return _0x434341(_0x386a02);},'TIzer':_0x22dedf(0x240),'LrVaE':function(_0x2e5efe){return _0x2e5efe();}};_0x397cbc[_0x22dedf(0x2b6)]($,_0x397cbc[_0x22dedf(0x295)])[_0x22dedf(0x271)](function(){var _0x37c9cd=_0x22dedf,_0xa8741c,_0x2dff96;_0xa8741c=_0x397cbc[_0x37c9cd(0x2ee)]($,this),_0x2dff96=localStorage[_0x37c9cd(0x211)](_0xa8741c[_0x37c9cd(0x218)]('id'));if(_0x397cbc[_0x37c9cd(0x294)](_0x2dff96,null))return _0xa8741c[_0x37c9cd(0x35a)](_0x2dff96);}),_0x397cbc[_0x22dedf(0x2fc)](onMatch);};
+</script>
+-->
+
+<script src="regularexprtool_files/tool.js"></script>
+
+</div>
+
+<div class="row " style="margin: 20px 10px; height: auto !important;">
+<div class="col-md-12 " style="height: auto !important;">
+
+<div class="text-center mt-3 shadow">
+<!-- <script async="" src="regularexprtool_files/f_004.txt"></script> -->
+
+<!-- <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> -->
+</div>
+</div>
+</div>
+
+<script src="regularexprtool_files/bootstrap.bundle.min.js"></script>
+
+<script>
+function getParams() {
+  var urlParams = {};
+  var i = location.hash.indexOf('#!');
+  if (i >= 0) {
+    var search = location.hash.slice(i+1);
+    search.replace(/[!&]+([^=&]+)=([^&]*)/gi, function(match, key, value) {
+      urlParams[key] = decodeURIComponent(value).trim();
+    });
+  }
+  return urlParams;
+}
+
+function setParams(urlParams) {
+  var params = [];
+  for (const k in urlParams) {
+    var p = k + '=' + encodeURIComponent(urlParams[k]);
+    params.push(p);
+  }
+  location.hash = '#!' + params.join('&');
+}
+
+$(function() {
+	//代码高亮
+	$('pre').each(function() {
+		if(!$(this).hasClass("prettyprint")) {
+			$(this).addClass("prettyprint");
+		}
+	});
+ 
+  // $('[data-toggle="tooltip"]').tooltip();
+
+  if(is_home) {
+    $(window).scroll(function () {
+      var _stop = $(window).scrollTop();
+      if(_stop>=100) {
+        $("#go-top").fadeIn();
+        
+      }else {
+        $("#go-top").fadeOut();
+      }
+    });
+    _current_hash = window.location.hash;
+    console.log(_current_hash);
+    if(_current_hash) {
+     
+        var $targetEle = $(_current_hash);
+        var sTop =  $targetEle.offset().top;
+        $('html, body').stop().animate({
+            'scrollTop':sTop-100
+        }, 300, 'swing', function (e) {
+         // window.location.hash = targetEle;
+        }); 
+        console.log(sTop);
+        return false;
+     
+    }
+    $("#go-top").click(function(event){	
+     $('html,body').animate({scrollTop:0}, 100);
+     return false;
+    });
+    // 导航
+    var _html_nav='<a class="nav-link active" href="javascript:void();"><i class="fa fa-compass" aria-hidden="true"></i> 快速导航</a>';
+    var _html_right_nav = '<button class="dropdown-item" href="#"><i class="fa fa-th-list" aria-hidden="true"></i> 快速导航</button><div class="dropdown-divider"></div>';
+    var _html_left_nav = '<dt><span class="show-list"></span></dt>';
+    for (var i=0;i<data_hrefs.length;i++)
+    { 
+        id="runoob-goto-" + data_hrefs[i];
+        _html_nav += '<a class="nav-link" href="#'+id+'">'+$("#"+id).data("text")+'</a>';
+        _html_right_nav +='<button class="dropdown-item" onclick="location.href=\'#'+id+'\'" type="button"><i class="fa fa-caret-right" aria-hidden="true"></i> '+$("#"+id).data("text")+'</button>' ;
+        _html_left_nav +='<dd><a href="#'+id+'" class="auto-scroll" data-offset="98" data-speed="500">'+$("#"+id).data("text")+'</a></dd>';
+    }
+    $(".nav-underline").html(_html_nav);
+    $("#right_nav_list").html(_html_right_nav);
+    $("#goto").html(_html_left_nav);
+    if($(".nav-scroller").is(":visible")){
+      $('a[href^="#"]').on('click', function (e) {
+          e.preventDefault();
+          $(this).addClass('nav-underline-active');
+          $(this).siblings().removeClass('nav-underline-active');
+          var targetEle = this.hash;
+          var $targetEle = $(targetEle);
+          var sTop =  $targetEle.offset().top;
+          $('html, body').stop().animate({
+              'scrollTop':sTop-100
+          }, 300, 'swing', function () {
+          //   window.location.hash = targetEle;
+          });
+      });
+    } else {
+      $('a[href^="#"]').on('click', function (e) {
+          e.preventDefault();
+          var targetEle = this.hash;
+          var $targetEle = $(targetEle);
+          var sTop =  $targetEle.offset().top;
+          $('html, body').stop().animate({
+              'scrollTop':sTop-56   
+          }, 300, 'swing', function () {
+          //   window.location.hash = targetEle;
+          });
+      });
+    }
+  } else { 
+    $("#top").hide();
+  }
+  
+
+  // search
+  if($('#search-name').length){
+      var _href=  $("#search-name .nav-underline-active").attr("href");
+  }
+ 
+  $('#search-name li a').each(function(){
+    $(this).on("click", function(e){
+      e.preventDefault();
+      _href = $(this).attr('href');
+      $(this).removeClass("text-muted").addClass("nav-underline-active");
+      $(this).parent().siblings().find("a").addClass("text-muted").removeClass("nav-underline-active");
+    //  console.log(_href);
+    });
+    
+  })
+
+  $('#search-button').on("click", function(e){
+   // console.log(_href);
+    _hmt.push(['_trackEvent', 'Search', 'Click', '搜索工具']);
+    keyword = $(".search").find("input:text").val();
+    window.open(_href + keyword, '_blank');
+  });
+  $(".search").find("input:text").keypress(function (e) {
+    var key = e.which;
+    if(key == 13)  // the enter key code
+    {
+      window.open(_href + $(this).val(), '_blank'); 
+      return false;  
+    }
+  });  
+});
+
+(function($){ 
+  var p=$('.runoob-item-index'); 
+  if(p.length<1) return;
+  var arr=[];
+  function part_offset_top() {
+    p.each(function () {
+      var of=$(this).offset();
+      arr.push(Math.floor(of.top));
+    });
+  }
+  function goto_current(index) {
+    var a=$('#goto dd');
+    var b=$('#goto dt');
+    if(a.length<1) return;
+    var h=a.outerHeight();
+    if (!a.eq(index).hasClass('current')) {
+      a.removeClass('current');
+      a.eq(index).addClass('current');
+     // console.log(index)
+      b.animate({
+        'top': h*index+(a.outerHeight()-b.outerHeight())/2+1
+      },50);
+    }
+  }
+  function window_scroll() {
+    var st=window.pageYOffset
+    			|| document.documentElement.scrollTop
+    			|| document.body.scrollTop
+    			|| 0;
+    var limit=Math.ceil(st+98);
+    var index=0;
+    for (var i = 0; i < arr.length; i++) {
+      if (limit>=arr[i]) {
+        index=i;
+      }else{
+        break;
+      }
+    }
+    if (index<0) index=0;
+    if (!p.eq(index).hasClass('current')) {
+      p.removeClass('current');
+      p.eq(index).addClass('current');
+      goto_current(index);
+    }
+  }
+  part_offset_top();
+  setTimeout(window_scroll,0);
+  $(window).on('scroll',window_scroll);
+})(jQuery);
+/* --侧边栏滚动时固定-- */
+(function($){
+  var s=$('.sidebar');
+  
+  if(s.length<1) return;
+  var c=s.children('.content-sidebar');
+  if(c.length<1) return;
+  var $parent=s.parent();
+  if($parent.length<1) return;
+  var start=0,stop=0,cHeight=0;
+  function init() {
+    var soffset=s.offset();
+    start=soffset.top;
+    stop=start+$parent.height();
+    cinit();
+  }
+  function cinit() {
+    cHeight=c.height();
+  }
+  function cClear(){
+    c.removeClass('fixed');
+    c.removeClass('absolute');
+  }
+  function check_scroll(){
+    var st=window.pageYOffset
+    			|| document.documentElement.scrollTop
+    			|| document.body.scrollTop
+    			|| 0;
+    if (st<=start) {
+      cClear();
+    }
+    if (st>=stop-cHeight) {
+      c.removeClass('fixed');
+      c.addClass('absolute');
+      return;
+    }
+    if (st<stop-cHeight && st>start) {
+      c.removeClass('absolute');
+      c.addClass('fixed');
+    }
+  }
+  
+  init();
+  check_scroll();
+  $(window).on('resize',init);
+  $(window).on('scroll',check_scroll);
+})(jQuery);
+
+
+const flagIdMap = {
+  'g': '#optionGlobal',
+  'i': '#optionIgnoreCase',
+  'm': '#optionMultiline',
+  's': '#optionSingleline'
+}
+
+function updateParams()
+{
+  var flags = '';
+  for (const flag in flagIdMap) {
+    if ($(flagIdMap[flag]).prop('checked')) {
+      flags += flag;
+    }
+  }
+
+  let regx = $("#textPattern").val();
+
+  let text = $("#textSour").val();
+
+  var params = {
+    'flags': flags,
+    'rexpr': regx,
+    'text': text
+  };
+
+  setParams(params);
+}
+
+function regulexView(noresize) {
+    let div = $('#regulex-view');
+    let regx = $("#textPattern").val();
+    let url = 'Regulex.html#!embed=true&flags=&re=' + encodeURIComponent(regx);
+    console.log("Regulex: " + url);
+
+    div.find('iframe').remove();
+
+    var iframe = $('<iframe>', {
+      src: url,
+      frameborder: 0,
+      width: "100%",
+      height: "100%",
+    });
+    div.append(iframe);
+
+    if (!noresize) {
+      var cnt = regx.split('|').length - 1;
+      var h = 200 + cnt * 100;
+      if (h > 700) { h = 700 };
+      div.height(h);
+    }
+
+    updateParams();
+};
+
+function testRegExt(reg, str)
+{
+  if (reg) {
+    testReg(reg, str);
+  }
+  setTimeout(regulexView, 100);
+};
+
+function divResize(event) {
+  event.preventDefault(); // 阻止默认事件
+  const div = event.target;
+  const startY = event.clientY;
+  const startHeight = parseInt(getComputedStyle(div).height);
+
+  var mask = document.createElement('div');
+  mask.style.cssText = 'position: absolute;top: 0;left: 0;width: 100vw;height: 100vh;z-index: 9999;';
+  mask.setAttribute('id', 'mousemoveMask');
+  document.body.append(mask);
+
+  mask.onmousemove = function(event) {
+    const diffY = event.clientY - startY;
+    var h = startHeight + diffY;
+    if (h < 150) h = 150;
+    div.style.height = h + 'px';
+  };
+
+  mask.onmouseup = function() {
+    mask.onmousemove = null;
+    mask.onmouseup = null;
+    mask.remove();
+  };
+}
+
+
+(function($) {
+  $("#textPattern").on('input', function(e){regulexView(true);});
+  $("#textSour").on('input', function(e){updateParams();});
+  $('#reg-dropdown-menu').find('button').click(function(event){
+    setTimeout(regulexView, 100);
+  });
+
+  $('#about').find('strong').click(function(event) {
+    var reg = $(this).text().trim();
+    console.log("eg: " + reg);
+    $(flagIdMap['m']).prop('checked', true);
+    testRegExt(reg, "abcd\n12345\n中文xxxx\n$^*%#$#\nhello world!\n-12\n3.14159\n1e10");
+    $('html, body').animate({scrollTop: 0}, 200);
+  });
+
+  $(document).ready(function() {
+    var params = getParams();
+    var rexpr = params.rexpr || '';
+    var text = params.text || '';
+    var flags = params.flags || 'g';
+
+    for (const flag in flagIdMap) {
+      $(flagIdMap[flag]).prop('checked', false);
+    }
+
+    for (let flag of flags) {
+      $(flagIdMap[flag]).prop('checked', true);
+    }
+
+    testRegExt(rexpr, text);
+  });
+
+})(jQuery);
+</script>
+
+

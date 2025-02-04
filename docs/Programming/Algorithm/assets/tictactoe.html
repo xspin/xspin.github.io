@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Minimax井字棋</title>
+    <style>
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 70px);
+            gap: 5px;
+            margin: 20px auto;
+            float: left;
+        }
+
+        .cell {
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            border: 2px solid #333;
+            font-size: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cell:hover {
+            background: #f0f0f0;
+        }
+
+        .status {
+            /* text-align: center; */
+            font-size: 14px;
+            margin: 20px;
+            float: left;
+            margin-left: 30px;
+        }
+
+        .reset-btn {
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
+            float: left;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+
+        .winning-cell {
+            background-color: #90EE90;
+        }
+    </style>
+</head>
+<body>
+    <div class="board" id="board"></div>
+    <button class="reset-btn" onclick="resetGame()">重新开始</button>
+    <div class="status" id="status">你的回合（X）</div>
+
+    <script>
+        let board = Array(9).fill('');
+        let humanPlayer = 'X';
+        let aiPlayer = 'O';
+        let currentPlayer = humanPlayer;
+        let gameActive = true;
+
+        // 初始化棋盘
+        function initBoard() {
+            const boardElement = document.getElementById('board');
+            boardElement.innerHTML = '';
+            
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.setAttribute('data-index', i);
+                cell.addEventListener('click', handleCellClick);
+                boardElement.appendChild(cell);
+            }
+        }
+
+        // 处理玩家点击
+        function handleCellClick(e) {
+            if (!gameActive) return;
+            
+            const index = parseInt(e.target.getAttribute('data-index'));
+            
+            if (board[index] === '') {
+                makeMove(index, humanPlayer);
+                
+                if (!checkGameOver()) {
+                    currentPlayer = aiPlayer;
+                    const status = document.getElementById('status');
+                    status.textContent = "电脑的回合（O）";
+                    setTimeout(makeAIMove, 500);
+                }
+            }
+        }
+
+        // AI走棋
+        function makeAIMove() {
+            const status = document.getElementById('status');
+            const bestMove = minimax(board, aiPlayer).index;
+            makeMove(bestMove, aiPlayer);
+            currentPlayer = humanPlayer;
+            if (gameActive) {
+                status.textContent = "你的回合（X）";
+            }
+        }
+
+        // Minimax算法实现
+        function minimax(newBoard, player) {
+            const availableSpots = newBoard.reduce((acc, curr, idx) => {
+                if (curr === '') acc.push(idx);
+                return acc;
+            }, []);
+
+            if (checkWin(newBoard, humanPlayer)) {
+                return { score: -10 };
+            } else if (checkWin(newBoard, aiPlayer)) {
+                return { score: 10 };
+            } else if (availableSpots.length === 0) {
+                return { score: 0 };
+            }
+
+            const moves = [];
+            for (let spot of availableSpots) {
+                const move = {};
+                move.index = spot;
+                newBoard[spot] = player;
+
+                if (player === aiPlayer) {
+                    const result = minimax(newBoard, humanPlayer);
+                    move.score = result.score;
+                } else {
+                    const result = minimax(newBoard, aiPlayer);
+                    move.score = result.score;
+                }
+
+                newBoard[spot] = '';
+                moves.push(move);
+            }
+
+            let bestMove;
+            if (player === aiPlayer) {
+                let bestScore = -Infinity;
+                for (let move of moves) {
+                    if (move.score > bestScore) {
+                        bestScore = move.score;
+                        bestMove = move;
+                    }
+                }
+            } else {
+                let bestScore = Infinity;
+                for (let move of moves) {
+                    if (move.score < bestScore) {
+                        bestScore = move.score;
+                        bestMove = move;
+                    }
+                }
+            }
+
+            return bestMove;
+        }
+
+        // 执行移动
+        function makeMove(index, player) {
+            board[index] = player;
+            const cell = document.querySelectorAll('.cell')[index];
+            cell.textContent = player;
+            if (player === humanPlayer) {
+                cell.style.color ='blue';
+            } else {
+                cell.style.color ='red';
+            }
+            
+            if (checkWin(board, player)) {
+                gameActive = false;
+                highlightWinningCombination();
+                const status = (player === humanPlayer ? "你赢了！" : "电脑赢了！");
+                document.getElementById('status').textContent = status;
+            } else if (board.every(cell => cell !== '')) {
+                gameActive = false;
+                document.getElementById('status').textContent = "平局！";
+            }
+        }
+
+        // 检查胜利条件
+        function checkWin(board, player) {
+            const winCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // 横向
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // 纵向
+                [0, 4, 8], [2, 4, 6] // 对角线
+            ];
+
+            return winCombinations.some(combination => {
+                return combination.every(index => board[index] === player);
+            });
+        }
+
+        // 高亮显示获胜组合
+        function highlightWinningCombination() {
+            const winCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+
+            for (let combination of winCombinations) {
+                const cells = combination.map(index => 
+                    document.querySelector(`[data-index="${index}"]`));
+                
+                if (cells.every(cell => cell.textContent === currentPlayer)) {
+                    cells.forEach(cell => cell.classList.add('winning-cell'));
+                    break;
+                }
+            }
+        }
+
+        // 检查游戏是否结束
+        function checkGameOver() {
+            return checkWin(board, humanPlayer) || 
+                   checkWin(board, aiPlayer) || 
+                   board.every(cell => cell !== '');
+        }
+
+        // 重置游戏
+        function resetGame() {
+            board = Array(9).fill('');
+            gameActive = true;
+            currentPlayer = humanPlayer;
+            document.getElementById('status').textContent = "你的回合（X）";
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.textContent = '';
+                cell.classList.remove('winning-cell');
+            });
+        }
+
+        // 初始化游戏
+        initBoard();
+    </script>
+</body>
+</html>

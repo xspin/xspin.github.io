@@ -40,11 +40,11 @@ $$
 
 
 
-[次级页面1](page1/page.md)
+[次级页面1](page1/page1.md)
 
 
 
-[次级页面2](page2/page.md)
+[次级页面2](page2/page2.md)
 
 
 
