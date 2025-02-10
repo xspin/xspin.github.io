@@ -6,6 +6,8 @@
     <style>
         body {
             background-color: gray;
+            justify-content: center;
+            text-align: center;
         }
         canvas {
             border: 1px solid #000;
@@ -14,7 +16,6 @@
         }
         .controls {
             margin: 10px;
-            /* text-align: center; */
             margin-left: 100px;
         }
         button {
@@ -38,6 +39,8 @@
         <button onclick="nextMove()">下一步</button>
     </div>
 
+    <audio id="audioPlayer" controls src="chess_move.mp3" style="display: none;"></audio>
+
     <script>
         const canvas = document.getElementById('chessboard');
         const ctx = canvas.getContext('2d');
@@ -49,6 +52,11 @@
         const noPlayer = 0;
         let currentPlayer = humanPlayer; // 当前玩家
         let gameOver = false;
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        function play() {
+            audioPlayer.play();
+        }
 
         // 初始化游戏
         function initGame() {
@@ -104,6 +112,8 @@
             ctx.lineWidth = 1;
             drawNotice(x, y, 'red');
             lastPos = {x:x, y:y};
+
+            play();
         }
 
         function drawNotice(x, y, color) {
@@ -305,15 +315,15 @@
                 const move = moves[i];
                 board[move.x][move.y] = player;
                 if (checkWin(move.x, move.y)) {
-                    board[move.x][move.y] = 0;
-                    return [-Infinity, false];
+                    board[move.x][move.y] = noPlayer;
+                    return [-10-depth, false];
                 }
                 const v = getOneScore(move.x, move.y);
                 const score = minimaxMax(alpha, beta, depth-1, move.x, move.y, val+v);
                 if (score < beta) {
                     beta = score;
                 }
-                board[move.x][move.y] = 0;
+                board[move.x][move.y] = noPlayer;
                 if (alpha >= beta) {
                     break;
                 }
@@ -367,6 +377,8 @@
             var alpha = -Infinity;
             var beta = Infinity;
             var val = getScore();
+            var currentBestScore = alpha;
+            var currentBestMove = null;
             for (let i in moves)  {
                 const move = moves[i];
                 board[move.x][move.y] = player;
@@ -375,6 +387,10 @@
                 board[move.x][move.y] = 0;
                 const score = ret[0];
                 const win = ret[1];
+                if (v+score > currentBestScore) {
+                    currentBestScore = v+score;
+                    currentBestMove = move;
+                }
                 if (score > alpha || win) {
                     alpha = score;
                     bestMove = move;
@@ -384,6 +400,10 @@
                 }
             }
             const p = player===aiPlayer?"AI":"Human"
+            if (alpha < 0) {
+                bestMove = currentBestMove;
+                console.log(p + " maybe defeat.");
+            }
             console.log(p + " best: " + alpha + " (" + bestMove.x + ", " + bestMove.y + ")");
             return bestMove;
         }

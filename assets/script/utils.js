@@ -7,3 +7,4 @@ function updateRegulex() {
         iframe.src = url + encodeURIComponent(reg);
     }
 }
+

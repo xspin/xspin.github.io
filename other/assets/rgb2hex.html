@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB与Hex颜色转换工具</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+       .converter {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+       .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+       .input-group label {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+       .input-group input {
+            flex: 1;
+            padding: 5px;
+        }
+        .converter-group {
+            float: left;
+            position: relative;
+        }
+
+       .color-preview {
+            width: 45%;
+            height: 145px;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            float: left;
+            position: relative;
+        }
+
+        #red-label {
+            color: red;
+        }
+        #green-label {
+            color: green;
+        }
+        #blue-label {
+            color: blue;
+        }
+
+        #text-preview {
+            margin-top: 0;
+            text-align: center;
+            color: gray;
+            background-color: white;
+        }
+        #title {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="converter">
+        <h3 id="title">RGB - Hex 颜色值转换</h3>
+        <div class="converter-group">
+        <div class="input-group">
+            <label id="red-label" for="red">R:</label>
+            <input type="number" id="red" min="0" max="255" value="0" oninput="updateColorAndHex()">
+        </div>
+        <div class="input-group">
+            <label id="green-label"  for="green">G:</label>
+            <input type="number" id="green" min="0" max="255" value="0" oninput="updateColorAndHex()">
+        </div>
+        <div class="input-group">
+            <label id="blue-label"  for="blue">B:</label>
+            <input type="number" id="blue" min="0" max="255" value="0" oninput="updateColorAndHex()">
+        </div>
+        <div class="input-group">
+            <label for="hex">Hex:</label>
+            <input type="text" id="hex" oninput="hexToRgb()">
+        </div>
+        </div>
+        <div class="color-preview" id="preview">
+            <p id="text-preview">预览</p>
+        </div>
+
+    </div>
+
+    <script>
+        function componentToHex(c) {
+            const hex = c.toString(16);
+            return hex.length === 1 ? "0" + hex : hex;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+
+        function updateColorAndHex() {
+            const r = parseInt(document.getElementById('red').value);
+            const g = parseInt(document.getElementById('green').value);
+            const b = parseInt(document.getElementById('blue').value);
+
+            const tp = document.getElementById('text-preview');
+            if (!isNaN(r) && !isNaN(g) && !isNaN(b) && r >= 0 && r <= 255 && g >= 0 && g <= 255 && b >= 0 && b <= 255) {
+                const hex = rgbToHex(r, g, b);
+                document.getElementById('hex').value = hex;
+                const rgb = `rgb(${r}, ${g}, ${b})`;
+                document.getElementById('preview').style.backgroundColor = rgb;
+                document.getElementById('title').style.color = rgb;
+                tp.textContent = "预览";
+                // tp.style.color = rgb;
+            } else {
+                document.getElementById('hex').value = "输入无效";
+                tp.textContent = "输入无效";
+                document.getElementById('preview').style.backgroundColor = "transparent";
+            }
+        }
+
+        function hexToRgb() {
+            const hexInput = document.getElementById('hex').value;
+            const hex = hexInput.replace(/^#/, '');
+
+            if (/^[0-9A-Fa-f]{6}$/.test(hex)) {
+                const r = parseInt(hex.slice(0, 2), 16);
+                const g = parseInt(hex.slice(2, 4), 16);
+                const b = parseInt(hex.slice(4, 6), 16);
+                // document.getElementById('rgbOutput').value = `${r},${g},${b}`;
+                document.getElementById('red').value = r;
+                document.getElementById('green').value = g;
+                document.getElementById('blue').value = b;
+                updateColorAndHex();
+            } else {
+                document.getElementById('text-preview').textContent = "输入无效";
+            }
+        }
+    </script>
+</body>
+
+</html>

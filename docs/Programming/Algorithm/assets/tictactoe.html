@@ -53,7 +53,13 @@
 <body>
     <div class="board" id="board"></div>
     <button class="reset-btn" onclick="resetGame()">重新开始</button>
+    <div class="status">
+        <label for="aifirst">人机优先</label>
+        <input type="checkbox" id="aifirst">
+    </div>
     <div class="status" id="status">你的回合（X）</div>
+
+    <audio id="audioPlayer" controls src="chess_move.mp3" style="display: none;"></audio>
 
     <script>
         let board = Array(9).fill('');
@@ -61,6 +67,23 @@
         let aiPlayer = 'O';
         let currentPlayer = humanPlayer;
         let gameActive = true;
+        let aifirst = false;
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        const checkbox = document.getElementById('aifirst');
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                aifirst = true;
+                console.log("AI first");
+                moveAI();
+            } else {
+                aifirst = false;
+            }
+        });
+
+        function play() {
+            audioPlayer.play();
+        }
 
         // 初始化棋盘
         function initBoard() {
@@ -74,6 +97,14 @@
                 cell.addEventListener('click', handleCellClick);
                 boardElement.appendChild(cell);
             }
+
+        }
+
+        function moveAI() {
+            currentPlayer = aiPlayer;
+            const status = document.getElementById('status');
+            status.textContent = "电脑的回合（O）";
+            setTimeout(makeAIMove, 500);
         }
 
         // 处理玩家点击
@@ -86,10 +117,7 @@
                 makeMove(index, humanPlayer);
                 
                 if (!checkGameOver()) {
-                    currentPlayer = aiPlayer;
-                    const status = document.getElementById('status');
-                    status.textContent = "电脑的回合（O）";
-                    setTimeout(makeAIMove, 500);
+                    moveAI();
                 }
             }
         }
@@ -170,6 +198,8 @@
             } else {
                 cell.style.color ='red';
             }
+
+            play();
             
             if (checkWin(board, player)) {
                 gameActive = false;
@@ -231,6 +261,9 @@
                 cell.textContent = '';
                 cell.classList.remove('winning-cell');
             });
+            if (aifirst) {
+                moveAI();
+            }
         }
 
         // 初始化游戏

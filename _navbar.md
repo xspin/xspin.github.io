@@ -1,6 +1,8 @@
 - [主页](/)
 - [关于](about/about.md)
 - [工具](other/tools.md)
+  - [正则工具](other/tools.md?id=正则工具)
+  - [颜色 RGB 转换工具](other/tools.md?id=颜色RGB转换工具)
 - 主题
   - <a href='#' onclick='return onSwitchTheme("vue");'>Light</a>
   - <a href='#' onclick='return onSwitchTheme("dark");'>Dark</a>
