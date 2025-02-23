@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元胞自动机</title>
+  <style>
+    body {
+      background-color: white;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(64, 10px);
+      grid-template-rows: repeat(40, 10px);
+      gap: 1px;
+      width: 704px;
+      height: 100%;
+      margin: 10px auto;
+    }
+
+  .cell {
+      background-color: white;
+    }
+
+  .alive {
+      background-color: black;
+    }
+
+  div.index {
+    text-align: center;
+    border-top: solid gray;
+    width: 800px;
+    margin: 0 auto;
+  }
+  div.index a {
+    color: #0075c9;
+    margin-right: 1em;
+    text-decoration: none;
+  }
+  div.index a:hover {
+    color: #0055c9;
+    text-decoration: underline;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="grid"></div>
+  <div class="index">
+    <a href="blog/">BLOG</a>
+    <a href="cube/">CUBE</a>
+  </div>
+
+  <script>
+    // 初始化网格
+    const grid = document.getElementById('grid');
+    const cells = [];
+    const cols = 64;
+    const rows = 40;
+
+    for (let i = 0; i < cols * rows; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cells.push(cell);
+      grid.appendChild(cell);
+    }
+
+    // 随机初始化元胞状态
+    cells.forEach(cell => {
+      if (Math.random() > 0.4) {
+        cell.classList.add('alive');
+      }
+    });
+
+    // 处理鼠标事件
+    grid.addEventListener('mouseover', event => {
+      const targetCell = event.target;
+      if (targetCell.classList.contains('cell')) {
+        targetCell.classList.toggle('alive');
+      }
+    });
+
+    // 演化函数
+    /*
+    生命游戏（Game of Life）规则：
+        生存条件：如果一个活细胞周围有 2 或 3 个活细胞，则该细胞在下一时刻继续存活。
+        诞生条件：如果一个死细胞周围有 3 个活细胞，则该细胞在下一时刻变为活细胞。
+        死亡条件：如果一个活细胞周围的活细胞少于 2 个或多于 3 个，则该细胞在下一时刻死亡
+    */
+    function evolve() {
+      const newCells = [];
+
+      for (let i = 0; i < cells.length; i++) {
+        const cell = cells[i];
+        const row = Math.floor(i / cols);
+        const col = i % cols;
+
+        let aliveNeighbors = 0;
+
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            if (dr === 0 && dc === 0) continue;
+
+            const newRow = (rows + row + dr)%rows;
+            const newCol = (cols + col + dc)%cols;
+
+            const neighbor = cells[newRow * cols + newCol];
+            if (neighbor.classList.contains('alive')) {
+                aliveNeighbors++;
+            }
+          }
+        }
+
+        if (cell.classList.contains('alive')) {
+          if (aliveNeighbors < 2 || aliveNeighbors > 3) {
+            newCells.push(false);
+          } else {
+            newCells.push(true);
+          }
+        } else {
+          if (aliveNeighbors === 3) {
+            newCells.push(true);
+          } else {
+            newCells.push(false);
+          }
+        }
+      }
+
+      for (let i = 0; i < cells.length; i++) {
+        if (newCells[i]) {
+          cells[i].classList.add('alive');
+        } else {
+          cells[i].classList.remove('alive');
+        }
+      }
+    }
+
+    // 定时演化
+    setInterval(evolve, 1000);
+  </script>
+</body>
+
+</html>
