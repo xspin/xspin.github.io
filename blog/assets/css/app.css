@@ -1,0 +1,184 @@
+/* html,body{
+	background:#000;
+	margin:0;
+} */
+.centered{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background: gray;
+	filter: blur(10px) contrast(20);
+}
+.blob-1,.blob-2{
+	width:70px;
+	height:70px;
+	position:absolute;
+	background:#fff;
+	border-radius:50%;
+	top:50%;left:50%;
+	transform:translate(-50%,-50%);
+}
+.blob-1{
+	left:20%;
+	animation:osc-l 2.5s ease infinite;
+}
+.blob-2{
+	left:80%;
+	animation:osc-r 2.5s ease infinite;
+	/* background:#0ff; */
+	background: black;
+}
+@keyframes osc-l{
+	0%{left:20%;}
+	50%{left:50%;}
+	100%{left:20%;}
+}
+@keyframes osc-r{
+	0%{left:80%;}
+	50%{left:50%;}
+	100%{left:80%;}
+}
+
+
+/* 编号图标 */
+
+.img-caption {
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
+	color: gray;
+}
+
+body {
+	counter-reset: img-caption-counter table-caption-counter;
+}
+
+
+.img-caption {
+	counter-increment: img-caption-counter;
+}
+.table-caption {
+	counter-increment: table-caption-counter;
+}
+
+.img-caption::before {
+	content: "图-" counter(img-caption-counter) ". ";
+	color: gray;
+	font-weight: bold;
+}
+
+.img-caption:hover {
+	color: #000;
+}
+
+.table-caption::before {
+	content: "表-" counter(table-caption-counter) ". ";
+	color: gray;
+	font-weight: bold;
+}
+
+/* 主页太极图 */
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#taiji-container {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	margin: 100px auto;
+	animation: spin 2s infinite linear;
+}
+
+/* 左半圆样式 */
+.semicircle-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 200px;
+	background-color: white;
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+	z-index: 2;
+}
+
+/* 右半圆样式 */
+.semicircle-right {
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	width: 100px;
+	height: 200px;
+	background-color: #3f3f3f;
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+	z-index: 2;
+}
+
+.circle-top {
+	position: absolute;
+	top: 0px;
+	left: 50px;
+	width: 100px;
+	height: 100px;
+	background-color: white;
+	border-radius: 50%;
+	z-index: 3;
+}
+.circle-bottom {
+	position: absolute;
+	top: 100px;
+	left: 50px;
+	width: 100px;
+	height: 100px;
+	background-color: #3f3f3f;
+	border-radius: 50%;
+	z-index: 3;
+}
+.circle-top-eye {
+	position: absolute;
+	top: 40px;
+	left: 90px;
+	width: 20px;
+	height: 20px;
+	background-color: #3f3f3f;
+	border-radius: 50%;
+	z-index: 4;
+}
+.circle-bottom-eye {
+	position: absolute;
+	top: 140px;
+	left: 90px;
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	border-radius: 50%;
+	z-index: 4;
+}
+
+
+/* 标题样式 */
+
+#taiji-title {
+	width: 40px;
+	opacity: 0.8;
+	animation: spin 3s infinite linear;
+}
+
+#taiji-title:hover {
+	width: 60px;
+}
+
+.rotate {
+	animation: spin 3s infinite linear;
+}

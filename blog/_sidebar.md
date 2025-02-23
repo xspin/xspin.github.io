@@ -1,0 +1,38 @@
+<!-- - test
+  - [index](docs/test/index.md)
+  - [page1](docs/test/page1/page1.md)
+  - [page2](docs/test/page2/page2.md) -->
+
+- [test](docs/_test/index.md)
+- 数学
+- 物理
+- 计算机
+  - 算法
+    - [Minimax alpha-beta剪枝](docs/ComputerScience/Algorithm/minimax.md)
+    - [堆](docs/ComputerScience/Algorithm/heap.md)
+    - [KMP](docs/ComputerScience/Algorithm/string/kmp.md)
+  - Linux
+    - [性能追踪工具bpftrace](docs/ComputerScience/Linux/bpftrace.md)
+    - [实用命令](docs/ComputerScience/Linux/command.md)
+  - [内存屏障](docs/ComputerScience/memory-barriers.md)
+
+- 编程
+  - Shell
+    - [颜色](docs/Programming/Shell/color.md)
+  - C
+    - [C内存管理](docs/Programming/C/memory.md)
+    - [C内存问题](docs/Programming/C/memory-issues.md)
+    - [调试信息分离](docs/Programming/C/separate-debug-info.md)
+    - [IO](docs/Programming/C/io/io.md)
+      - [Select](docs/Programming/C/io/select.md)
+      - [Poll](docs/Programming/C/io/poll.md)
+      - [Epoll](docs/Programming/C/io/epoll.md)
+      - [Kqueue](docs/Programming/C/io/kqueue.md)
+      - [异步IO库](docs/Programming/C/io/async.md)
+  - C++
+    - level3
+      - level4
+  - Python
+    - [DNS服务器](docs/Programming/Python/dns_server.md)
+    - [TCP/UDP代理](docs/Programming/Python/proxy.md)
+    - [网页代码块运行](docs/Programming/Python/runcode.md)
