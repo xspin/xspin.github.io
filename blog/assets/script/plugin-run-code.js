@@ -1,4 +1,4 @@
-var url = 'http://localhost:65500';
+var SERVER_URL = 'http://localhost:65500';
 var server_status = null;
 
 (function(){
@@ -6,13 +6,13 @@ const hash = window.location.hash.substring(1);
 const hashParams = new URLSearchParams(hash);
 const server = hashParams.get('server');
 if (server) {
-    url = decodeURIComponent(server);
-    if (!url.startsWith('http')) {
-        url = 'http://' + url;
+    SERVER_URL = decodeURIComponent(server);
+    if (!SERVER_URL.startsWith('http')) {
+        SERVER_URL = 'http://' + SERVER_URL;
     }
 } else {
     if (/Mobi|Android/i.test(navigator.userAgent)) {
-        url = "//" + window.location.hostname + ':65500';
+        SERVER_URL = "//" + window.location.hostname + ':65500';
     }
 }
 })();
@@ -23,7 +23,7 @@ function testServer() {
     }
 
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, false);
+    xhr.open("GET", SERVER_URL, false);
     server_status = false;
   
     try {
@@ -40,7 +40,35 @@ function testServer() {
     }
 }
 
-async function runCode(lang, code) {
+function base64(text) {
+    const encoder = new TextEncoder();
+    const utf8Encoded = encoder.encode(text);
+    return btoa(String.fromCharCode(...utf8Encoded));
+}
+
+async function parseCode(path, lang, code) {
+    if (lang === 'c' || lang === 'cpp') {
+        path = path.slice(0, path.lastIndexOf('/')+1);
+        const regex = /#include\s*"(.*)"/g;
+        const headers = [];
+        code.matchAll(regex).forEach(match => {
+            headers.push(match[1]);
+        });
+        // todo: 优化assets路径
+        const requests = headers.map(val => {return fetch(path + 'assets/' + val);});
+        const responses = await Promise.all(requests);
+        for (let i in responses) {
+            if (responses[i].ok) {
+                const text = await responses[i].text();
+                const lang = ['h', headers[i]]
+                await postCode(lang, base64(text));
+            }
+        }
+    }
+    return base64(code);
+}
+
+async function runCode(vm, lang, code) {
     if (lang === 'js' || lang === 'javascript') {
         try {
             const startTime = new Date().getTime();
@@ -59,22 +87,24 @@ async function runCode(lang, code) {
         }
     }
 
-
     try {
-        const encoder = new TextEncoder();
-        const utf8Encoded = encoder.encode(code);
-        const data = {lang: lang, code: btoa(String.fromCharCode(...utf8Encoded))}; 
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        });
-        return response.json();
+        code = await parseCode(vm.route.path, lang, code);
+        return await postCode(lang, code);
     } catch (err) {
         return {success:false, output:err.message}
     }
+}
+
+async function postCode(lang, code) {
+    const data = {lang: lang, code: code}; 
+    const response = await fetch(SERVER_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    return response.json();
 }
 
 function fullScreen(pre) {
@@ -169,6 +199,7 @@ function fullScreen(pre) {
                 div.onmouseout = function() {
                     button.style.opacity = '0.5';
                 };
+                var outputs = [];
 
                 button.onclick = function() {
                     button.disabled = true;
@@ -183,7 +214,11 @@ function fullScreen(pre) {
                     }, 500);
                     text.style.color = 'white';
                     div.style.background = 'black';
-                    runCode(lang, code).then(data => {
+                    outputs.forEach(function(output) {
+                        div.removeChild(output);
+                    });
+                    outputs = [];
+                    runCode(vm, lang, code).then(data => {
                         button.disabled = false;
                         clearInterval(intervalId);
                         // console.log(data);
@@ -201,15 +236,23 @@ function fullScreen(pre) {
                             }
                             text.innerHTML =  ts + "\n" + data.output;
                             text.style.color = 'white';
-                            if (data.data) {
-                                if (data.data.fig) {
+                            if (data.data && data.data.figs) {
+                                data.data.figs.forEach(v => {
+                                    const path = v[0];
+                                    const fig = v[1];
                                     var img = document.createElement('img');
-                                    img.src = 'data:image/png;base64,' + data.data.fig;
+                                    img.classList.add('run-code-img');
+                                    img.src = fig;
+                                    img.alt = path;
                                     img.style.maxWidth = '100%';
                                     img.style.height = 'auto';
+                                    img.style.float = 'top'
+                                    img.style.marginTop = '10px';
+                                    img.style.display = 'block';
                                     div.appendChild(img);
-                                    div.style.overflowY = 'auto';
-                                }
+                                    outputs.push(img);
+                                });
+                                div.style.overflowY = 'auto';
                             }
                         } else {
                             text.innerText = "\n[ERROR]\n" + data.output;

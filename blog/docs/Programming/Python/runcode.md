@@ -95,6 +95,13 @@ console.log("c = " + c);
 c
 ```
 
+```typescript
+(()=>{
+    return "Hello Typescript";
+})();
+
+```
+
 异常场景：
 ```javascript
 var c = a + b;
@@ -131,3 +138,5 @@ fn main() {
     }
 }
 ```
+
+[>>test page](/docs/_test/index.md)

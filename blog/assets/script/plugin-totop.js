@@ -1,5 +1,5 @@
 
-function addToTop() {
+function addToTop(route) {
     var main = document.getElementsByTagName('main');
     if (main) {
         main = main[0];
@@ -16,6 +16,9 @@ function addToTop() {
         toTop.style.opacity = '0.5';
         toTop.addEventListener('click', () => {
             window.scrollTo(0, 0);
+            if (document.location.hash.indexOf('id=') >= 0) {
+                history.pushState(null, null, '#' + route.path);
+            }
         });
         toTop.onmouseover = function() {
             toTop.style.opacity = '1';
@@ -39,7 +42,7 @@ function addToTop() {
 (() => {
     var plugin = function (hook, vm) {
         hook.ready(function(){
-            addToTop();
+            addToTop(vm.route);
         });
     }
     $docsify = $docsify || {};

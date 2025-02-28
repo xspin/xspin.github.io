@@ -45,7 +45,7 @@
 
 /* 编号图标 */
 
-.img-caption {
+.img-caption, .table-caption {
 	text-align: center;
 	font-style: italic;
 	font-weight: bold;
@@ -181,4 +181,96 @@ body {
 
 .rotate {
 	animation: spin 3s infinite linear;
+}
+
+#appname-img {
+	position: relative;
+	width: 24px;
+	height: 24px;
+	margin: 0px auto;
+	border-radius: 50%;
+	animation: spin 3s infinite linear;
+	/* background-color: gray; */
+}
+
+#dot-black {
+	position: absolute;
+	background-color: #6f6f6f;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	left: 7px;
+}
+#dot-white {
+	position: absolute;
+	background-color: #dfdfdf;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	top: 14px;
+	left: 7px;
+}
+
+/* 主题可选项目样式 */
+.theme-option.selected {
+	text-decoration: underline;
+	background-color: darkorange;
+}
+
+/* 图片样式 */
+article img:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background-color: white;
+}
+
+div.mermaid svg {
+	background-color: white;
+	border-radius: 10px;
+}
+
+/* 表格 */
+
+table {
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(211, 202, 221);
+	margin: 5px auto;
+	justify-content: center;
+	justify-items: center;
+	width: fit-content !important;
+}
+
+/* Border styles */
+table thead, table tr {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: rgb(211, 202, 221);
+}
+
+table thead {
+	border-width: 2px;
+	border-top-style: solid;
+	border-top-color: rgb(211, 202, 221);
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+}
+
+	
+/* Padding and font style */
+table td, table th {
+	padding: 5px 10px;
+	font-size: 13px;
+	font-family: Verdana;
+	color: rgb(95, 74, 121);
+}
+	
+/* Alternating background colors */
+table tr:nth-child(even) {
+	/* background: rgb(223, 216, 232) !important; */
+	background: lightgray !important;
+}
+
+table tr:nth-child(odd) {
+	background: #FFF;
 }

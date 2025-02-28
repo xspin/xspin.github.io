@@ -1,4 +1,10 @@
-# index 页面
+---
+title: 组合数求解
+date: 2018-10-09 20:26:45
+tags: [algorithm, combination]
+---
+
+# 测试页面
 
 <img src="/assets/img/favicon.png"/>
 
@@ -129,6 +135,7 @@ time.sleep(20)
 ```
 
 ```py
+# %matplotlib /tmp/plot1.png
 import matplotlib.pyplot as plt
 import numpy as np
 plt.figure()
@@ -137,8 +144,12 @@ w = np.pi/2
 y = np.sin(x*w)*x
 z = np.cos(x*w)*x
 plt.plot(x, y)
+plt.savefig('/tmp/plot1.png')
+
 plt.plot(x, z)
-plt.savefig('/tmp/plot.png')
+# %matplotlib /tmp/plot2.jpg
+plt.savefig('/tmp/plot2.jpg')
+
 plt.close()
 print("Test for plotting a figure")
 ```
@@ -200,6 +211,8 @@ int main() {
   3: 4
 }
 ```
+
+@import "https://json-schema.org/draft-07/schema#" json
 
 ### Go
 
@@ -422,6 +435,14 @@ ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 % ?- ancestor(mary, tom).
 ```
 
+### YAML
+
+```yaml
+name: John
+age: 30
+city: New York
+```
+
 ## 引用
 
 - 引用1[^abc]
@@ -431,7 +452,7 @@ ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 
 -------
 
-[^abc]: # "this is a reference"
+[^abc]:# "this is a reference"
 
 [^Github]: //github.com "jump to github" 
 

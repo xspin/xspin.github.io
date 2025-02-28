@@ -5,18 +5,18 @@
   <title>Xspin Blog</title>
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="A Blog">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link href="https://cdn.bootcdn.net/ajax/libs/docsify/4.13.1/themes/vue.min.css" rel="stylesheet">
+  <link id="themestyle" href="https://cdn.bootcdn.net/ajax/libs/docsify/4.13.1/themes/vue.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+  <link id="codestyle" rel="stylesheet" href="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.css">
   <link rel="stylesheet" href="assets/css/sidebar.min.css"/>
   <link href="assets/css/app.css" rel="stylesheet"/>
   <link href="assets/css/headings-counter.css" rel="stylesheet"/>
   <style>
   .markdown-section pre[data-lang] {
-    overflow: auto !important;
+    overflow-x: auto !important;
   }
 
   .markdown-section pre[data-lang] code {
@@ -46,9 +46,11 @@
       <div class = "blob-2"></div>
     </div>
   </div>
+
   <script>
     window.$docsify = {
-      name: "<img id='taiji-title' src='assets/img/favicon.png' alt=\"Xspin's Blog\"/>",
+      // name: "<img id='taiji-title' src='assets/img/favicon.png' alt=\"Xspin's Blog\"/>",
+      name: '<div id="appname-img"><div id="dot-white"></div><div id="dot-black"></div></div>',
       repo: '',
       auto2top: true,
       executeScript: true,
@@ -116,6 +118,8 @@
   <!-- Docsify v4 -->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <script src="assets/script/plugin-md-path.js"></script>
+  <script src="assets/script/plugin-md-front.js"></script>
+  <script src="assets/script/plugin-md-ref.js"></script>
   <script src="assets/script/plugin-run-code.js"></script>
   <script src="assets/script/plugin-totop.js"></script>
   <script src="assets/script/theme.js"></script>
@@ -130,6 +134,7 @@
   <script src="assets/script/docsify/docsify-hide-code.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="assets/script/prism-h.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js"></script>
@@ -138,6 +143,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-diff.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nasm.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.js"></script>
 
 
@@ -146,7 +152,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.5/es5/tex-mml-chtml.js"></script>
 
   <!-- <script type="text/javascript" src="//unpkg.com/mermaid/dist/mermaid.min.js"></script> -->
-  <script src="/assets/script/mermaid/mermaid.min.js"></script>
+  <script src="assets/script/mermaid/mermaid.min.js"></script>
   <script src="assets/script/docsify/4.13.1/docsify-latex.js"></script>
 
   <script type="module">

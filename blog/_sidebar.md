@@ -1,20 +1,19 @@
-<!-- - test
-  - [index](docs/test/index.md)
-  - [page1](docs/test/page1/page1.md)
-  - [page2](docs/test/page2/page2.md) -->
 
-- [test](docs/_test/index.md)
+<!-- - [test](docs/_test/index.md) -->
 - 数学
 - 物理
 - 计算机
+  - [内存屏障](docs/ComputerScience/memory-barriers.md)
+  - [RCU机制](docs/ComputerScience/rcu.md)
   - 算法
     - [Minimax alpha-beta剪枝](docs/ComputerScience/Algorithm/minimax.md)
     - [堆](docs/ComputerScience/Algorithm/heap.md)
-    - [KMP](docs/ComputerScience/Algorithm/string/kmp.md)
+    - [KMP字符串匹配](docs/ComputerScience/Algorithm/string/kmp.md)
+    - [组合数计算](docs/ComputerScience/Algorithm/combination.md)
   - Linux
     - [性能追踪工具bpftrace](docs/ComputerScience/Linux/bpftrace.md)
     - [实用命令](docs/ComputerScience/Linux/command.md)
-  - [内存屏障](docs/ComputerScience/memory-barriers.md)
+    - [链表](docs/ComputerScience/Linux/list.md)
 
 - 编程
   - Shell
@@ -29,6 +28,7 @@
       - [Epoll](docs/Programming/C/io/epoll.md)
       - [Kqueue](docs/Programming/C/io/kqueue.md)
       - [异步IO库](docs/Programming/C/io/async.md)
+    - [内存池](docs/Programming/C/mempool.md)
   - C++
     - level3
       - level4

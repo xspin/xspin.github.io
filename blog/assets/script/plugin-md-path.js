@@ -54,6 +54,9 @@ function fetchSync(url) {
   }
 }
 
+/**
+ * 格式：@import "path/to/file" [language]
+ */
 function parseImport(markdown, pwd) {
   const lanMap = {
     "py": "python",
@@ -65,14 +68,20 @@ function parseImport(markdown, pwd) {
     return lanMap[ext] || ext;
   }
 
-  const regex = /@import\s+['"]([^'"]+)['"]/g;
-  markdown = markdown.replace(regex, (match, path) => {
+  const regex = /@import\s+['"]([^'"]+)['"](.*)/g;
+  markdown = markdown.replace(regex, (match, path, lang) => {
     // console.log(match);
-    var idx = path.lastIndexOf('.');
     var ext = '';
-    if (idx >= 0) {
-      ext = path.substring(idx + 1);
+    lang = lang.trim();
+    if (lang.length > 0) {
+      ext = lang;
+    } else {
+      const idx = path.lastIndexOf('.');
+      if (idx >= 0) {
+        ext = path.substring(idx + 1);
+      }
     }
+
     const fname = path.split('/').pop();
     if (isRelativePath(path)) {
       path = pwd + path;

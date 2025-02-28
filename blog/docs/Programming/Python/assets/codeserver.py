@@ -7,16 +7,29 @@ import os
 import logging
 import time
 import base64
+import traceback
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s [%(funcName)s:%(lineno)s] - %(message)s')
 logger = logging.getLogger(__name__)
 
 class CodeRunner():
-    def __init__(self, lang: str, code: str):
+    def __init__(self, lang: any, code: str):
+        self.path = None
         self.lang = self._getLang(lang)
         self.code = code
+        self.tmpdir = '/tmp/code_runner'
+        if not os.path.exists(self.tmpdir):
+            os.makedirs(self.tmpdir)
     
     def _getLang(self, lang):
+        if not isinstance(lang, str):
+            t, p = lang
+            if t in ['h', 'hpp']:
+                self.path = p
+            else:
+                t = None
+            return t
+
         lang = lang.lower()
         if lang in ['python', 'py', 'python3']:
             return 'py'
@@ -42,7 +55,7 @@ class CodeRunner():
             logger.info('Run: ' + str(cmd)[:100])
             result = subprocess.run(cmd, 
                                     capture_output=True, 
-                                    text=True, timeout=10, shell=shell, cwd='/tmp')
+                                    text=True, timeout=10, shell=shell, cwd=self.tmpdir)
             if result.returncode == 0:
                 return True, result.stdout
             else:
@@ -57,17 +70,20 @@ class CodeRunner():
             os.remove(path)
 
     def _tempFile(self, name):
-        return f'/tmp/{name}'
+        return os.path.join(self.tmpdir, name)
     
     def _writeFile(self, path, content):
+        d = os.path.dirname(path)
+        if not os.path.exists(d):
+            os.makedirs(d)
         with open(path, 'w', encoding='utf8') as f:
-            f.write(self.code)
+            f.write(content)
 
     def _get_compile_params(self, lang, code):
         compile_params = []
         if lang == 'c' or lang == 'cpp':
             if lang == 'c':
-                compile_params.append('-std=c11')
+                compile_params.append('-std=gnu11')
             else:
                 compile_params.append('-std=c++14')
             libevent_pattern = r'#include\s*<.*event.h>'
@@ -91,12 +107,23 @@ class CodeRunner():
                 compile_params.append('-lpthread')
         return compile_params
 
+    def _get_py_params(self, code):
+        params = []
+        plot_pattern = r'#\s*%matplotlib \s*(.*)'
+        for m in re.finditer(plot_pattern, code):
+            params.append(('matplotlib', m.group(1)))
+        return params
+
     def run(self):
         if not self.lang:
             return False, 'Unsupported language', None
 
         data = None
-        if self.lang == 'sh':
+        if self.lang in ['h', 'hpp']:
+            source_path = self._tempFile(self.path)
+            self._writeFile(source_path, self.code)
+            ret, output = True, source_path
+        elif self.lang == 'sh':
             source_path = self._tempFile('_temp.sh')
             self._writeFile(source_path, self.code)
             ret, output = self._runCmd(['sh', '-n', source_path])
@@ -105,13 +132,18 @@ class CodeRunner():
             ret, output = self._runCmd(['sh', source_path])
         elif self.lang == 'py':
             ret, output = self._runCmd(['python3', '-c', self.code])
-            plot_fig_path = self._tempFile('plot.png')
-            if os.path.exists(plot_fig_path):
-                with open(plot_fig_path, 'rb') as f:
-                    data = f.read()
-                    plot_fig = base64.b64encode(data).decode()
-                    data = {'fig': plot_fig}
-                self._remove(plot_fig_path)
+            data = {'figs':[]}
+            for k, v in self._get_py_params(self.code):
+                if k == 'matplotlib':
+                    fig_path = v
+                    if os.path.exists(fig_path):
+                        _, ext = os.path.splitext(fig_path)
+                        ext = (ext or '.png')[1:]
+                        with open(fig_path, 'rb') as f:
+                            d = f.read()
+                            plot_fig = f'data:image/{ext};base64,' + base64.b64encode(d).decode()
+                            data['figs'].append((fig_path, plot_fig))
+                        self._remove(fig_path)
 
         elif self.lang in ['c', 'cpp', 'rs']:
             source_path = self._tempFile(f'_temp.{self.lang}')
@@ -213,6 +245,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(response, ensure_ascii=False).encode())
 
         except Exception as e:
+            traceback.print_exc()
             logger.error(str(e))
             self.send_response(400)
             self._set_cors_headers()
@@ -228,6 +261,8 @@ if __name__ == "__main__":
         logger.info(f"Serving at port {PORT}")
         try:
             httpd.serve_forever()
-        except:
-            pass
-        httpd.server_close()
+        except Exception as e:
+            logger.info('Shutdown ' + str(e))
+        finally:
+            httpd.server_close()
+            logger.info('Server Closed.')
